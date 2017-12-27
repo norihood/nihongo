@@ -1,0 +1,220 @@
+[Wed Dec 20 10:46:11.532371 2017] [:error] [pid 4989] [client 10.0.2.2:63845] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 10:46:11.532512 2017] [:error] [pid 4989] [client 10.0.2.2:63845] PHP Stack trace:
+[Wed Dec 20 10:46:11.532565 2017] [:error] [pid 4989] [client 10.0.2.2:63845] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 10:46:11.532614 2017] [:error] [pid 4989] [client 10.0.2.2:63845] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:190
+[Wed Dec 20 10:46:11.532668 2017] [:error] [pid 4989] [client 10.0.2.2:63845] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 10:47:04.291899 2017] [:error] [pid 4982] [client 10.0.2.2:63928] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 10:47:04.291982 2017] [:error] [pid 4982] [client 10.0.2.2:63928] PHP Stack trace:
+[Wed Dec 20 10:47:04.292033 2017] [:error] [pid 4982] [client 10.0.2.2:63928] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 10:47:04.292080 2017] [:error] [pid 4982] [client 10.0.2.2:63928] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:190
+[Wed Dec 20 10:47:04.292120 2017] [:error] [pid 4982] [client 10.0.2.2:63928] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 10:47:04.292171 2017] [:error] [pid 4982] [client 10.0.2.2:63928] PHP Fatal error:  Class 'DB' not found in /media/sf_sources/nihongo_test/core/dbconnect.php on line 43
+[Wed Dec 20 10:47:04.292211 2017] [:error] [pid 4982] [client 10.0.2.2:63928] PHP Stack trace:
+[Wed Dec 20 10:47:04.292272 2017] [:error] [pid 4982] [client 10.0.2.2:63928] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 10:47:04.292355 2017] [:error] [pid 4982] [client 10.0.2.2:63928] PHP   2. Connect->execute() /media/sf_sources/nihongo_test/flash_card.php:191
+[Wed Dec 20 10:47:05.476462 2017] [:error] [pid 5002] [client 10.0.2.2:63929] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 10:47:05.476558 2017] [:error] [pid 5002] [client 10.0.2.2:63929] PHP Stack trace:
+[Wed Dec 20 10:47:05.476621 2017] [:error] [pid 5002] [client 10.0.2.2:63929] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 10:47:05.476688 2017] [:error] [pid 5002] [client 10.0.2.2:63929] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:190
+[Wed Dec 20 10:47:05.476750 2017] [:error] [pid 5002] [client 10.0.2.2:63929] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 10:47:05.476825 2017] [:error] [pid 5002] [client 10.0.2.2:63929] PHP Fatal error:  Class 'DB' not found in /media/sf_sources/nihongo_test/core/dbconnect.php on line 43
+[Wed Dec 20 10:47:05.476872 2017] [:error] [pid 5002] [client 10.0.2.2:63929] PHP Stack trace:
+[Wed Dec 20 10:47:05.476926 2017] [:error] [pid 5002] [client 10.0.2.2:63929] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 10:47:05.477011 2017] [:error] [pid 5002] [client 10.0.2.2:63929] PHP   2. Connect->execute() /media/sf_sources/nihongo_test/flash_card.php:191
+[Wed Dec 20 10:47:28.191792 2017] [:error] [pid 4981] [client 10.0.2.2:63966] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 10:47:28.191887 2017] [:error] [pid 4981] [client 10.0.2.2:63966] PHP Stack trace:
+[Wed Dec 20 10:47:28.191977 2017] [:error] [pid 4981] [client 10.0.2.2:63966] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 10:47:28.192057 2017] [:error] [pid 4981] [client 10.0.2.2:63966] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:190
+[Wed Dec 20 10:47:28.192180 2017] [:error] [pid 4981] [client 10.0.2.2:63966] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 10:47:52.056510 2017] [:error] [pid 4984] [client 10.0.2.2:64007] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 10:47:52.056609 2017] [:error] [pid 4984] [client 10.0.2.2:64007] PHP Stack trace:
+[Wed Dec 20 10:47:52.056693 2017] [:error] [pid 4984] [client 10.0.2.2:64007] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 10:47:52.056767 2017] [:error] [pid 4984] [client 10.0.2.2:64007] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:190
+[Wed Dec 20 10:47:52.056841 2017] [:error] [pid 4984] [client 10.0.2.2:64007] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 10:54:00.939031 2017] [:error] [pid 4989] [client 10.0.2.2:64518] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 10:54:00.939096 2017] [:error] [pid 4989] [client 10.0.2.2:64518] PHP Stack trace:
+[Wed Dec 20 10:54:00.939136 2017] [:error] [pid 4989] [client 10.0.2.2:64518] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 10:54:00.939174 2017] [:error] [pid 4989] [client 10.0.2.2:64518] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:190
+[Wed Dec 20 10:54:00.939210 2017] [:error] [pid 4989] [client 10.0.2.2:64518] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 10:59:34.817845 2017] [:error] [pid 4987] [client 10.0.2.2:65002] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 10:59:34.817919 2017] [:error] [pid 4987] [client 10.0.2.2:65002] PHP Stack trace:
+[Wed Dec 20 10:59:34.817963 2017] [:error] [pid 4987] [client 10.0.2.2:65002] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 10:59:34.818001 2017] [:error] [pid 4987] [client 10.0.2.2:65002] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:190
+[Wed Dec 20 10:59:34.818036 2017] [:error] [pid 4987] [client 10.0.2.2:65002] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 10:59:35.085721 2017] [:error] [pid 5002] [client 10.0.2.2:65004] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 10:59:35.089129 2017] [:error] [pid 5002] [client 10.0.2.2:65004] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 10:59:35.089186 2017] [:error] [pid 5002] [client 10.0.2.2:65004] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 10:59:35.089225 2017] [:error] [pid 5002] [client 10.0.2.2:65004] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 10:59:35.089263 2017] [:error] [pid 5002] [client 10.0.2.2:65004] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:190, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 10:59:35.091521 2017] [:error] [pid 5002] [client 10.0.2.2:65004] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 10:59:51.023114 2017] [:error] [pid 5004] [client 10.0.2.2:65050] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 10:59:51.023285 2017] [:error] [pid 5004] [client 10.0.2.2:65050] PHP Stack trace:
+[Wed Dec 20 10:59:51.023356 2017] [:error] [pid 5004] [client 10.0.2.2:65050] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 10:59:51.023454 2017] [:error] [pid 5004] [client 10.0.2.2:65050] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:190
+[Wed Dec 20 10:59:51.023599 2017] [:error] [pid 5004] [client 10.0.2.2:65050] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 10:59:51.207110 2017] [:error] [pid 5004] [client 10.0.2.2:65050] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 10:59:51.210089 2017] [:error] [pid 5004] [client 10.0.2.2:65050] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 10:59:51.210154 2017] [:error] [pid 5004] [client 10.0.2.2:65050] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 10:59:51.210193 2017] [:error] [pid 5004] [client 10.0.2.2:65050] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 10:59:51.210247 2017] [:error] [pid 5004] [client 10.0.2.2:65050] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:190, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 10:59:51.210285 2017] [:error] [pid 5004] [client 10.0.2.2:65050] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 11:02:15.752489 2017] [:error] [pid 4989] [client 10.0.2.2:65255] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 11:02:15.752555 2017] [:error] [pid 4989] [client 10.0.2.2:65255] PHP Stack trace:
+[Wed Dec 20 11:02:15.752609 2017] [:error] [pid 4989] [client 10.0.2.2:65255] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 11:02:15.752671 2017] [:error] [pid 4989] [client 10.0.2.2:65255] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3
+[Wed Dec 20 11:02:15.752711 2017] [:error] [pid 4989] [client 10.0.2.2:65255] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 11:02:15.941674 2017] [:error] [pid 5002] [client 10.0.2.2:65256] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 11:02:15.946192 2017] [:error] [pid 5002] [client 10.0.2.2:65256] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 11:02:15.946250 2017] [:error] [pid 5002] [client 10.0.2.2:65256] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 11:02:15.946290 2017] [:error] [pid 5002] [client 10.0.2.2:65256] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 11:02:15.946327 2017] [:error] [pid 5002] [client 10.0.2.2:65256] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 11:02:15.946374 2017] [:error] [pid 5002] [client 10.0.2.2:65256] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 11:03:06.987088 2017] [:error] [pid 4991] [client 10.0.2.2:65333] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 11:03:06.987306 2017] [:error] [pid 4991] [client 10.0.2.2:65333] PHP Stack trace:
+[Wed Dec 20 11:03:06.987476 2017] [:error] [pid 4991] [client 10.0.2.2:65333] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 11:03:06.987587 2017] [:error] [pid 4991] [client 10.0.2.2:65333] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3
+[Wed Dec 20 11:03:06.987641 2017] [:error] [pid 4991] [client 10.0.2.2:65333] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 11:03:07.170593 2017] [:error] [pid 5213] [client 10.0.2.2:65336] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 11:03:07.175404 2017] [:error] [pid 5213] [client 10.0.2.2:65336] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 11:03:07.175492 2017] [:error] [pid 5213] [client 10.0.2.2:65336] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 11:03:07.175544 2017] [:error] [pid 5213] [client 10.0.2.2:65336] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 11:03:07.175593 2017] [:error] [pid 5213] [client 10.0.2.2:65336] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 11:03:07.175638 2017] [:error] [pid 5213] [client 10.0.2.2:65336] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:13:58.871205 2017] [:error] [pid 5140] [client 10.0.2.2:61025] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 13:13:58.874646 2017] [:error] [pid 5140] [client 10.0.2.2:61025] PHP Stack trace:
+[Wed Dec 20 13:13:58.874730 2017] [:error] [pid 5140] [client 10.0.2.2:61025] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 13:13:58.874827 2017] [:error] [pid 5140] [client 10.0.2.2:61025] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3
+[Wed Dec 20 13:13:58.874912 2017] [:error] [pid 5140] [client 10.0.2.2:61025] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 13:13:59.191187 2017] [:error] [pid 5002] [client 10.0.2.2:61030] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:13:59.194637 2017] [:error] [pid 5002] [client 10.0.2.2:61030] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:13:59.194697 2017] [:error] [pid 5002] [client 10.0.2.2:61030] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:13:59.194773 2017] [:error] [pid 5002] [client 10.0.2.2:61030] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:13:59.194812 2017] [:error] [pid 5002] [client 10.0.2.2:61030] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:13:59.194882 2017] [:error] [pid 5002] [client 10.0.2.2:61030] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:14:22.282232 2017] [:error] [pid 5137] [client 10.0.2.2:61075] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 13:14:22.282439 2017] [:error] [pid 5137] [client 10.0.2.2:61075] PHP Stack trace:
+[Wed Dec 20 13:14:22.282598 2017] [:error] [pid 5137] [client 10.0.2.2:61075] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 13:14:22.282690 2017] [:error] [pid 5137] [client 10.0.2.2:61075] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3
+[Wed Dec 20 13:14:22.282753 2017] [:error] [pid 5137] [client 10.0.2.2:61075] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 13:14:22.482731 2017] [:error] [pid 5217] [client 10.0.2.2:61079] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:14:22.488564 2017] [:error] [pid 5217] [client 10.0.2.2:61079] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:14:22.493765 2017] [:error] [pid 5217] [client 10.0.2.2:61079] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:14:22.493856 2017] [:error] [pid 5217] [client 10.0.2.2:61079] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:14:22.493911 2017] [:error] [pid 5217] [client 10.0.2.2:61079] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:14:22.493957 2017] [:error] [pid 5217] [client 10.0.2.2:61079] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:14:22.494387 2017] [:error] [pid 5217] [client 10.0.2.2:61079] PHP Notice:  Undefined index: betonamugo in /media/sf_sources/nihongo_test/flash_card.php on line 12, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:14:22.494440 2017] [:error] [pid 5217] [client 10.0.2.2:61079] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:14:22.494509 2017] [:error] [pid 5217] [client 10.0.2.2:61079] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:14:22.494570 2017] [:error] [pid 5217] [client 10.0.2.2:61079] PHP Notice:  Undefined index: tatoeba in /media/sf_sources/nihongo_test/flash_card.php on line 12, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:14:22.494616 2017] [:error] [pid 5217] [client 10.0.2.2:61079] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:14:22.494662 2017] [:error] [pid 5217] [client 10.0.2.2:61079] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:14:22.495059 2017] [:error] [pid 5217] [client 10.0.2.2:61079] PHP Fatal error:  Uncaught exception 'PDOException' with message 'There is no active transaction' in /media/sf_sources/nihongo_test/core/dbconnect.php:54\nStack trace:\n#0 /media/sf_sources/nihongo_test/core/dbconnect.php(54): PDO->rollBack()\n#1 /media/sf_sources/nihongo_test/flash_card.php(15): Connect->execute('INSERT INTO ver...')\n#2 {main}\n  thrown in /media/sf_sources/nihongo_test/core/dbconnect.php on line 54, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:19:23.963605 2017] [:error] [pid 5018] [client 10.0.2.2:61498] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 13:19:23.963722 2017] [:error] [pid 5018] [client 10.0.2.2:61498] PHP Stack trace:
+[Wed Dec 20 13:19:23.963846 2017] [:error] [pid 5018] [client 10.0.2.2:61498] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 13:19:23.963930 2017] [:error] [pid 5018] [client 10.0.2.2:61498] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3
+[Wed Dec 20 13:19:23.964052 2017] [:error] [pid 5018] [client 10.0.2.2:61498] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 13:19:24.256046 2017] [:error] [pid 5140] [client 10.0.2.2:61502] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:19:24.260497 2017] [:error] [pid 5140] [client 10.0.2.2:61502] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:19:24.260564 2017] [:error] [pid 5140] [client 10.0.2.2:61502] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:19:24.260610 2017] [:error] [pid 5140] [client 10.0.2.2:61502] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:19:24.260675 2017] [:error] [pid 5140] [client 10.0.2.2:61502] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:19:24.260728 2017] [:error] [pid 5140] [client 10.0.2.2:61502] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:19:24.262557 2017] [:error] [pid 5140] [client 10.0.2.2:61502] PHP Notice:  Undefined index: betonamugo in /media/sf_sources/nihongo_test/flash_card.php on line 14, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:19:24.262742 2017] [:error] [pid 5140] [client 10.0.2.2:61502] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:19:24.262817 2017] [:error] [pid 5140] [client 10.0.2.2:61502] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:19:24.262888 2017] [:error] [pid 5140] [client 10.0.2.2:61502] PHP Notice:  Undefined index: tatoeba in /media/sf_sources/nihongo_test/flash_card.php on line 14, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:19:24.262952 2017] [:error] [pid 5140] [client 10.0.2.2:61502] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:19:24.263011 2017] [:error] [pid 5140] [client 10.0.2.2:61502] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:22:46.205254 2017] [:error] [pid 6582] [client 10.0.2.2:61851] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 13:22:46.205354 2017] [:error] [pid 6582] [client 10.0.2.2:61851] PHP Stack trace:
+[Wed Dec 20 13:22:46.205408 2017] [:error] [pid 6582] [client 10.0.2.2:61851] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 13:22:46.205455 2017] [:error] [pid 6582] [client 10.0.2.2:61851] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3
+[Wed Dec 20 13:22:46.205514 2017] [:error] [pid 6582] [client 10.0.2.2:61851] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 13:22:46.397686 2017] [:error] [pid 5083] [client 10.0.2.2:61852] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:22:46.397813 2017] [:error] [pid 5083] [client 10.0.2.2:61852] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:22:46.397876 2017] [:error] [pid 5083] [client 10.0.2.2:61852] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:22:46.397933 2017] [:error] [pid 5083] [client 10.0.2.2:61852] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:22:46.397981 2017] [:error] [pid 5083] [client 10.0.2.2:61852] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:22:46.398077 2017] [:error] [pid 5083] [client 10.0.2.2:61852] PHP Warning:  Invalid argument supplied for foreach() in /media/sf_sources/nihongo_test/flash_card.php on line 11, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:22:46.398124 2017] [:error] [pid 5083] [client 10.0.2.2:61852] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:22:46.398167 2017] [:error] [pid 5083] [client 10.0.2.2:61852] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:24:54.505777 2017] [:error] [pid 5002] [client 10.0.2.2:62142] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 13:24:54.505903 2017] [:error] [pid 5002] [client 10.0.2.2:62142] PHP Stack trace:
+[Wed Dec 20 13:24:54.505985 2017] [:error] [pid 5002] [client 10.0.2.2:62142] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 13:24:54.506060 2017] [:error] [pid 5002] [client 10.0.2.2:62142] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3
+[Wed Dec 20 13:24:54.506123 2017] [:error] [pid 5002] [client 10.0.2.2:62142] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 13:24:54.696540 2017] [:error] [pid 5002] [client 10.0.2.2:62142] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:24:54.696611 2017] [:error] [pid 5002] [client 10.0.2.2:62142] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:24:54.696827 2017] [:error] [pid 5002] [client 10.0.2.2:62142] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:24:54.696882 2017] [:error] [pid 5002] [client 10.0.2.2:62142] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:24:54.696929 2017] [:error] [pid 5002] [client 10.0.2.2:62142] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:26:09.125400 2017] [:error] [pid 5217] [client 10.0.2.2:62252] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 13:26:09.125491 2017] [:error] [pid 5217] [client 10.0.2.2:62252] PHP Stack trace:
+[Wed Dec 20 13:26:09.125540 2017] [:error] [pid 5217] [client 10.0.2.2:62252] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 13:26:09.125591 2017] [:error] [pid 5217] [client 10.0.2.2:62252] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3
+[Wed Dec 20 13:26:09.125635 2017] [:error] [pid 5217] [client 10.0.2.2:62252] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 13:26:09.323492 2017] [:error] [pid 5083] [client 10.0.2.2:62254] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:26:09.323562 2017] [:error] [pid 5083] [client 10.0.2.2:62254] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:26:09.323602 2017] [:error] [pid 5083] [client 10.0.2.2:62254] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:26:09.323640 2017] [:error] [pid 5083] [client 10.0.2.2:62254] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:26:09.323690 2017] [:error] [pid 5083] [client 10.0.2.2:62254] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:31:46.560045 2017] [:error] [pid 5140] [client 10.0.2.2:62763] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 13:31:46.560130 2017] [:error] [pid 5140] [client 10.0.2.2:62763] PHP Stack trace:
+[Wed Dec 20 13:31:46.560187 2017] [:error] [pid 5140] [client 10.0.2.2:62763] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 13:31:46.560236 2017] [:error] [pid 5140] [client 10.0.2.2:62763] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3
+[Wed Dec 20 13:31:46.560283 2017] [:error] [pid 5140] [client 10.0.2.2:62763] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 13:31:46.842684 2017] [:error] [pid 6711] [client 10.0.2.2:62766] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:31:46.842825 2017] [:error] [pid 6711] [client 10.0.2.2:62766] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:31:46.842888 2017] [:error] [pid 6711] [client 10.0.2.2:62766] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:31:46.842945 2017] [:error] [pid 6711] [client 10.0.2.2:62766] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:31:46.842985 2017] [:error] [pid 6711] [client 10.0.2.2:62766] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:31:46.849445 2017] [:error] [pid 6711] [client 10.0.2.2:62766] PHP Fatal error:  Uncaught exception 'PDOException' with message 'There is no active transaction' in /media/sf_sources/nihongo_test/core/dbconnect.php:54\nStack trace:\n#0 /media/sf_sources/nihongo_test/core/dbconnect.php(54): PDO->rollBack()\n#1 /media/sf_sources/nihongo_test/flash_card.php(23): Connect->execute('INSERT INTO ver...')\n#2 {main}\n  thrown in /media/sf_sources/nihongo_test/core/dbconnect.php on line 54, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:32:53.882342 2017] [:error] [pid 5217] [client 10.0.2.2:62874] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 13:32:53.882478 2017] [:error] [pid 5217] [client 10.0.2.2:62874] PHP Stack trace:
+[Wed Dec 20 13:32:53.882527 2017] [:error] [pid 5217] [client 10.0.2.2:62874] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 13:32:53.882572 2017] [:error] [pid 5217] [client 10.0.2.2:62874] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3
+[Wed Dec 20 13:32:53.882616 2017] [:error] [pid 5217] [client 10.0.2.2:62874] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 13:32:54.065397 2017] [:error] [pid 5083] [client 10.0.2.2:62877] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:32:54.065464 2017] [:error] [pid 5083] [client 10.0.2.2:62877] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:32:54.065509 2017] [:error] [pid 5083] [client 10.0.2.2:62877] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:32:54.065563 2017] [:error] [pid 5083] [client 10.0.2.2:62877] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:32:54.065605 2017] [:error] [pid 5083] [client 10.0.2.2:62877] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:32:54.072059 2017] [:error] [pid 5083] [client 10.0.2.2:62877] PHP Fatal error:  Uncaught exception 'Exception' with message 'exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'' in /media/sf_sources/nihongo_test/core/dbconnect.php:50\nStack trace:\n#0 /media/sf_sources/nihongo_test/core/dbconnect.php(50): PDOStatement->execute(NULL)\n#1 /media/sf_sources/nihongo_test/flash_card.php(23): Connect->execute('INSERT INTO ver...')\n#2 {main}' in /media/sf_sources/nihongo_test/core/dbconnect.php:55\nStack trace:\n#0 /media/sf_sources/nihongo_test/flash_card.php(23): Connect->execute('INSERT INTO ver...')\n#1 {main}\n  thrown in /media/sf_sources/nihongo_test/core/dbconnect.php on line 55, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:33:07.327617 2017] [:error] [pid 5018] [client 10.0.2.2:62899] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 13:33:07.327717 2017] [:error] [pid 5018] [client 10.0.2.2:62899] PHP Stack trace:
+[Wed Dec 20 13:33:07.327776 2017] [:error] [pid 5018] [client 10.0.2.2:62899] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 13:33:07.327835 2017] [:error] [pid 5018] [client 10.0.2.2:62899] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3
+[Wed Dec 20 13:33:07.327984 2017] [:error] [pid 5018] [client 10.0.2.2:62899] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 13:33:07.519359 2017] [:error] [pid 5083] [client 10.0.2.2:62903] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:33:07.519430 2017] [:error] [pid 5083] [client 10.0.2.2:62903] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:33:07.519481 2017] [:error] [pid 5083] [client 10.0.2.2:62903] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:33:07.519520 2017] [:error] [pid 5083] [client 10.0.2.2:62903] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:33:07.519558 2017] [:error] [pid 5083] [client 10.0.2.2:62903] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:33:07.523528 2017] [:error] [pid 5083] [client 10.0.2.2:62903] PHP Fatal error:  Uncaught exception 'Exception' with message 'exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'' in /media/sf_sources/nihongo_test/core/dbconnect.php:50\nStack trace:\n#0 /media/sf_sources/nihongo_test/core/dbconnect.php(50): PDOStatement->execute(NULL)\n#1 /media/sf_sources/nihongo_test/flash_card.php(23): Connect->execute('INSERT INTO ver...')\n#2 {main}' in /media/sf_sources/nihongo_test/core/dbconnect.php:55\nStack trace:\n#0 /media/sf_sources/nihongo_test/flash_card.php(23): Connect->execute('INSERT INTO ver...')\n#1 {main}\n  thrown in /media/sf_sources/nihongo_test/core/dbconnect.php on line 55, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:33:35.111989 2017] [:error] [pid 5004] [client 10.0.2.2:62943] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26
+[Wed Dec 20 13:33:35.112143 2017] [:error] [pid 5004] [client 10.0.2.2:62943] PHP Stack trace:
+[Wed Dec 20 13:33:35.112225 2017] [:error] [pid 5004] [client 10.0.2.2:62943] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 13:33:35.112309 2017] [:error] [pid 5004] [client 10.0.2.2:62943] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3
+[Wed Dec 20 13:33:35.112362 2017] [:error] [pid 5004] [client 10.0.2.2:62943] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16
+[Wed Dec 20 13:33:35.292769 2017] [:error] [pid 5083] [client 10.0.2.2:62947] PHP Notice:  Undefined variable: connect in /media/sf_sources/nihongo_test/core/dbconnect.php on line 26, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:33:35.292841 2017] [:error] [pid 5083] [client 10.0.2.2:62947] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:33:35.292890 2017] [:error] [pid 5083] [client 10.0.2.2:62947] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:33:35.292931 2017] [:error] [pid 5083] [client 10.0.2.2:62947] PHP   2. Connect->__construct() /media/sf_sources/nihongo_test/flash_card.php:3, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:33:35.292967 2017] [:error] [pid 5083] [client 10.0.2.2:62947] PHP   3. Connect->connect() /media/sf_sources/nihongo_test/core/dbconnect.php:16, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:33:35.299460 2017] [:error] [pid 5083] [client 10.0.2.2:62947] PHP Fatal error:  Uncaught exception 'Exception' with message 'exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'' in /media/sf_sources/nihongo_test/core/dbconnect.php:50\nStack trace:\n#0 /media/sf_sources/nihongo_test/core/dbconnect.php(50): PDOStatement->execute(NULL)\n#1 /media/sf_sources/nihongo_test/flash_card.php(23): Connect->execute('INSERT INTO ver...')\n#2 {main}' in /media/sf_sources/nihongo_test/core/dbconnect.php:55\nStack trace:\n#0 /media/sf_sources/nihongo_test/flash_card.php(23): Connect->execute('INSERT INTO ver...')\n#1 {main}\n  thrown in /media/sf_sources/nihongo_test/core/dbconnect.php on line 55, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 13:34:10.674405 2017] [:error] [pid 5083] [client 10.0.2.2:63001] PHP Fatal error:  Uncaught exception 'Exception' with message 'exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'' in /media/sf_sources/nihongo_test/core/dbconnect.php:50\nStack trace:\n#0 /media/sf_sources/nihongo_test/core/dbconnect.php(50): PDOStatement->execute(NULL)\n#1 /media/sf_sources/nihongo_test/flash_card.php(23): Connect->execute('INSERT INTO ver...')\n#2 {main}' in /media/sf_sources/nihongo_test/core/dbconnect.php:55\nStack trace:\n#0 /media/sf_sources/nihongo_test/flash_card.php(23): Connect->execute('INSERT INTO ver...')\n#1 {main}\n  thrown in /media/sf_sources/nihongo_test/core/dbconnect.php on line 55, referer: http://dev6.local/flash_card.php
+[Wed Dec 20 16:30:55.969931 2017] [:error] [pid 8358] [client 10.0.2.2:62235] PHP Notice:  Undefined variable: b in /media/sf_sources/nihongo_test/flash_card.php on line 14
+[Wed Dec 20 16:30:55.979121 2017] [:error] [pid 8358] [client 10.0.2.2:62235] PHP Stack trace:
+[Wed Dec 20 16:30:55.979286 2017] [:error] [pid 8358] [client 10.0.2.2:62235] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Wed Dec 20 16:30:55.979442 2017] [:error] [pid 8358] [client 10.0.2.2:62235] PHP Fatal error:  Call to a member function fetchAll() on a non-object in /media/sf_sources/nihongo_test/flash_card.php on line 14
+[Wed Dec 20 16:30:55.979555 2017] [:error] [pid 8358] [client 10.0.2.2:62235] PHP Stack trace:
+[Wed Dec 20 16:30:55.979670 2017] [:error] [pid 8358] [client 10.0.2.2:62235] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0
+[Thu Dec 21 11:02:32.960671 2017] [:error] [pid 20492] [client 10.0.2.2:52113] PHP Fatal error:  Uncaught exception 'Exception' with message 'exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column '\xe3\x82\x8f\xe3\x81\x9f\xe3\x82\x8a\xe3\x81\xbe\xe3\x81\x99_327' in 'where clause'' in /media/sf_sources/nihongo_test/core/dbconnect.php:50\nStack trace:\n#0 /media/sf_sources/nihongo_test/core/dbconnect.php(50): PDOStatement->execute(NULL)\n#1 /media/sf_sources/nihongo_test/flash_card.php(11): Connect->execute('UPDATE verb_kot...')\n#2 {main}' in /media/sf_sources/nihongo_test/core/dbconnect.php:55\nStack trace:\n#0 /media/sf_sources/nihongo_test/flash_card.php(11): Connect->execute('UPDATE verb_kot...')\n#1 {main}\n  thrown in /media/sf_sources/nihongo_test/core/dbconnect.php on line 55, referer: http://dev6.local/flash_card.php
+[Thu Dec 21 11:14:15.807142 2017] [:error] [pid 20897] [client 10.0.2.2:53225] PHP Notice:  Undefined index: data in /media/sf_sources/nihongo_test/flash_card.php on line 16, referer: http://dev6.local/flash_card.php
+[Thu Dec 21 11:14:15.807209 2017] [:error] [pid 20897] [client 10.0.2.2:53225] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Thu Dec 21 11:14:15.807253 2017] [:error] [pid 20897] [client 10.0.2.2:53225] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Thu Dec 21 11:14:15.807317 2017] [:error] [pid 20897] [client 10.0.2.2:53225] PHP Warning:  implode(): Invalid arguments passed in /media/sf_sources/nihongo_test/flash_card.php on line 16, referer: http://dev6.local/flash_card.php
+[Thu Dec 21 11:14:15.807357 2017] [:error] [pid 20897] [client 10.0.2.2:53225] PHP Stack trace:, referer: http://dev6.local/flash_card.php
+[Thu Dec 21 11:14:15.807395 2017] [:error] [pid 20897] [client 10.0.2.2:53225] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
+[Thu Dec 21 11:14:15.807504 2017] [:error] [pid 20897] [client 10.0.2.2:53225] PHP   2. implode() /media/sf_sources/nihongo_test/flash_card.php:16, referer: http://dev6.local/flash_card.php
