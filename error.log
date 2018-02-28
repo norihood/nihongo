@@ -218,3 +218,4 @@
 [Thu Dec 21 11:14:15.807357 2017] [:error] [pid 20897] [client 10.0.2.2:53225] PHP Stack trace:, referer: http://dev6.local/flash_card.php
 [Thu Dec 21 11:14:15.807395 2017] [:error] [pid 20897] [client 10.0.2.2:53225] PHP   1. {main}() /media/sf_sources/nihongo_test/flash_card.php:0, referer: http://dev6.local/flash_card.php
 [Thu Dec 21 11:14:15.807504 2017] [:error] [pid 20897] [client 10.0.2.2:53225] PHP   2. implode() /media/sf_sources/nihongo_test/flash_card.php:16, referer: http://dev6.local/flash_card.php
+[Wed Feb 28 08:25:27.184439 2018] [:error] [pid 13308] [client 10.0.2.2:64415] WordPress database error Unknown column 'wp_' in 'field list' for query SELECT wp_, referer: http://dev5.local/wp-admin/setup-config.php?step=1
