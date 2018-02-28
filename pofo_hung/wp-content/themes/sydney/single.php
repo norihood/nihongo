@@ -1,5 +1,6 @@
 <?php
 /**
+ * Template Name: CustomPageT1 
  * The template for displaying all single posts.
  *
  * @package Sydney

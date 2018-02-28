@@ -17,40 +17,34 @@ $layout = sydney_blog_layout();
 
 		<?php sydney_yoast_seo_breadcrumbs(); ?>
 		
-		<main id="main" class="post-wrap" role="main">
+		<main id="main" class="post-wrap 123" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
 		<div class="posts-layout">
 			<?php
 
-			global $post;
-			$args = array(
-				'posts_per_page' => 2,
-				'offset'=> 0
-				//, 'category' => 1 
-			);
+            global $post;
+            $args = array(
+                'posts_per_page' => 4,
+                'offset'=> 0
+                //, 'category' => 1 
+            );
 
-			$myposts = get_posts( $args );
-			foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
-				<?php
-					if ( $layout != 'classic-alt' ) {
-						// echo '<pre>';print_r(get_post_format());die();
-						get_template_part( 'content', get_post_format() );
-					} else {
-						get_template_part( 'content', 'classic-alt' );
-					}
-				?>
-			<?php endforeach; 
-			wp_reset_postdata();?>
+            $myposts = get_posts( $args );
+            foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+                <?php
+                    if ( $layout != 'classic-alt' ) {
+                        // echo '<pre>';print_r(get_post_format());die();
+                        get_template_part( 'content', get_post_format() );
+                    } else {
+                        get_template_part( 'content', 'classic-alt' );
+                    }
+                ?>
+            <?php endforeach; 
+            wp_reset_postdata();?>
 
 		</div>
-
-		<?php
-			the_posts_pagination( array(
-				'mid_size'  => 1,
-			) );
-		?>
 
 		<?php else : ?>
 

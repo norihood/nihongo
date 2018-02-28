@@ -439,6 +439,8 @@ function sydney_welcome_admin_notice() {
 	</div>
 	<?php
 }
+
+
 add_action( 'admin_init', array( 'PAnD', 'init' ) );
 add_action( 'admin_notices', 'sydney_welcome_admin_notice' );
 add_filter('show_admin_bar', '__return_false');

@@ -65,6 +65,9 @@
 								<li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-10">
 									<a href="<?php echo home_url(); ?>">Home</a>
 								</li>
+								<li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-10">
+									<a href="<?php echo get_page_link(get_page_by_path( 'blog' )); ?>">blog</a>
+								</li>
 								<?php if ($current_user->ID == 0) { ?>
 								<li id="menu-item-13" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
 									<a href="<?php echo get_page_link(get_page_by_path( 'sign-up' )); ?>">Sign up</a>
