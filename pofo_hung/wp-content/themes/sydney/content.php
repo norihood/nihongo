@@ -7,7 +7,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php if ( has_post_thumbnail() && ( get_theme_mod( 'index_feat_image' ) != 1 ) ) : ?>
-		<div class="entry-thumb">
+		<div class="entry-thumb 123">
 			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('sydney-large-thumb'); ?></a>
 		</div>
 	<?php endif; ?>
@@ -17,7 +17,9 @@
 
 		<?php if ( 'post' == get_post_type() && get_theme_mod('hide_meta_index') != 1 ) : ?>
 		<div class="meta-post">
-			<?php sydney_posted_on(); ?>
+			<time class="entry-date published" datetime="2018-02-28T02:04:25+00:00"><?php echo get_the_date('j F Y'); ?></time>
+			| BY <?php echo get_the_author(); ?> 
+			<?php // sydney_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
