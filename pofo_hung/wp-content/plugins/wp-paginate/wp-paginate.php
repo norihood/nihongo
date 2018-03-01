@@ -287,6 +287,7 @@ if (!class_exists('WPPaginate')) {
                 return;
 
             $r = wp_parse_args($args, $this->options);
+            // var_dump($args);
             extract($r, EXTR_SKIP);
 						
 						if(isset($this->options['preset']))
@@ -319,7 +320,7 @@ if (!class_exists('WPPaginate')) {
                     $page = get_query_var('paged');
                     $posts_per_page = intval(get_query_var('posts_per_page'));
                     $pages = intval(ceil($wp_query->found_posts / $posts_per_page));
-                    var_dump($pages); var_dump($posts_per_page);
+                    // var_dump($page);var_dump($posts_per_page);
                 }
                 else {
                     $page = get_query_var('cpage');

@@ -1,6 +1,6 @@
 <?php 
 /* 
- * Template Name: CustomPageT122 
+ * Template Name: CustomPageT1
  * Template Post Type: post, page, product
  *
  */ ?>
