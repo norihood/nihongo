@@ -19,7 +19,7 @@ $layout = sydney_blog_layout();
 
 		<?php sydney_yoast_seo_breadcrumbs(); ?>
 
-		<main id="main" class="post-wrap" role="main">
+		<main id="main" class="post-wrap archive22" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -45,9 +45,14 @@ $layout = sydney_blog_layout();
 			</div>
 			
 		<?php
-			the_posts_pagination( array(
-				'mid_size'  => 1,
-			) );
+			if (function_exists('wp_paginate')):
+                // echo 'aaaaaaaaaaaaa3';
+                wp_paginate( );  
+            else :
+				the_posts_pagination( array(
+					'mid_size'  => 1,
+				) );
+			endif;
 		?>	
 
 		<?php else : ?>

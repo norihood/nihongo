@@ -30,7 +30,7 @@ get_header(); ?>
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template
 				if ( comments_open() || get_comments_number() ) :
-					comments_template();
+					// comments_template();
 				endif;
 			?>
 
@@ -38,7 +38,12 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
+	<?php echo get_avatar( get_the_author_meta( 'ID' ), 32 ); ?>
+	NAME: <?php echo get_the_author(get_the_author_meta( 'ID' )); ?>
+	info: <?php echo get_the_author_meta( 'user_description' ); ?>
 
+	<p>Other posts by <?php the_author_posts_link(); ?></p>
+	
 	<?php do_action('sydney_after_content'); ?>
 
 	<?php

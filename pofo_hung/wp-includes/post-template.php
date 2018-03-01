@@ -229,7 +229,7 @@ function get_the_guid( $post = 0 ) {
  */
 function the_content( $more_link_text = null, $strip_teaser = false) {
 	$content = get_the_content( $more_link_text, $strip_teaser );
-
+var_dump('content123');
 	/**
 	 * Filters the post content.
 	 *
@@ -349,7 +349,7 @@ function _convert_urlencoded_to_entities( $match ) {
  * @since 0.71
  */
 function the_excerpt() {
-
+var_dump('excerpt123');
 	/**
 	 * Filters the displayed post excerpt.
 	 *
