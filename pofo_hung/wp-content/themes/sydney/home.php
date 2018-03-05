@@ -16,7 +16,7 @@ $layout = sydney_blog_layout();
 	<div id="primary" class="content-area col-md-9 <?php echo esc_attr($layout); ?>">
 
 		<?php sydney_yoast_seo_breadcrumbs(); ?>
-		<?php //echo do_shortcode('[contact-form-7 id="74" title="Contact form 1"]'); ?>
+		<?php echo do_shortcode('[contact-form-7 id="74" title="Contact form 1"]'); ?>
 		<main id="main" class="post-wrap 123" role="main">
 		<?php 
 			// the query to set the posts per page to 3
