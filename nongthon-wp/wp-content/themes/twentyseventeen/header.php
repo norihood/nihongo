@@ -23,10 +23,9 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyseventeen' ); ?></a>
+<div id="container" class="site">
 
-	<header id="masthead" class="site-header" role="banner">
+	<header id="" class="" role="banner">
 
 		<?php get_template_part( 'template-parts/header/header', 'image' ); ?>
 

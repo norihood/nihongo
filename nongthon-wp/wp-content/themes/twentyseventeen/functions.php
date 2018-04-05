@@ -61,7 +61,7 @@ function twentyseventeen_setup() {
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
 		'top'    => __( 'Top Menu', 'twentyseventeen' ),
-		'social' => __( 'Social Links Menu', 'twentyseventeen' ),
+		'phuong-custom' => __( 'Menu Custom', 'twentyseventeen' ),
 	) );
 
 	/*
@@ -376,7 +376,7 @@ add_filter( 'excerpt_more', 'twentyseventeen_excerpt_more' );
 function twentyseventeen_javascript_detection() {
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
 }
-add_action( 'wp_head', 'twentyseventeen_javascript_detection', 0 );
+// add_action( 'wp_head', 'twentyseventeen_javascript_detection', 0 );
 
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
@@ -386,7 +386,7 @@ function twentyseventeen_pingback_header() {
 		printf( '<link rel="pingback" href="%s">' . "\n", get_bloginfo( 'pingback_url' ) );
 	}
 }
-add_action( 'wp_head', 'twentyseventeen_pingback_header' );
+// add_action( 'wp_head', 'twentyseventeen_pingback_header' );
 
 /**
  * Display custom color CSS.
@@ -403,7 +403,7 @@ function twentyseventeen_colors_css_wrap() {
 		<?php echo twentyseventeen_custom_colors_css(); ?>
 	</style>
 <?php }
-add_action( 'wp_head', 'twentyseventeen_colors_css_wrap' );
+// add_action( 'wp_head', 'twentyseventeen_colors_css_wrap' );
 
 /**
  * Enqueue scripts and styles.
@@ -584,3 +584,54 @@ require get_parent_theme_file_path( '/inc/customizer.php' );
  * SVG icons functions and filters.
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
+
+
+// PhuongNLT
+/**
+ * Add a css file
+ */
+function add_css_file() {
+	// printf( '<link rel="stylesheet"  type="text/css" href="'.bloginfo('template_url').'/css/nongthon/reset.css">');
+	wp_enqueue_style ('reset', get_template_directory_uri().'/assets/css/reset.css');
+	wp_enqueue_style ('template', get_template_directory_uri().'/assets/css/template.css');
+	wp_enqueue_style ('icons', get_template_directory_uri().'/assets/css/icons.css');
+	wp_enqueue_style ('video', get_template_directory_uri().'/assets/css/video.css');
+	wp_enqueue_style ('news', get_template_directory_uri().'/assets/css/news.css');
+	wp_enqueue_style ('real', get_template_directory_uri().'/assets/css/real.css');
+	wp_enqueue_style ('tab_info', get_template_directory_uri().'/assets/css/tab_info.css');
+	wp_enqueue_style ('divbox', get_template_directory_uri().'/assets/css/divbox.css');
+	wp_enqueue_style ('shadowbox', get_template_directory_uri().'/assets/css/shadowbox.css');
+	wp_enqueue_style ('nav_menu', get_template_directory_uri().'/assets/css/nav_menu.css');
+	wp_enqueue_style ('ddsmoothmenu', get_template_directory_uri().'/assets/css/ddsmoothmenu.css');
+
+}
+add_action( 'wp_head', 'add_css_file' );
+/**
+ * custom menu
+ */
+function clean_custom_menus() {
+	global $post;
+	$menu_name = 'top'; // specify custom menu slug
+	if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])) {
+		$menu = wp_get_nav_menu_object($locations[$menu_name]);
+		$menu_items = wp_get_nav_menu_items($menu->term_id);
+
+		$menu_list = '<nav>' ."\n";
+		$menu_list .= "\t\t\t\t". '<ul class="nav fl p_nav">' ."\n";
+		foreach ((array) $menu_items as $key => $menu_item) {
+			$title = $menu_item->title;
+			$url = $menu_item->url;
+			if ($menu_item->object_id == $post->ID) {
+				$current = 'current';
+			} else {
+				$current = '';
+			}
+			$menu_list .= "\t\t\t\t\t". '<li class="' . $current . '"><a title="' . $title . '" href="'. $url .'"><span><strong>•</strong>'. $title .'</span></a></li>' ."\n";
+		}
+		$menu_list .= "\t\t\t\t". '</ul>' ."\n";
+		$menu_list .= "\t\t\t". '</nav>' ."\n";
+	} else {
+		$menu_list = '<!-- no list defined -->';
+	}
+	echo $menu_list;
+}
