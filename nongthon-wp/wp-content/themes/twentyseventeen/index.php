@@ -58,7 +58,7 @@ get_header(); ?>
 
 			endif;
 			?>
-
+            <?php echo do_shortcode('[adrotate banner="1"]'); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 	<?php get_sidebar(); ?>
