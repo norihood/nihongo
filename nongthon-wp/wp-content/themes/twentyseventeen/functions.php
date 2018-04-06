@@ -592,6 +592,7 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
  */
 function add_css_file() {
 	// printf( '<link rel="stylesheet"  type="text/css" href="'.bloginfo('template_url').'/css/nongthon/reset.css">');
+//	wp_enqueue_style ('bootstrap', get_template_directory_uri().'/assets/bootstrap-3.3.6-dist/css/bootstrap.min.css');
 	wp_enqueue_style ('reset', get_template_directory_uri().'/assets/css/reset.css');
 	wp_enqueue_style ('template', get_template_directory_uri().'/assets/css/template.css');
 	wp_enqueue_style ('icons', get_template_directory_uri().'/assets/css/icons.css');
@@ -634,4 +635,38 @@ function clean_custom_menus() {
 		$menu_list = '<!-- no list defined -->';
 	}
 	echo $menu_list;
+}
+
+// PhuongNLT
+add_filter('show_admin_bar', '__return_false');
+
+// get thứ trong tuần
+function sw_get_current_weekday() {
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $weekday = date("l");
+    $weekday = strtolower($weekday);
+    switch($weekday) {
+        case 'monday':
+            $weekday = 'Thứ hai';
+            break;
+        case 'tuesday':
+            $weekday = 'Thứ ba';
+            break;
+        case 'wednesday':
+            $weekday = 'Thứ tư';
+            break;
+        case 'thursday':
+            $weekday = 'Thứ năm';
+            break;
+        case 'friday':
+            $weekday = 'Thứ sáu';
+            break;
+        case 'saturday':
+            $weekday = 'Thứ bảy';
+            break;
+        default:
+            $weekday = 'Chủ nhật';
+            break;
+    }
+    return date('H:i') . ' &nbsp; ' . $weekday . ', ' . date('d/m/Y');
 }

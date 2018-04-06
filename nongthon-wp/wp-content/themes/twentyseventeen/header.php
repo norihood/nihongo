@@ -29,13 +29,13 @@
 
 		<?php get_template_part( 'template-parts/header/header', 'image' ); ?>
 
-		<?php if ( has_nav_menu( 'top' ) ) : ?>
-			<div class="navigation-top">
+		<?php // if ( has_nav_menu( 'top' ) ) : ?>
+<!--			<div class="navigation-top">
 				<div class="wrap">
-					<?php get_template_part( 'template-parts/navigation/navigation', 'top' ); ?>
-				</div><!-- .wrap -->
-			</div><!-- .navigation-top -->
-		<?php endif; ?>
+					<?php // get_template_part( 'template-parts/navigation/navigation', 'top' ); ?>
+				</div> .wrap 
+			</div> .navigation-top -->
+		<?php // endif; ?>
 
 	</header><!-- #masthead -->
 
@@ -54,3 +54,45 @@
 
 	<div class="site-content-contain">
 		<div id="content" class="site-content">
+            <div class="span-5">
+                <div class="box silver">
+                    <h3 class="header"><strong>•</strong>Menu Hệ thống</h3>
+                    <script type="text/javascript" src="<?=get_template_directory_uri()?>/assets/js/ddsmoothmenu.js.download"></script>
+                    <script type="text/javascript">
+                        ddsmoothmenu.init({
+                                arrowimages: {
+                                    down:['downarrowclass', '<?=get_template_directory_uri()?>/assets/images/down.gif', 23],
+                                    right:['rightarrowclass', '<?=get_template_directory_uri()?>/assets/images/right.gif']
+                                },
+                                mainmenuid: "smoothmenu_75", //Menu DIV id
+                                zIndex: 200,
+                                orientation: 'v', //Horizontal or vertical menu: Set to "h" or "v"
+                                classname: 'ddsmoothmenu-v', //class added to menu's outer DIV
+                                contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+                        })
+                    </script>
+                    <div id="smoothmenu_75" class="ddsmoothmenu-v">
+                        <ul>
+                            <?php 
+                            $parents = get_categories(array('parent' => 0, 'hide_empty' => 0));
+                            if (!empty($parents)) {
+                                foreach ($parents as $parent) {
+                                    echo '<li>
+                                        <a title="' . $parent->name . '" href="' . get_category_link( $parent->term_id ) . '" class="">' . $parent->name . '</a>';
+                                    $childs = get_categories(array('child_of' => $parent->term_id, 'hide_empty' => 0));
+                                    if (!empty($childs)) {
+                                        echo '<ul>';
+                                        foreach ($childs as $child) {
+                                            echo '<li>
+                                                    <a title="' . $child->name . '" href="' . get_category_link( $child->term_id ) . '">' . $child->name . '</a>
+                                                </li>';
+                                        }
+                                        echo '</ul>';
+                                    }
+                                }
+                            } ?>
+                        </ul>
+                    </div>
+                </div>
+                <?=adrotate_group('1')?>
+            </div>
