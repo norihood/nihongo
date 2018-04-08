@@ -18,7 +18,10 @@ class WP_kStats_Widget extends WP_Widget {
 	}
 
 	function widget( $args, $instance ) {
-
+// echo '<pre>';
+// print_r($args);
+// print_r($instance);
+// die();
 		extract($args);
 
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? 'Blog Statistics' : $instance['title'] );

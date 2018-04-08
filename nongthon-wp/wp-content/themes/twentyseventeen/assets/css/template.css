@@ -172,7 +172,7 @@ margin-right:4px
 border-top:0px solid  #009900;
 background: url(../images/footer12.png) repeat-x;
     padding: 10px 0;
-	height:109px;	 
+	/*height:109px;	 */
 }
 
 #footer p.footer,p.show_query{

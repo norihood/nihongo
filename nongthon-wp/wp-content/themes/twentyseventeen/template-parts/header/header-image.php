@@ -29,7 +29,7 @@
 </div>
 <div id="message"></div>
 <div class="clock fl">
-    <span id="digclock" style="font-weight: 700;"><?php echo sw_get_current_weekday(); ?></span>
+    <span id="divclock" style="font-weight: 700;"></span>
 </div>
 <form action="http://nongthonmoihatinh.vn/" method="get" class="search fr" onsubmit="return nv_search_submit(&#39;topmenu_search_query&#39;, &#39;topmenu_search_checkss&#39;, &#39;topmenu_search_submit&#39;, 3, 60);">
     <fieldset>

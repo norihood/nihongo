@@ -412,3 +412,31 @@ template {
 	position: absolute;
 	top:0;
 }
+#content {
+	margin-top: 10px; 
+}
+.p_polls {
+	padding: 5px;
+}
+.p_polls .p_polls_ans {
+	margin-top: 5px;
+}
+.p_polls .p_polls_ans ul li {
+	margin-top: 5px;
+}
+.p_polls .p_polls_ans ul li label, .p_polls .p_btn_vote {
+	cursor: pointer;
+}
+.p_polls .p_btn_vote, .p_polls .p_view_result {
+	padding: 5px;
+	float: left;
+}
+.p_polls .p_polls_ans_view {
+	margin-top: 5px;
+}
+.p_polls .p_polls_ans_view {
+	margin-top: 5px;
+}
+.p_polls .p_polls_ans_view .wp-polls-ul {
+	margin-right: 10px;
+}

@@ -15,19 +15,21 @@
 
 #topnews ul.lastest-news li {
     text-indent: 10px;
+    padding: 0 4px;
+    text-align: justify;
 }
 
 #topnews ul.lastest-news a {
     font-weight: normal;
-    background: transparent url(../images/squared-blue.png) no-repeat 5px 9px;
+    background: transparent url(../images/squared-blue.png) no-repeat 5px 12px;
     color: #383838;
     display: block;
     border-bottom: 1px dotted #bbdbf6;
-    padding: 2px 0;
+    padding: 6px 0;
 }
 
 #topnews ul.lastest-news a:hover {
-    background: #fff url(../images/squared-blue.png) no-repeat 5px 9px;
+    background: #fff url(../images/squared-blue.png) no-repeat 5px 12px;
 }
 
 div.two_column {
@@ -48,47 +50,50 @@ div.news_column div.fixedwidth {
     float: left;
 }
 
-div.news_column div.header a {
+div.news_column div.header-news a {
     color: #3b3b3b;
     font-weight: normal;
 }
 
-div.news_column div.header a:hover {
+div.news_column div.header-news a:hover {
     color:#FF3300;
 }
 
-div.news_column div.header {
+div.news_column div.header-news {
     background:url(../images/temp_35.jpg) repeat-x;
     padding: 2px 0 0 2px;
     border-bottom: 0px solid #ccc;
+    display: block;
+    clear: both;
 }
 
-div.news_column div.header a {
-    display: block;
-    float: left;
+div.news_column div.header-news a {
+    display: inline-block;
+    /*float: left;*/
     line-height: 20px;
     height: 26px;
     padding: 0 0 0 10px;
 	color:#0000CC;
+    clear: both;
 }
 
-div.news_column div.header a.current {
+div.news_column div.header-news a.current {
     background: url(../images/news_arrow_down.png) no-repeat center 100%;
     padding: 0;
     font-weight: 700;
 }
 
-div.news_column div.header a.current span {
+div.news_column div.header-news a.current span {
     background: url(../images/news_cat_r.png) no-repeat top right;
     padding: 0 6px 0 0;
     height: 22px;
 	margin-left:2px;
-    display: block;
-    float: left;
+    display: inline-block;
+    /*float: left;*/
     cursor: pointer;
 }
 
-div.news_column div.header a.current span span {
+div.news_column div.header-news a.current span span {
     background: url(../images/news_cat_l.png) no-repeat;
     padding: 0 0 0 6px;
     color: #fff;
@@ -119,9 +124,14 @@ div.news_column div.items h3 a {
     color:#0000CC
 }
 
-div.news_column div.items h3 a:hover {
+div.news_column div.items h3 a:hover,
+div.news_column div.items .read_more:hover {
     color:#FF0000;
 	margin-top:5px;
+}
+
+div.news_column ul.related li a:hover {
+    color:#FF0000;
 }
 
 div.news_column div.items img {
@@ -632,7 +642,7 @@ a.more {
 }
 
 .table-list-news th {
-    background: url(../images/cat-header-bg.png) 0 0 repeat-x;
+    background: url(../images/cat-header-news-bg.png) 0 0 repeat-x;
     border-bottom: 1px solid #e5e5e5;
 }
 
@@ -649,7 +659,7 @@ a.more {
 .news_grid h3.cat {
     margin: 0;
     padding: 4px 10px;
-    background: url(../images/cat-header-bg.png) 0 0 repeat-x;
+    background: url(../images/cat-header-news-bg.png) 0 0 repeat-x;
     border-bottom: 1px solid #e5e5e5;
     font-size: 13px
 }
@@ -680,4 +690,13 @@ a.more {
     text-align: left
 }
 
-
+/* PhuongNLT */
+ul.tieu-diem li:nth-child(odd) {
+    background-color: white;
+}
+ul.tieu-diem li:nth-child(odd) a {
+    color: navy;
+}
+ul.tieu-diem li:nth-child(even) a {
+    color: #ff0000;
+}
