@@ -4,7 +4,20 @@
  */
 ?>
 <?php get_header(); ?>
- 
+<?php
+echo get_permalink(145);
+$terms = get_terms( ['co-quan-ban-hanh', 'linh-vuc'], array(
+    'hide_empty' => false,
+));
+foreach ($terms as $value) {
+    echo '<a href="' . get_term_link($value->term_id) . '">' . $value->name . '</a>';
+    
+}
+echo '<pre>';
+print_r($terms);
+die();
+
+?>
 <div class="span-13 contentcolumn">
 <link type="text/css" rel="stylesheet" href="<?=get_template_directory_uri()?>/assets/css/jquery.ui.tabs.css" media="all">
     <div id="topnews" style="">
