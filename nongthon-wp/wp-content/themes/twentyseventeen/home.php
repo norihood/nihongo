@@ -4,18 +4,19 @@
  */
 ?>
 <?php get_header(); ?>
+
 <?php
-echo get_permalink(145);
-$terms = get_terms( ['co-quan-ban-hanh', 'linh-vuc'], array(
-    'hide_empty' => false,
-));
-foreach ($terms as $value) {
-    echo '<a href="' . get_term_link($value->term_id) . '">' . $value->name . '</a>';
+// echo get_permalink(145);
+// $terms = get_terms( ['co-quan-ban-hanh', 'linh-vuc'], array(
+//     'hide_empty' => false,
+// ));
+// foreach ($terms as $value) {
+//     echo '<a href="' . get_term_link($value->term_id) . '">' . $value->name . '</a>';
     
-}
-echo '<pre>';
-print_r($terms);
-die();
+// }
+// echo '<pre>';
+// print_r($terms);
+// die();
 
 ?>
 <div class="span-13 contentcolumn">
@@ -38,10 +39,14 @@ die();
 	            			$pagi_top_slider = '';
 	            			$top_title = '';
 	            			foreach ($top_posts as $key => $top_post) {
+	            				$src = wp_get_attachment_url( get_post_thumbnail_id($top_post->ID), 'thumbnail' );
+				    			if (!$src) {
+				    				$src = get_template_directory_uri() . '/assets/images/no-image.jpg';
+				    			}
 	            				$top_slider .= '<div class="item">
 									<div class="item_content">
 										<a title="' . $top_post->post_title . '" href="' . get_permalink($top_post->ID) . '">
-											<img id="slImg0" src="' . wp_get_attachment_url( get_post_thumbnail_id($top_post->ID), 'thumbnail' ) . '" alt="' . (get_post_meta( get_post_thumbnail_id($top_post->ID), '_wp_attachment_image_alt', true) ?: $top_post->post_title) . '">
+											<img id="slImg0" src="' . $src . '" alt="' . (get_post_meta( get_post_thumbnail_id($top_post->ID), '_wp_attachment_image_alt', true) ?: $top_post->post_title) . '">
 											<span>' . $top_post->post_title . '</span>
 										</a>
 									</div>
@@ -113,14 +118,14 @@ die();
 				<div class="news_column">
 			        <div class="news-content bordersilver white clearfix">
 			            <div class="header-news">
-			                <a class="current" href="http://nongthonmoihatinh.vn/index.php/vi/news/Tin-tuc-nong-thon-moi/" title="<?=$parent->name?>">
+			                <a class="current" href="<?=get_category_link($parent->term_id)?>" title="<?=$parent->name?>">
 			                	<span><span><?=$parent->name?></span></span>
 		                	</a>
 			                <?php
 			                $childs = get_categories(array('child_of' => $parent->term_id, 'hide_empty' => 0));
                             if (!empty($childs)) {
                             	foreach ($childs as $child) {
-                            		echo '<a href="http://nongthonmoihatinh.vn/index.php/vi/news/Tieu-diem-136/" title="' . $child->name . '">' . $child->name . '</a>';	
+                            		echo '<a href="' . get_category_link($child->term_id) . '" title="' . $child->name . '">' . $child->name . '</a>';	
                             	}	
                         	} ?>
 			            </div>
@@ -135,9 +140,13 @@ die();
 						            <ul class="reset related">';
 					    	foreach ($post_in_5 as $key_post => $post) {
 					    		if ($key_post == 0) {
+					    			$src = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' );
+					    			if (!$src) {
+					    				$src = get_template_directory_uri() . '/assets/images/no-image.jpg';
+					    			}
 						    		echo '<div class="items border_b clearfix">
 						                <a href="' . get_permalink($post->ID) . '" title="' . $post->post_title . '">
-						                	<img src="' . wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ) . '" alt="' . (get_post_meta( get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true) ?: $post->post_title) . '" width="120">
+						                	<img src="' . $src . '" alt="' . (get_post_meta( get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true) ?: $post->post_title) . '" width="120">
 					                	</a>
 						                <h3>
 						                	<a href="' . get_permalink($post->ID) . '" title="' . $post->post_title . '">' . $post->post_title . '</a>
@@ -212,24 +221,23 @@ die();
         <h3 class="header"><strong>•</strong>Văn bản mới</h3>
         <marquee behavior="scroll" align="center" direction="up" height="200" scrollamount="1" scrolldelay="2" onmouseover="this.stop()" onmouseout="this.start()">
             <div class="sliver2">
-                <a href="http://nongthonmoihatinh.vn/index.php/vi/laws/view-252-Quyet-dinh-so-282-QD-UBND/">&nbsp;&nbsp;<img src="<?=get_template_directory_uri()?>/assets/images/file.png">
-                <strong style="color:red">&nbsp;Quyết định số 282/QĐ-UBND</strong>  <img src="<?=get_template_directory_uri()?>/assets/images/new.gif" height="14"><br>
-                &nbsp;&nbsp;Tên:<span style="align:center; color:blue; font-size:11px">&nbsp;(Về việc chấp thuận và giao đỡ đầu (bổ sung) thực hiện Chương trình
-                MTQG xây dựng nông thôn mới giai đoạn 2017 - 2020)</span></a><br>
-                <span style="color:#666; font-size:11px">&nbsp;&nbsp;Ngày BH:&nbsp;(27/03/2018)</span> <br>
-                <a href="http://nongthonmoihatinh.vn/index.php/vi/laws/view-251-Quyet-dinh-so-728-QD-UBND/">&nbsp;&nbsp;<img src="<?=get_template_directory_uri()?>/assets/images/file.png">
-                <strong style="color:red">&nbsp;Quyết định số 728/QĐ-UBND</strong>  <img src="<?=get_template_directory_uri()?>/assets/images/new.gif" height="14"><br>
-                &nbsp;&nbsp;Tên:<span style="align:center; color:blue; font-size:11px">&nbsp;(Về việc phê duyệt danh sách các xã đăng ký thực hiện hoàn thành các tiêu chí đạt chuẩn nông thôn mới trong năm 2018)</span></a><br>
-                <span style="color:#666; font-size:11px">&nbsp;&nbsp;Ngày BH:&nbsp;(14/03/2018)</span> <br>
-                <a href="http://nongthonmoihatinh.vn/index.php/vi/laws/view-250-Quyet-dinh-so-650-QD-UBND/">&nbsp;&nbsp;<img src="<?=get_template_directory_uri()?>/assets/images/file.png">
-                <strong style="color:red">&nbsp;Quyết định số 650 /QĐ-UBND</strong> <img src="<?=get_template_directory_uri()?>/assets/images/new.gif" height="14"><br>
-                &nbsp;&nbsp;Tên:<span style="align:center; color:blue; font-size:11px">&nbsp;(Về việc phân bổ nguồn kế hoạch vốn ngân sách Trung ương
-                thực hiện Chương trình MTQG xây dựng nông thôn mới năm 2018)</span></a><br>
-                <span style="color:#666; font-size:11px">&nbsp;&nbsp;Ngày BH:&nbsp;(07/03/2018)</span> <br>
-                <a href="http://nongthonmoihatinh.vn/index.php/vi/laws/view-249-Quyet-dinh-so-15-QD-BTC/">&nbsp;&nbsp;<img src="<?=get_template_directory_uri()?>/assets/images/file.png">
-                <strong style="color:red">&nbsp;Quyết định số 15/QĐ-BTC</strong>    <img src="<?=get_template_directory_uri()?>/assets/images/new.gif" height="14"><br>
-                &nbsp;&nbsp;Tên:<span style="align:center; color:blue; font-size:11px">&nbsp;(Về việc thành lập Ban Giám khảo cuộc thi "Khu dân cư NTM kiểu mẫu, vườn mẫu Hà Tĩnh năm 2017)</span></a><br>
-                <span style="color:#666; font-size:11px">&nbsp;&nbsp;Ngày BH:&nbsp;(02/03/2018)</span> <br>
+            	<?php
+        		// get van ban moi
+		    	$args = array(
+			       'posts_per_page' => 5,
+			       'post_status' => 'publish',
+			       'post_type' => 'van-ban'
+			    );
+			    $van_ban_moi = get_posts($args);
+			    if (!empty($van_ban_moi)) {
+			    	foreach ($van_ban_moi as $key => $vb_moi) {
+			    		echo '<a href="' . get_permalink($vb_moi->ID) . '">&nbsp;&nbsp;<img src="' . get_template_directory_uri() . '/assets/images/file.png">
+                <strong style="color:red">&nbsp;' . $vb_moi->post_title . '</strong>  <img src="' . get_template_directory_uri() . '/assets/images/new.gif" height="14"><br>
+                &nbsp;&nbsp;Tên:<span style="align:center; color:blue; font-size:11px">&nbsp;(' . text_limit($vb_moi->post_content, 50) . ')</span></a><br>
+                <span style="color:#666; font-size:11px">&nbsp;&nbsp;Ngày BH:&nbsp;(' . date('d/m/Y', strtotime($vb_moi->post_date)) . ')</span> <br>';
+			    	}
+			    }
+            	?>
             </div>
         </marquee>
     </div>

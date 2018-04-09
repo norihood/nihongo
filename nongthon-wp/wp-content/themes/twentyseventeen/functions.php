@@ -692,8 +692,7 @@ function tao_taxonomy() {
            'show_ui'           => true,
            'show_admin_column' => true,
            'show_in_nav_menus' => true,
-           'show_tagcloud'     => true,
-           "rewrite"            => array( 'slug' => 'van-ban' ),
+           'show_tagcloud'     => true
        );
 
        /* Hàm register_taxonomy để khởi tạo taxonomy */
@@ -748,8 +747,7 @@ function tao_custom_post_type()
         'has_archive' => true, //Cho phép lưu trữ (month, date, year)
         'exclude_from_search' => false, //Loại bỏ khỏi kết quả tìm kiếm
         'publicly_queryable' => true, //Hiển thị các tham số trong query, phải đặt true
-        'capability_type' => 'post',
-        'rewrite' => array( "slug" => "van-ban/%replace-taxonomy%", "with_front" => true ),
+        'capability_type' => 'post'
     );
  
     register_post_type('van-ban', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
@@ -759,7 +757,7 @@ function tao_custom_post_type()
 add_action('init', 'tao_custom_post_type');
 
 /**
-  change permalink of custom post
+ * change permalink of custom post
  */
 //function cj_update_permalink_structure( $post_link, $post ) {
 //    if ( false !== strpos( $post_link, '%replace-taxonomy%' ) ) {
@@ -773,3 +771,58 @@ add_action('init', 'tao_custom_post_type');
 //    return $post_link;
 //}
 //add_filter('post_type_link', 'cj_update_permalink_structure', 10, 2);
+
+// post view
+function getPostViews($postID){
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if ($count=='') {
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+        return "0 View";
+    }
+    return $count.' Views';
+}
+function setPostViews($postID) {
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if ($count=='') {
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    } else {
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+// Remove issues with prefetching adding extra views
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
+// lượt download
+function get_count_download($postID){
+    $count_key = 'post_count_download';
+    $count = get_post_meta($postID, $count_key, true);
+    if ($count=='') {
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+        return "0 download";
+    }
+    return $count.' download';
+}
+function set_count_download($postID) {
+    $postID = (isset($_POST['post_id'])) ? esc_attr($_POST['post_id']) : '';
+    $count_key = 'post_count_download';
+    $count = get_post_meta($postID, $count_key, true);
+    if ($count=='') {
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    } else {
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+    wp_send_json_success('true');
+	die();
+}
+add_action( 'wp_ajax_count_download', 'set_count_download' );
+add_action( 'wp_ajax_nopriv_count_download', 'set_count_download' );
