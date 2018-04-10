@@ -440,3 +440,13 @@ template {
 .p_polls .p_polls_ans_view .wp-polls-ul {
 	margin-right: 10px;
 }
+.commentlist > li {
+    border-bottom: 1px dotted #333;
+    margin: 10px;
+}
+
+#commentform p input, #commentform p textarea {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+}

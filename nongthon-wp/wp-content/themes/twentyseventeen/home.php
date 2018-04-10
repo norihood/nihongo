@@ -26,7 +26,7 @@
     	// get post top_new
     	$args = array(
 	       'posts_per_page' => 6, // we need only the latest post, so get that post only
-	       'cat' => '11' // Use the category id, can also replace with category_name which uses category slug
+	       'cat' => CATEGORY_NEWS_ID // Use the category id, can also replace with category_name which uses category slug
 	    );
 	    $top_posts = get_posts($args);
     	?>
@@ -110,7 +110,7 @@
         </object>
     </div>
 	<?php // get list category and post
-	$parents = get_categories(array('child_of' => 11, 'parent' => 11, 'hide_empty' => 0));
+	$parents = get_categories(array('child_of' => CATEGORY_NEWS_ID, 'parent' => CATEGORY_NEWS_ID, 'hide_empty' => 0));
 	if (!empty($parents)) {
 		foreach ($parents as $key => $parent) {
 			$visible_home = get_field('visible_home', 'category_' . $parent->term_id);

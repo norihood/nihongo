@@ -160,7 +160,7 @@ div.span-25 ul.related {
 }
 
 div.news_column ul.related li {
-    padding: 3px 4px 0; 10px;;
+    padding: 3px 4px 0;
 }
 
 div.span-25 ul.related li {
@@ -216,7 +216,7 @@ div.news_column #hometext, div.news_column div.bodytext, #news_detail h1 {
 }
 
 #news_detail .sendmail {
-    background: url(../images/news/email.png) no-repeat;
+    background: url(../images/email.png) no-repeat;
     width: 16px;
     height: 16px;
     display: block;
@@ -224,7 +224,7 @@ div.news_column #hometext, div.news_column div.bodytext, #news_detail h1 {
 }
 
 #news_detail .print {
-    background: url(../images/news/print.png) no-repeat;
+    background: url(../images/print.png) no-repeat;
     width: 16px;
     height: 16px;
     display: block;
@@ -232,7 +232,7 @@ div.news_column #hometext, div.news_column div.bodytext, #news_detail h1 {
 }
 
 #news_detail .savefile {
-    background: url(../images/news/save_file.png) no-repeat;
+    background: url(../images/save_file.png) no-repeat;
     width: 16px;
     height: 16px;
     display: block;

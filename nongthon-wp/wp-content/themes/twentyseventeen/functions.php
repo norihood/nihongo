@@ -638,8 +638,10 @@ function clean_custom_menus() {
 	echo $menu_list;
 }
 
-// PhuongNLT
 add_filter('show_admin_bar', '__return_false');
+
+// Constant
+define('CATEGORY_NEWS_ID', 11);
 
 function text_limit($str, $limit = 10) {
 	if (stripos($str, " ")) {
@@ -656,7 +658,7 @@ function text_limit($str, $limit = 10) {
 		return $str;
 	}
 }
-// bỏ
+
 function tao_taxonomy() {
     /* Biến $label chứa các tham số thiết lập tên hiển thị của Taxonomy
          */
@@ -704,7 +706,6 @@ function tao_taxonomy() {
  
 // Hook into the 'init' action
 add_action( 'init', 'tao_taxonomy', 0 );
-// bỏ
 
 function tao_custom_post_type()
 {
@@ -826,3 +827,32 @@ function set_count_download($postID) {
 }
 add_action( 'wp_ajax_count_download', 'set_count_download' );
 add_action( 'wp_ajax_nopriv_count_download', 'set_count_download' );
+
+function get_thu($weekday) {
+//    $weekday = date("l");
+    $weekday = strtolower($weekday);
+    switch($weekday) {
+        case 'monday':
+            $weekday = 'Thứ hai';
+            break;
+        case 'tuesday':
+            $weekday = 'Thứ ba';
+            break;
+        case 'wednesday':
+            $weekday = 'Thứ tư';
+            break;
+        case 'thursday':
+            $weekday = 'Thứ năm';
+            break;
+        case 'friday':
+            $weekday = 'Thứ sáu';
+            break;
+        case 'saturday':
+            $weekday = 'Thứ bảy';
+            break;
+        default:
+            $weekday = 'Chủ nhật';
+            break;
+    }
+    return $weekday;
+}
