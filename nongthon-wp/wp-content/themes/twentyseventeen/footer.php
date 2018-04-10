@@ -46,8 +46,8 @@
 <script type="text/javascript" src="<?=get_template_directory_uri()?>/assets/js/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="<?=get_template_directory_uri()?>/assets/js/mudim.js.download"></script>
 <script type="text/javascript" src="<?=get_template_directory_uri()?>/assets/js/contentslider.js.download"></script>
-<script type="text/javascript" src="<?=get_template_directory_uri()?>/assets/js/jquery.ui.core.min.js.download"></script>
-<script type="text/javascript" src="<?=get_template_directory_uri()?>/assets/js/jquery.ui.tabs.min.js.download"></script>
+<script type="text/javascript" src="<?=get_template_directory_uri()?>/assets/js/jquery-ui.js"></script>
+<script type="text/javascript" src='https://www.google.com/recaptcha/api.js?hl=vn'></script>
 <script type="text/javascript">
     //<![CDATA[
     // $(document).ready(function(){var b=["http://i.baohatinh.vn/news/1814/77d5124827t5546l3.jpg","http://i.baohatinh.vn/news/1814/102d5083841t5847l7.jpg","http://kinhtenongthon.vn/media/news/d00cceb10ae0b472a7027f5acc679538/dsc_0713.jpg","http://file.congluan.vn/data/images/0/2018/04/04/khachien/1.jpg?w=500","http://i.baohatinh.vn/news/1814/102d4054956t2446l0.jpg","http://www.tapchicongsan.org.vn/Uploads/huunguyen/Thach-Thang-3-4.jpg"];$.imgpreload(b,function(){for(var c=b.length,a=0;a<c;a++)$("#slImg"+a).attr("src",b[a]);featuredcontentslider.init({id:"slider1",contentsource:["inline",""],toc:"#increment",nextprev:["&nbsp;","&nbsp;"],revealtype:"click",enablefade:[true,0.2],autorotate:[true,3E3],onChange:function(){}});$("#tabs").tabs({ajaxOptions:{error:function(e,f,g,d){$(d.hash).html("Couldnt load this tab.")}}});$("#topnews").show()})});
@@ -80,6 +80,9 @@
 			pager: false,
 			wrapperClass: 'bx-wrapper p_album_wrapper',
 		});
+		// $( function() {
+		//     $( "#send_mail_popup" ).dialog();
+	 //  	} );
     })
     //]]>
 </script>

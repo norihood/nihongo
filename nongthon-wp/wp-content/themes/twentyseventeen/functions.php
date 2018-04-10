@@ -605,6 +605,7 @@ function add_css_file() {
 	wp_enqueue_style ('shadowbox', get_template_directory_uri().'/assets/css/shadowbox.css');
 	wp_enqueue_style ('nav_menu', get_template_directory_uri().'/assets/css/nav_menu.css');
 	wp_enqueue_style ('ddsmoothmenu', get_template_directory_uri().'/assets/css/ddsmoothmenu.css');
+	wp_enqueue_style ('jquery-ui', get_template_directory_uri().'/assets/css/jquery-ui.css');
 
 }
 add_action( 'wp_head', 'add_css_file' );

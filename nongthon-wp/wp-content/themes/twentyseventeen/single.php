@@ -60,7 +60,7 @@ get_header();
                 <div class="control">
                     <ul>
                         <li>
-                            <a rel="nofollow" class="sendmail" title="Gửi bài viết qua email" href="javascript:void(0);" onclick="NewWindow(&#39;/index.php/vi/news/sendmail/Nhieu-nguoi-cung-quan-tam/Go-kho-nhung-van-de-nong-tai-phien-doi-thoai-Thu-tuong-va-nong-dan-77444/&#39;,&#39;&#39;,&#39;500&#39;,&#39;400&#39;,&#39;no&#39;);return false"></a>
+                            <a rel="nofollow" class="sendmail" title="Gửi bài viết qua email" href="javascript:void(0);"></a>
                         </li>
                         <li>
                             <a class="print" title="In ra" href="javascript: void(0)" onclick="NewWindow(&#39;/index.php/vi/news/print/Nhieu-nguoi-cung-quan-tam/Go-kho-nhung-van-de-nong-tai-phien-doi-thoai-Thu-tuong-va-nong-dan-77444/&#39;,&#39;&#39;,&#39;840&#39;,&#39;768&#39;,&#39;yes&#39;);return false"></a>
@@ -111,52 +111,52 @@ get_header();
             <script type="text/javascript">
                 nv_show_hidden('formcomment',2);
             </script>
-            <div class="clear"></div>
-            <p>
-                <strong>Những tin cũ hơn</strong>
-            </p>
-            <ul class="related">
-                <li>
-                    <a title="Bộ trưởng Y tế: Sẽ tăng viện phí trong năm 2018" href="http://nongthonmoihatinh.vn/index.php/vi/news/Nhieu-nguoi-cung-quan-tam/Bo-truong-Y-te-Se-tang-vien-phi-trong-nam-2018-77437/">Bộ trưởng Y tế: Sẽ tăng viện phí trong năm 2018</a>
-                    <span class="date">(10/04/2018)</span>
-                </li>
-                <li>
-                    <a title="Ngày 10/4 bắt đầu phiên họp thứ 23 của Ủy ban Thường vụ Quốc hội" href="http://nongthonmoihatinh.vn/index.php/vi/news/Nhieu-nguoi-cung-quan-tam/Ngay-10-4-bat-dau-phien-hop-thu-23-cua-Uy-ban-Thuong-vu-Quoc-hoi-77436/">Ngày 10/4 bắt đầu phiên họp thứ 23 của Ủy ban Thường vụ Quốc hội</a>
-                    <span class="date">(10/04/2018)</span>
-                </li>
-                <li>
-                    <a title="6 loại phân bón hữu cơ có sẵn tại nhà để trồng rau sạch" href="http://nongthonmoihatinh.vn/index.php/vi/news/Nhieu-nguoi-cung-quan-tam/6-loai-phan-bon-huu-co-co-san-tai-nha-de-trong-rau-sach-77435/">6 loại phân bón hữu cơ có sẵn tại nhà để trồng rau sạch</a>
-                    <span class="date">(10/04/2018)</span>
-                </li>
-                <li>
-                    <a title="Xã Diễn Quảng (Diễn Châu) đón Bằng công nhận chuẩn nông thôn mới" href="http://nongthonmoihatinh.vn/index.php/vi/news/Nhieu-nguoi-cung-quan-tam/Xa-Dien-Quang-Dien-Chau-don-Bang-cong-nhan-chuan-nong-thon-moi-77434/">Xã Diễn Quảng (Diễn Châu) đón Bằng công nhận chuẩn nông thôn mới</a>
-                    <span class="date">(10/04/2018)</span>
-                </li>
-                <li>
-                    <a title="Giá heo (lợn) hơi hôm nay 10/4: Nhiều nơi giá heo tăng liên tục" href="http://nongthonmoihatinh.vn/index.php/vi/news/Nhieu-nguoi-cung-quan-tam/Gia-heo-lon-hoi-hom-nay-10-4-Nhieu-noi-gia-heo-tang-lien-tuc-77433/">Giá heo (lợn) hơi hôm nay 10/4: Nhiều nơi giá heo tăng liên tục</a>
-                    <span class="date">(10/04/2018)</span>
-                </li>
-                <li>
-                    <a title="Phát động cuộc thi “Tìm hiểu 50 năm Chiến thắng Đồng Lộc”" href="http://nongthonmoihatinh.vn/index.php/vi/news/Nhieu-nguoi-cung-quan-tam/Phat-dong-cuoc-thi-Tim-hieu-50-nam-Chien-thang-Dong-Loc-77405/">Phát động cuộc thi “Tìm hiểu 50 năm Chiến thắng Đồng Lộc”</a>
-                    <span class="date">(09/04/2018)</span>
-                </li>
-                <li>
-                    <a title="Vườn mẫu cho thu nhập gần 600 triệu đồng" href="http://nongthonmoihatinh.vn/index.php/vi/news/Nhieu-nguoi-cung-quan-tam/Vuon-mau-cho-thu-nhap-gan-600-trieu-dong-77404/">Vườn mẫu cho thu nhập gần 600 triệu đồng</a>
-                    <span class="date">(09/04/2018)</span>
-                </li>
-                <li>
-                    <a title="Tập trung tuyên truyền xây dựng NTM đi vào chiều sâu, bền vững" href="http://nongthonmoihatinh.vn/index.php/vi/news/Nhieu-nguoi-cung-quan-tam/Tap-trung-tuyen-truyen-xay-dung-NTM-di-vao-chieu-sau-ben-vung-77403/">Tập trung tuyên truyền xây dựng NTM đi vào chiều sâu, bền vững</a>
-                    <span class="date">(09/04/2018)</span>
-                </li>
-                <li>
-                    <a title="Thêm nhiều giếng nhiễm dầu, cuộc sống người dân Hương Trạch bị đảo lộn" href="http://nongthonmoihatinh.vn/index.php/vi/news/Nhieu-nguoi-cung-quan-tam/Them-nhieu-gieng-nhiem-dau-cuoc-song-nguoi-dan-Huong-Trach-bi-dao-lon-77402/">Thêm nhiều giếng nhiễm dầu, cuộc sống người dân Hương Trạch bị đảo lộn</a>
-                    <span class="date">(09/04/2018)</span>
-                </li>
-                <li>
-                    <a title="Chuyên gia Nhật hiến kế để nông dân tăng thu nhập" href="http://nongthonmoihatinh.vn/index.php/vi/news/Nhieu-nguoi-cung-quan-tam/Chuyen-gia-Nhat-hien-ke-de-nong-dan-tang-thu-nhap-77394/">Chuyên gia Nhật hiến kế để nông dân tăng thu nhập</a>
-                    <span class="date">(09/04/2018)</span>
-                </li>
-            </ul>
+            <?php
+            function list_post_related($arr_posts) {
+            	$str_list = '';
+            	if ($arr_posts) {
+	            	foreach( $arr_posts as $post ) {
+			        $str_list .= '<li>
+				        	<a href="' . get_permalink($post->ID) . '" rel="bookmark" title="' . $post->post_title . '">' . $post->post_title . '</a>
+				            <span class="date">(' . date('d/m/Y', strtotime($post->post_date)) . ')</span>
+			        	</li>';
+			        }
+	            }
+	            return $str_list;
+	        }
+	        $related_newer = get_posts( array( 
+            	'category__in' => wp_get_post_categories(get_the_ID()),
+            	'numberposts' => 10,
+            	'post__not_in' => array($post->ID),
+            	'date_query' => array(
+			        'after' => date('Y-m-d H:i:s', get_post_time()) 
+			    )
+        	));
+			if( $related_newer ) {
+				echo '<p class="related_post">
+	                <strong>Những tin mới hơn</strong>
+	            </p>
+				<ul class="related">';
+				echo list_post_related($related_newer);
+				echo '</ul>';
+			}
+            $related_older = get_posts( array( 
+            	'category__in' => wp_get_post_categories(get_the_ID()),
+            	'numberposts' => 10,
+            	'post__not_in' => array($post->ID),
+            	'date_query' => array(
+			        'before' => date('Y-m-d H:i:s', get_post_time()) 
+			    )
+        	));
+			if( $related_older ) {
+				echo '<p class="related_post">
+	                <strong>Những tin cũ hơn</strong>
+	            </p>
+				<ul class="related">';
+				echo list_post_related($related_older);
+				echo '</ul>';
+			}
+            ?>
         </div>
         &nbsp;
         
@@ -164,6 +164,132 @@ get_header();
     endwhile; // End of the loop.
     ?>
 </div>
+<!-- right sidebar -->
+<?php get_template_part('template-parts/sidebar/sidebar', 'right'); ?>
+<style>
+    label, input { display:block; }
+    input.text, textarea { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+  </style>
+<div id="dialog-send-mail" title="Gửi bài viết qua email">
+	<p class="validateTips"></p>
+<script type="text/javascript">
+var response_captcha;
+	function recaptchaCallback() {
+		response_captcha = grecaptcha.getResponse();
+		alert(response_captcha);
+	};
+</script>
+	<form>
+		<fieldset>
+			<label for="name">Tên của bạn <span>*</span></label>
+			<input type="text" name="name" id="name" value="" class="text ui-widget-content ui-corner-all">
+			<label for="email">E-mail người nhận <span>*</span></label>
+			<input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all">
+			<label for="content-mail">Nội dung</label>
+			<textarea name="content_mail" rows="4" id="content-mail" class="text ui-widget-content ui-corner-all"></textarea>
+			<br>
+			<div class="g-recaptcha" data-sitekey="6LffzkkUAAAAAOSB3XMwNGhMieqhNGP7uNv0MhAF" data-callback="recaptchaCallback"></div>
+			<!-- Allow form submission with keyboard without duplicating the dialog button -->
+			<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+		</fieldset>
+	</form>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var dialog, form,
+ 
+		// From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
+		emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+		name = $( "#name" ),
+		email = $( "#email" ),
+		allFields = $( [] ).add( name ).add( email ),
+		tips = $( ".validateTips" );
 
+		function updateTips( t ) {
+			tips
+			.append( '<p>' + t + '</p>' )
+			.addClass( "ui-state-highlight" );
+			setTimeout(function() {
+				tips.removeClass( "ui-state-highlight", 1500 );
+			}, 500 );
+		}
+
+		function resetTips() {
+			tips.html('');
+		}
+
+		function checkLength( o, n, min, max ) {
+			if ( o.val().length > max || o.val().length < min ) {
+				o.addClass( "ui-state-error" );
+				updateTips( "Length of " + n + " must be between " +
+					min + " and " + max + "." );
+				return false;
+			} else {
+				return true;
+			}
+		}
+
+		function checkRegexp( o, regexp, n ) {
+			if ( !( regexp.test( o.val() ) ) ) {
+				o.addClass( "ui-state-error" );
+				updateTips( n );
+				return false;
+			} else {
+				return true;
+			}
+		}
+
+		function addUser() {
+			grecaptcha.reset();
+			resetTips();
+			allFields.removeClass( "ui-state-error" );
+			
+			var length_name = checkLength( name, "Tên", 3, 16 ),
+				format_email = checkRegexp( email, emailRegex, "Email không đúng định dạng." );
+			
+			if ( length_name && format_email ) {
+				if (response_captcha == ''){
+                  	alert('error');
+                  	return false;
+                } else {
+                	alert('OK');
+                }
+                return true;
+				dialog.dialog( "close" );
+			}
+			return false;
+		}
+		dialog = $( "#dialog-send-mail" ).dialog({
+			autoOpen: false,
+			height: 400,
+			width: 350,
+			modal: true,
+			buttons: {
+				"Gửi": addUser
+			},
+			close: function() {
+				form[ 0 ].reset();
+				grecaptcha.reset();
+				resetTips();
+				allFields.removeClass( "ui-state-error" );
+			}
+	    });
+		form = dialog.find( "form" ).on( "submit", function( event ) {
+	      	event.preventDefault();
+	      	addUser();
+	    });
+	 
+	    $( ".sendmail" ).on( "click", function() {
+	      	dialog.dialog( "open" );
+	    });
+	})
+</script>
 <?php
 get_footer();
+?>

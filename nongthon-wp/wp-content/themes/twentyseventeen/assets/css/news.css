@@ -38,7 +38,6 @@ div.two_column {
 }
 
 div.news_column {
-    border-bottom: 2px solid #e8e8e8;
     margin-bottom: 10px;
 }
 
@@ -148,7 +147,6 @@ div.news_column div.items p {
 div.news_column ul.related {
     padding: 4px;
     text-align: justify;
-    float: left;
 }
 
 div.news_column ul.fixedwidth {
@@ -177,6 +175,10 @@ div.news_column ul.related a {
 
 div.news_column ul.related a:hover {
     color: #333;
+}
+
+p.related_post {
+    border-bottom: 2px solid #e8e8e8;
 }
 
 /*Detail*/
