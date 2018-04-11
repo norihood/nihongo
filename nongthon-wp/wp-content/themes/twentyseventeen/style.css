@@ -450,3 +450,45 @@ template {
     font-size: 14px;
     border-radius: 5px;
 }
+.error {
+    color: #ff0000 !important;
+}
+/*Loading*/
+#modal_loader {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+    opacity: 1;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+    background-color: rgba(0,0,0,0.4);
+}
+#loader {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 30px;
+    height: 30px;
+    -webkit-animation: spin 2s linear infinite; /*safari*/
+    animation: spin 2s linear infinite;
+    position: fixed;
+    top: 37%;
+    left: 47%;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.ui-dialog { z-index: 1001 !important ;}

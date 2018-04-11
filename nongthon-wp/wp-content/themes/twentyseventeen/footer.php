@@ -50,8 +50,8 @@
 <script type="text/javascript" src='https://www.google.com/recaptcha/api.js?hl=vn'></script>
 <script type="text/javascript">
     //<![CDATA[
-    // $(document).ready(function(){var b=["http://i.baohatinh.vn/news/1814/77d5124827t5546l3.jpg","http://i.baohatinh.vn/news/1814/102d5083841t5847l7.jpg","http://kinhtenongthon.vn/media/news/d00cceb10ae0b472a7027f5acc679538/dsc_0713.jpg","http://file.congluan.vn/data/images/0/2018/04/04/khachien/1.jpg?w=500","http://i.baohatinh.vn/news/1814/102d4054956t2446l0.jpg","http://www.tapchicongsan.org.vn/Uploads/huunguyen/Thach-Thang-3-4.jpg"];$.imgpreload(b,function(){for(var c=b.length,a=0;a<c;a++)$("#slImg"+a).attr("src",b[a]);featuredcontentslider.init({id:"slider1",contentsource:["inline",""],toc:"#increment",nextprev:["&nbsp;","&nbsp;"],revealtype:"click",enablefade:[true,0.2],autorotate:[true,3E3],onChange:function(){}});$("#tabs").tabs({ajaxOptions:{error:function(e,f,g,d){$(d.hash).html("Couldnt load this tab.")}}});$("#topnews").show()})});
     $(document).ready(function() {
+        p_loader(false);
     	var bx_slider = $('.bxslider').bxSlider({
 		    mode: 'fade',
 		    captions: true,
@@ -89,5 +89,8 @@
 <link rel="stylesheet" type="text/css" href="<?=get_template_directory_uri()?>/assets/css/contentslider.css">
 <?php wp_footer(); ?>
 <div class="clear"></div>
+<div id="modal_loader">
+    <div id="loader"></div>
+</div>
 </body>
 </html>

@@ -382,3 +382,11 @@ function NewWindow(a, b, c, e, d) {
     window.open(a, b, settings)
 }
 nv_check_timezone();
+
+function p_loader (show) {
+    if (show) {
+        $('#modal_loader').show();
+    } else {
+        $('#modal_loader').hide();
+    }
+}

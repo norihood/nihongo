@@ -857,3 +857,26 @@ function get_thu($weekday) {
     }
     return $weekday;
 }
+
+// send mail
+function send_post_to_mail() {
+    $postID = (isset($_POST['post_id'])) ? esc_attr($_POST['post_id']) : '';
+    $name = (isset($_POST['name'])) ? esc_attr($_POST['name']) : '';
+    $email = (isset($_POST['email'])) ? esc_attr($_POST['email']) : '';
+    $message = (isset($_POST['content_mail'])) ? esc_attr($_POST['content_mail']) : '';
+
+    $title = get_post_field('post_title', $postID);
+    $content = get_post_field('post_content', $postID);
+
+    $to = $email;
+    $subject = 'Nông thôn Hà Tĩnh - Tin tức';
+    $body = $message . '<hr><strong>' . $title . '</strong><br>' . $content;
+    $headers = array('Content-Type: text/html; charset=UTF-8', 'Reply-To: no-reply <no-reply@testmail.com>');
+
+    wp_mail( $to, $subject, $body, $headers );
+
+    wp_send_json_success('true');
+	die();
+}
+add_action( 'wp_ajax_send_post_to_mail', 'send_post_to_mail' );
+add_action( 'wp_ajax_nopriv_send_post_to_mail', 'send_post_to_mail' );

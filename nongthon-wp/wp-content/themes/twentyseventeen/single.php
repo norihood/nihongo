@@ -63,7 +63,7 @@ get_header();
                             <a rel="nofollow" class="sendmail" title="Gửi bài viết qua email" href="javascript:void(0);"></a>
                         </li>
                         <li>
-                            <a class="print" title="In ra" href="javascript: void(0)" onclick="NewWindow(&#39;/index.php/vi/news/print/Nhieu-nguoi-cung-quan-tam/Go-kho-nhung-van-de-nong-tai-phien-doi-thoai-Thu-tuong-va-nong-dan-77444/&#39;,&#39;&#39;,&#39;840&#39;,&#39;768&#39;,&#39;yes&#39;);return false"></a>
+                            <a class="print post_print" title="In ra" href="javascript: void(0)"></a>
                         </li>
                         <li>
                             <a class="savefile" title="Lưu bài viết này" href="http://nongthonmoihatinh.vn/index.php/vi/news/savefile/Nhieu-nguoi-cung-quan-tam/Go-kho-nhung-van-de-nong-tai-phien-doi-thoai-Thu-tuong-va-nong-dan-77444/"></a>
@@ -166,130 +166,10 @@ get_header();
 </div>
 <!-- right sidebar -->
 <?php get_template_part('template-parts/sidebar/sidebar', 'right'); ?>
-<style>
-    label, input { display:block; }
-    input.text, textarea { margin-bottom:12px; width:95%; padding: .4em; }
-    fieldset { padding:0; border:0; margin-top:25px; }
-    h1 { font-size: 1.2em; margin: .6em 0; }
-    div#users-contain { width: 350px; margin: 20px 0; }
-    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
-    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
-    .validateTips { border: 1px solid transparent; padding: 0.3em; }
-  </style>
-<div id="dialog-send-mail" title="Gửi bài viết qua email">
-	<p class="validateTips"></p>
-<script type="text/javascript">
-var response_captcha;
-	function recaptchaCallback() {
-		response_captcha = grecaptcha.getResponse();
-		alert(response_captcha);
-	};
-</script>
-	<form>
-		<fieldset>
-			<label for="name">Tên của bạn <span>*</span></label>
-			<input type="text" name="name" id="name" value="" class="text ui-widget-content ui-corner-all">
-			<label for="email">E-mail người nhận <span>*</span></label>
-			<input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all">
-			<label for="content-mail">Nội dung</label>
-			<textarea name="content_mail" rows="4" id="content-mail" class="text ui-widget-content ui-corner-all"></textarea>
-			<br>
-			<div class="g-recaptcha" data-sitekey="6LffzkkUAAAAAOSB3XMwNGhMieqhNGP7uNv0MhAF" data-callback="recaptchaCallback"></div>
-			<!-- Allow form submission with keyboard without duplicating the dialog button -->
-			<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-		</fieldset>
-	</form>
-</div>
-<script type="text/javascript">
-	$(document).ready(function() {
-		var dialog, form,
- 
-		// From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
-		emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-		name = $( "#name" ),
-		email = $( "#email" ),
-		allFields = $( [] ).add( name ).add( email ),
-		tips = $( ".validateTips" );
-
-		function updateTips( t ) {
-			tips
-			.append( '<p>' + t + '</p>' )
-			.addClass( "ui-state-highlight" );
-			setTimeout(function() {
-				tips.removeClass( "ui-state-highlight", 1500 );
-			}, 500 );
-		}
-
-		function resetTips() {
-			tips.html('');
-		}
-
-		function checkLength( o, n, min, max ) {
-			if ( o.val().length > max || o.val().length < min ) {
-				o.addClass( "ui-state-error" );
-				updateTips( "Length of " + n + " must be between " +
-					min + " and " + max + "." );
-				return false;
-			} else {
-				return true;
-			}
-		}
-
-		function checkRegexp( o, regexp, n ) {
-			if ( !( regexp.test( o.val() ) ) ) {
-				o.addClass( "ui-state-error" );
-				updateTips( n );
-				return false;
-			} else {
-				return true;
-			}
-		}
-
-		function addUser() {
-			grecaptcha.reset();
-			resetTips();
-			allFields.removeClass( "ui-state-error" );
-			
-			var length_name = checkLength( name, "Tên", 3, 16 ),
-				format_email = checkRegexp( email, emailRegex, "Email không đúng định dạng." );
-			
-			if ( length_name && format_email ) {
-				if (response_captcha == ''){
-                  	alert('error');
-                  	return false;
-                } else {
-                	alert('OK');
-                }
-                return true;
-				dialog.dialog( "close" );
-			}
-			return false;
-		}
-		dialog = $( "#dialog-send-mail" ).dialog({
-			autoOpen: false,
-			height: 400,
-			width: 350,
-			modal: true,
-			buttons: {
-				"Gửi": addUser
-			},
-			close: function() {
-				form[ 0 ].reset();
-				grecaptcha.reset();
-				resetTips();
-				allFields.removeClass( "ui-state-error" );
-			}
-	    });
-		form = dialog.find( "form" ).on( "submit", function( event ) {
-	      	event.preventDefault();
-	      	addUser();
-	    });
-	 
-	    $( ".sendmail" ).on( "click", function() {
-	      	dialog.dialog( "open" );
-	    });
-	})
-</script>
+<!-- popup send mail -->
+<?php get_template_part('template-parts/post/content', 'sendmail'); ?>
+<!-- popup print -->
+<?php get_template_part('template-parts/post/content', 'print'); ?>
 <?php
 get_footer();
 ?>
