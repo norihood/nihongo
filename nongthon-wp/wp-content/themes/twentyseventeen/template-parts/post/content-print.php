@@ -140,7 +140,7 @@
                 {
                     text: "In ra",
                     click: function() {
-                        alert('IN');
+                        window.print();
                     }
                 }
             ],
@@ -150,7 +150,13 @@
         });
 
         $(".post_print").on("click", function () {
-            dialog_print.dialog("open");
+            window.open('<?=get_permalink( get_page_by_path( 'print' ) )?>?id=<?=get_the_ID()?>', 'thePopup', 'width=350,height=350');
+            // var w = window.open();
+            // w.document.write('<html><head><title>Copy Printed</title></head><body><h1>Copy Printed</h1><hr />ssssssss</body></html>');
+            // // w.window.print();
+            // w.document.close();
+            // return false;
+            // dialog_print.dialog("open");
         });
     })
 </script>

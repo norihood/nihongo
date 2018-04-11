@@ -63,10 +63,10 @@ get_header();
                             <a rel="nofollow" class="sendmail" title="Gửi bài viết qua email" href="javascript:void(0);"></a>
                         </li>
                         <li>
-                            <a class="print post_print" title="In ra" href="javascript: void(0)"></a>
+                            <a class="print" title="In ra" href="javascript: void(0)" onclick="NewWindow('<?=get_permalink( get_page_by_path( 'print' ) )?>?id=<?=get_the_ID()?>','','840','768','yes');return false"></a>
                         </li>
                         <li>
-                            <a class="savefile" title="Lưu bài viết này" href="http://nongthonmoihatinh.vn/index.php/vi/news/savefile/Nhieu-nguoi-cung-quan-tam/Go-kho-nhung-van-de-nong-tai-phien-doi-thoai-Thu-tuong-va-nong-dan-77444/"></a>
+                            <a class="savefile" title="Lưu bài viết này" href="<?=get_permalink( get_page_by_path( 'savefile' ) )?>?id=<?=get_the_ID()?>"></a>
                         </li>
                     </ul>
                 </div>
@@ -168,8 +168,6 @@ get_header();
 <?php get_template_part('template-parts/sidebar/sidebar', 'right'); ?>
 <!-- popup send mail -->
 <?php get_template_part('template-parts/post/content', 'sendmail'); ?>
-<!-- popup print -->
-<?php get_template_part('template-parts/post/content', 'print'); ?>
 <?php
 get_footer();
 ?>

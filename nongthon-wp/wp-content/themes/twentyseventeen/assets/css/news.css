@@ -702,3 +702,65 @@ ul.tieu-diem li:nth-child(odd) a {
 ul.tieu-diem li:nth-child(even) a {
     color: #ff0000;
 }
+
+.p_list_topnews{
+position:relative;
+border:1px solid #cccccc;
+margin-top:5px;
+margin-right:2px;
+}
+
+.p_list_topnews .p_list_topnews-nav{
+margin:0;
+width:100%
+}
+
+.p_list_topnews .p_list_topnews-nav li{
+border-bottom:0 !important;
+display:inline;
+height:23px;
+padding:0;
+position:relative;
+white-space:nowrap
+}
+.p_list_topnews .p_list_topnews-nav li a{
+color:#0000CC;
+float:left;
+font-weight:bold;
+margin-top:6px;
+padding:0 4px
+}
+
+.p_list_topnews .p_list_topnews-nav li.p_list_topnews-selected{
+margin-bottom:0
+}
+
+.p_list_topnews .p_list_topnews-nav li.p_list_topnews-selected a{
+background:url(../images/titile_tin_khac.jpg) no-repeat bottom center;
+color:#fff;
+margin-top:5px;
+display:block;
+float:left;
+height:25px;
+width:180px;
+margin-right:0px;
+margin-left:-4px;
+margin-top:-2px;
+}
+
+.p_list_topnews .p_list_topnews-nav li.p_list_topnews-selected a span{
+/*background:#fff url(../images/tabs_l.png) no-repeat top left;*/
+float:left;
+font-size:13px;
+margin-left:20px;
+margin-top:1px;
+height:20px;
+padding:0 0 0 4px
+}
+
+.p_list_topnews .p_list_topnews-nav li.p_list_topnews-selected a span span{
+/*background:url(../images/tabs_r.png) no-repeat top right;*/
+padding:0 4px 0 0
+}
+
+.p_list_topnews .p_list_topnews-nav li.p_list_topnews-selected a,.p_list_topnews .p_list_topnews-nav li.ui-state-disabled a,.p_list_topnews .p_list_topnews-nav li.ui-state-processing a{cursor:text}.p_list_topnews .p_list_topnews-nav li a,.p_list_topnews.p_list_topnews-collapsible .p_list_topnews-nav li.p_list_topnews-selected a{cursor:pointer}.p_list_topnews .p_list_topnews-panel{border-width:0;display:block}.p_list_topnews .p_list_topnews-hide{display:none !important}

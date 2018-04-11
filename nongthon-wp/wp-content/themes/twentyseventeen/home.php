@@ -20,7 +20,6 @@
 
 ?>
 <div class="span-13 contentcolumn">
-<link type="text/css" rel="stylesheet" href="<?=get_template_directory_uri()?>/assets/css/jquery.ui.tabs.css" media="all">
     <div id="topnews" style="">
     	<?php
     	// get post top_new
@@ -71,15 +70,15 @@
 					<a href="" class="next-slider">&nbsp;</a>
 				</div>
             </div>
-            <div id="tabs" class="fr tabs ui-tabs ui-widget ui-widget-content ui-corner-all" style="width:180px;">
-                <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
-                    <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active">
-                        <a href="#"><span><span>Tin mới nhất</span></span></a>
+            <div id="tabs" class="fr tabs p_list_topnews" style="width:180px;">
+                <ul class="p_list_topnews-nav">
+                    <li class="p_list_topnews-selected">
+                        <a href="javascript:void(0);"><span><span>Tin mới nhất</span></span></a>
                     </li>
                 </ul>
                 <div class="clear">
                 </div>
-                <div id="tabs-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+                <div id="tabs-1" class="p_list_topnews-panel ui-widget-content ui-corner-bottom">
                     <ul class="lastest-news">
                     	<?=$top_title?>
                     </ul>
