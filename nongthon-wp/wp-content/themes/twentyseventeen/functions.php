@@ -598,6 +598,7 @@ function add_css_file() {
 	wp_enqueue_style ('template', get_template_directory_uri().'/assets/css/template.css');
 	wp_enqueue_style ('icons', get_template_directory_uri().'/assets/css/icons.css');
 	wp_enqueue_style ('video', get_template_directory_uri().'/assets/css/video.css');
+	wp_enqueue_style ('laws', get_template_directory_uri().'/assets/css/laws.css');
 	wp_enqueue_style ('news', get_template_directory_uri().'/assets/css/news.css');
 	wp_enqueue_style ('real', get_template_directory_uri().'/assets/css/real.css');
 	wp_enqueue_style ('tab_info', get_template_directory_uri().'/assets/css/tab_info.css');
@@ -643,6 +644,7 @@ add_filter('show_admin_bar', '__return_false');
 
 // Constant
 define('CATEGORY_NEWS_ID', 11);
+define('VAN_BAN_PAGE_SLUG', 'van-ban-nong-thon-moi');
 
 function text_limit($str, $limit = 10) {
 	if (stripos($str, " ")) {

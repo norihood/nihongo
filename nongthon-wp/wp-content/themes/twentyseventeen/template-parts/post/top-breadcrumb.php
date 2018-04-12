@@ -5,6 +5,9 @@
 */
 $arr_breadcrumb = array();
 $category_current     = get_queried_object();
+echo '<pre>';
+print_r($category_current);
+die();
 if ($category_current) {
     $arr_breadcrumb[] = array(
         'name' => $category_current->name,
