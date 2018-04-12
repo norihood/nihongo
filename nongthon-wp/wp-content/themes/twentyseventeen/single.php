@@ -32,7 +32,7 @@ get_header();
                         'name' => $parent_obj->name,
                         'url'  => get_category_link($parent_obj->term_id)
                     );
-                    $parent           = $parent_obj->parent;
+                    $parent = $parent_obj->parent;
                 }
                 else {
                     break;
