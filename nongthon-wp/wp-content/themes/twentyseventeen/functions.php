@@ -642,10 +642,11 @@ function clean_custom_menus() {
 
 add_filter('show_admin_bar', '__return_false');
 
-// Constant
+/* ======= Constant ======= */
 define('CATEGORY_NEWS_ID', 11);
 define('VAN_BAN_PAGE_SLUG', 'van-ban-nong-thon-moi');
-
+define('VAN_BAN_POST_TYPE', 'laws');
+/* ======= Constant ======= */
 function text_limit($str, $limit = 10) {
 	if (stripos($str, " ")) {
 		$ex_str = explode(" ", $str);
@@ -701,7 +702,7 @@ function tao_taxonomy() {
        );
 
        /* Hàm register_taxonomy để khởi tạo taxonomy */
-       register_taxonomy($key, 'van-ban', $args);
+       register_taxonomy($key, VAN_BAN_POST_TYPE, $args);
     }
     
  
@@ -729,12 +730,12 @@ function tao_custom_post_type()
         'description' => 'Post type quản lý file', //Mô tả của post type
         'supports' => array(
             'title',
-            'editor',
+//            'editor',
             'excerpt',
             'author',
             'thumbnail',
-            'comments',
-            'trackbacks',
+//            'comments',
+//            'trackbacks',
             'revisions',
             'custom-fields'
         ), //Các tính năng được hỗ trợ trong post type
@@ -754,7 +755,7 @@ function tao_custom_post_type()
         'capability_type' => 'post'
     );
  
-    register_post_type('van-ban', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
+    register_post_type(VAN_BAN_POST_TYPE, $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
  
 }
 /* Kích hoạt hàm tạo custom post type */
@@ -775,6 +776,15 @@ add_action('init', 'tao_custom_post_type');
 //    return $post_link;
 //}
 //add_filter('post_type_link', 'cj_update_permalink_structure', 10, 2);
+
+function wpfstop_change_default_title( $title ){
+    $screen = get_current_screen();
+    if ( VAN_BAN_POST_TYPE == $screen->post_type ){
+        $title = 'Nhập Tên / Số / ký hiệu';
+    }
+    return $title;
+}
+add_filter( 'enter_title_here', 'wpfstop_change_default_title' );
 
 // post view
 function getPostViews($postID){
@@ -951,4 +961,20 @@ function page_nav() {
 
     echo '</ul>
         </div>' . "\n";
+}
+
+function get_post_types_by_taxonomy( $tax = 'category' ) {
+    global $wp_taxonomies;
+    return ( isset( $wp_taxonomies[$tax] ) ) ? $wp_taxonomies[$tax]->object_type : array();
+}
+
+function title_filter($where, &$wp_query){
+    global $wpdb;
+    if($search_term = $wp_query->get( 'title_filter' )){
+        $search_term = $wpdb->esc_like($search_term); //instead of esc_sql()
+        $search_term = ' \'%' . $search_term . '%\'';
+//        $title_filter_relation = (strtoupper($wp_query->get( 'title_filter_relation'))=='OR' ? 'OR' : 'AND');
+        $where .= ' AND ' . $wpdb->posts . '.post_title LIKE '.$search_term;
+    }
+    return $where;
 }

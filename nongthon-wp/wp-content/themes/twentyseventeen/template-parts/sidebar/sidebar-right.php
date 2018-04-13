@@ -2,12 +2,12 @@
     <?php if ($page_laws == true) { ?>
     <?php
     $args=array(
-      'object_type' => array('van-ban') 
+      'object_type' => array(VAN_BAN_POST_TYPE) 
     ); 
 
     $output = 'objects'; // or objects
     $operator = 'and'; // 'and' or 'or'
-    $taxonomies=get_taxonomies($args,$output,$operator); 
+    $taxonomies=get_taxonomies($args,$output,$operator);
     // if  ($taxonomies) {
     //     echo '<pre>';
     //     print_r($taxonomies);
@@ -87,97 +87,6 @@
                 }
             }
             ?>
-            <!-- <div headerindex="1h" class="silverheader"><a href="#">Loại văn bản / tài liệu</a></div>
-            <div contentindex="1c" class="submenu clearfix" style="display: none;">
-
-
-                <div class="divscroll">
-
-
-                    <ul id="browser_cat" class="filetree treeview">
-                        <li><span class="folder"><a title="Công Văn" href="/index.php/vi/laws/cat-1-Cong-Van/"> Công Văn </a></span></li>
-
-                        <li><span class="folder"><a title="Quyết định" href="/index.php/vi/laws/cat-2-/"> Quyết định </a></span></li>
-
-                        <li><span class="folder"><a title="Thông tư" href="/index.php/vi/laws/cat-3-/"> Thông tư </a></span></li>
-
-                        <li><span class="folder"><a title="Chỉ thị" href="/index.php/vi/laws/cat-4-/"> Chỉ thị </a></span></li>
-
-                        <li><span class="folder"><a title="Thông báo" href="/index.php/vi/laws/cat-5-/"> Thông báo </a></span></li>
-
-                        <li><span class="folder"><a title="Công điện" href="/index.php/vi/laws/cat-6-/"> Công điện </a></span></li>
-
-                        <li><span class="folder"><a title="Giấy mời" href="/index.php/vi/laws/cat-7-/"> Giấy mời </a></span></li>
-
-                        <li><span class="folder"><a title="Nghị Định" href="/index.php/vi/laws/cat-8-/"> Nghị Định </a></span></li>
-
-                        <li><span class="folder"><a title="Hướng dẫn" href="/index.php/vi/laws/cat-9-/"> Hướng dẫn </a></span></li>
-
-                        <li><span class="folder"><a title="Liên ngành" href="/index.php/vi/laws/cat-10-Lien-nganh/"> Liên ngành </a></span></li>
-
-                        <li class="last"><span class="folder"><a title="Nghị quyết" href="/index.php/vi/laws/cat-11-Nghi-quyet/"> Nghị quyết </a></span></li>
-
-                    </ul>   
-                </div>
-                <script type="text/javascript">
-                    $("#browser_cat").treeview({
-                        persist: "cookie",
-                        collapsed: true,
-                        animated:"normal",
-                        unique: true
-                    });
-                </script>   
-            </div> -->
-
-            <!-- <div headerindex="2h" class="silverheader"><a href="#">Đơn vị / phòng ban</a></div>
-            <div style="display: none;" contentindex="2c" class="submenu clearfix">
-
-                <div class="divscroll">
-                    <ul id="browser_room" class="filetree treeview">
-                        <li><span class="folder"><a title="Nông nghiệp-Nông thôn mới" href="/index.php/vi/laws/room-1-Nong-nghiep-Nong-thon-moi/"> Nông nghiệp-Nông thôn mới </a></span></li>
-
-                        <li><span class="folder"><a title="Nông thôn mới" href="/index.php/vi/laws/room-2-/"> Nông thôn mới </a></span></li>
-
-                        <li><span class="folder"><a title="Điều phối - Nghiệp vụ" href="/index.php/vi/laws/room-3-Dieu-phoi-Nghiep-vu/"> Điều phối - Nghiệp vụ </a></span></li>
-
-                        <li class="last"><span class="folder"><a title="Hành chính - Tổng hợp" href="/index.php/vi/laws/room-4-Hanh-chinh-Tong-hop/"> Hành chính - Tổng hợp </a></span></li>
-
-                    </ul>
-                </div>
-                <script type="text/javascript">
-                    $("#browser_room").treeview({
-                        persist: "cookie",
-                        collapsed: true,
-                        animated:"normal",
-                        unique: true
-                    });
-                </script>   
-            </div> -->
-
-            <!-- <div headerindex="3h" class="silverheader"><a href="#">Lĩnh vực</a></div>
-            <div style="display: none;" contentindex="3c" class="submenu clearfix">
-
-                <div class="divscroll">
-                    <ul id="browser_field" class="filetree treeview">
-                        <li><span class="folder"><a title="Nông nghiệp" href="/index.php/vi/laws/field-1-/"> Nông nghiệp </a></span></li>
-
-                        <li><span class="folder"><a title="Nông thôn mới" href="/index.php/vi/laws/field-2-/"> Nông thôn mới </a></span></li>
-
-                        <li><span class="folder"><a title="Điều phối - Nghiệp vụ" href="/index.php/vi/laws/field-3-Dieu-phoi-Nghiep-vu/"> Điều phối - Nghiệp vụ </a></span></li>
-
-                        <li class="last"><span class="folder"><a title="Hành chính - Tổng hợp" href="/index.php/vi/laws/field-4-Hanh-chinh-Tong-hop/"> Hành chính - Tổng hợp </a></span></li>
-
-                    </ul>
-                </div>
-                <script type="text/javascript">
-                    $("#browser_field").treeview({
-                        persist: "cookie",
-                        collapsed: true,
-                        animated:"normal",
-                        unique: true
-                    });
-                </script>   
-            </div> -->
 
         </div>
     </div>
@@ -219,7 +128,7 @@
 		    	$args = array(
 			       'posts_per_page' => 5,
 			       'post_status' => 'publish',
-			       'post_type' => 'van-ban'
+			       'post_type' => VAN_BAN_POST_TYPE
 			    );
 			    $van_ban_moi = get_posts($args);
 			    if (!empty($van_ban_moi)) {
