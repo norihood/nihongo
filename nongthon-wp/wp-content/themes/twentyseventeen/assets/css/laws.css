@@ -32,6 +32,27 @@ table.archives_list thead {
     margin-left: 5px;
     padding: 2px 0 2px 20px;
 }
+/*PhuongNLT*/
+.archives_down.pdf_file {
+    background:url(../images/pdf.png) no-repeat center left;
+}
+.archives_down.doc_file {
+    background:url(../images/doc.png) no-repeat center left;
+}
+.archives_down.docx_file {
+    background:url(../images/docx.png) no-repeat center left;
+}
+.archives_down.xlsx_file {
+    background:url(../images/xlsx.png) no-repeat center left;
+}
+.archives_down.file_file {
+    background:url(../images/file.png) no-repeat center left;
+}
+.view_and_download {
+    color:#666;
+    font-size:11px;
+    float: right
+}
 .archives_links {
     background: none repeat scroll 0 0 #E9F2FA;
     border: 1px solid #C9D7DE;

@@ -382,11 +382,40 @@ function NewWindow(a, b, c, e, d) {
     window.open(a, b, settings)
 }
 nv_check_timezone();
-
+// PhuongNLT
 function p_loader (show) {
     if (show) {
         $('#modal_loader').show();
     } else {
         $('#modal_loader').hide();
     }
+}
+function count_dowload(id) {
+    $.ajax({
+        type : "post", //Phương thức truyền post hoặc get
+        dataType : "json", //Dạng dữ liệu trả về xml, json, script, or html
+        url : admin_ajax, //Đường dẫn chứa hàm xử lý dữ liệu. Mặc định của WP như vậy
+        data : {
+            action: "count_download", //Tên action
+            post_id : id,//Biến truyền vào xử lý. $_POST['website']
+        },
+        context: this,
+        beforeSend: function(){
+            //Làm gì đó trước khi gửi dữ liệu vào xử lý
+        },
+        success: function(response) {
+            //Làm gì đó khi dữ liệu đã được xử lý
+            if(response.success) {
+                // alert(response.data);
+            }
+            else {
+                alert('Đã có lỗi xảy ra');
+            }
+        },
+        error: function( jqXHR, textStatus, errorThrown ){
+            //Làm gì đó khi có lỗi xảy ra
+            console.log( 'The following error occured: ' + textStatus, errorThrown );
+        }
+    })
+    return false;
 }

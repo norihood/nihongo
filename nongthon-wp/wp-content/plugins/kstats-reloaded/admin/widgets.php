@@ -14,7 +14,7 @@ class WP_kStats_Widget extends WP_Widget {
 	function WP_kStats_Widget() {
 		$widget_ops = array( 'classname' => 'widget_kstats', 'description' => __( 'Display your statistics on the Wordpress sidebar.' ) );
 		$control_ops = array( 'width' => 400, 'height' => 350 );
-		$this->WP_Widget( 'kstats', __( 'kStats' ), $widget_ops, $control_ops );
+		$this->__construct( 'kstats', __( 'kStats' ), $widget_ops, $control_ops );
 	}
 
 	function widget( $args, $instance ) {

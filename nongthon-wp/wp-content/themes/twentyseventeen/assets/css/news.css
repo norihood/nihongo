@@ -770,30 +770,6 @@ padding:0 4px 0 0
 
 .p_list_topnews .p_list_topnews-nav li.p_list_topnews-selected a,.p_list_topnews .p_list_topnews-nav li.ui-state-disabled a,.p_list_topnews .p_list_topnews-nav li.ui-state-processing a{cursor:text}.p_list_topnews .p_list_topnews-nav li a,.p_list_topnews.p_list_topnews-collapsible .p_list_topnews-nav li.p_list_topnews-selected a{cursor:pointer}.p_list_topnews .p_list_topnews-panel{border-width:0;display:block}.p_list_topnews .p_list_topnews-hide{display:none !important}
 /* ==== end top news ==== */
-
-/* ==== pagination ==== */
-.p_pagination{margin-top: 25px; margin-bottom: 25px;}
-
-.p_pagination li {
-  display: inline;
-}
-  
-.p_pagination li a,
-.p_pagination li a:hover,
-.p_pagination li.active a,
-.p_pagination li.disabled {
-  border-radius: 3px;
-  cursor: pointer;
-  padding: 5px 10px;
-  color: #666;
-  text-decoration:none;
-}
-.p_pagination li a:hover,
-.p_pagination li.active a {
-  background-color: #ff9900;
-  color: #fff!important;
-}
-/* ==== end pagination ==== */
 .post_next_page li a:hover {
     color: #FF0000;
 }

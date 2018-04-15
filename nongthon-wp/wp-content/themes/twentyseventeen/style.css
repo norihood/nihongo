@@ -492,3 +492,26 @@ template {
 }
 
 .ui-dialog { z-index: 1001 !important ;}
+
+/* ==== pagination ==== */
+.wp-pagenavi {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+  
+.wp-pagenavi a,
+.wp-pagenavi a:hover,
+.wp-pagenavi span.current {
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 5px 10px;
+  color: #666;
+  text-decoration:none;
+  margin-left: 5px;
+}
+.wp-pagenavi a:hover,
+.wp-pagenavi span.current {
+  background-color: #ff9900;
+  color: #fff!important;
+}
+/* ==== end pagination ==== */

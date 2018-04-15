@@ -135,7 +135,7 @@
 			    	foreach ($van_ban_moi as $key => $vb_moi) {
 			    		echo '<a href="' . get_permalink($vb_moi->ID) . '">&nbsp;&nbsp;<img src="' . get_template_directory_uri() . '/assets/images/file.png">
                 <strong style="color:red">&nbsp;' . $vb_moi->post_title . '</strong>  <img src="' . get_template_directory_uri() . '/assets/images/new.gif" height="14"><br>
-                &nbsp;&nbsp;Tên:<span style="align:center; color:blue; font-size:11px">&nbsp;(' . text_limit($vb_moi->post_content, 50) . ')</span></a><br>
+                &nbsp;&nbsp;Tên:<span style="align:center; color:blue; font-size:11px">&nbsp;(' . text_limit($vb_moi->post_excerpt, 50) . ')</span></a><br>
                 <span style="color:#666; font-size:11px">&nbsp;&nbsp;Ngày BH:&nbsp;(' . date('d/m/Y', strtotime($vb_moi->post_date)) . ')</span> <br>';
 			    	}
 			    }

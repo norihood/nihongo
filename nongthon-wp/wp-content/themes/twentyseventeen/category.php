@@ -46,21 +46,18 @@ get_header(); ?>
             'offset' => $paged * absint(get_option( 'posts_per_page' )),
             'category' => $category_obj->term_id
         );
-
         $post_related = get_posts( $args );
         if ($post_related) {
             echo '<h4>Các tin khác</h4>
                     <ul class="post_next_page">';
             foreach ($post_related as $post_rel) {
-                setup_postdata( $post_rel );
                 echo '<li>
-                    <a href="' . get_the_permalink() . '" title="' . get_the_title() . '">' . get_the_title() . ' <span class="date">(' . get_the_date() . ') </span></a>
+                    <a href="' . get_permalink($post_rel->ID) . '" title="' . get_the_title($post_rel->ID) . '">' . get_the_title($post_rel->ID) . ' <span class="date">(' . get_the_date('', $post_rel->ID) . ') </span></a>
                 </li>';
-                wp_reset_postdata();
             }
             echo '</ul>';
         }
-        page_nav();
+        wp_pagenavi();
     } else {
         echo '<p>Chưa có bài viết nào</p>';
     }

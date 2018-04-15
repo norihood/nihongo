@@ -84,6 +84,12 @@
 		// $( function() {
 		//     $( "#send_mail_popup" ).dialog();
 	 //  	} );
+        $("form").submit(function()
+        {alert();
+            $(this).find(':input[value=""]').attr("disabled", "disabled");
+
+            return true; // ensure form still submits
+        });
     })
     //]]>
 </script>

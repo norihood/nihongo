@@ -19,6 +19,10 @@
         <link rel="profile" href="http://gmpg.org/xfn/11">
 
         <?php wp_head(); ?>
+        <script type="text/javascript">
+            var base_url = '<?php echo home_url()?>',
+                admin_ajax = '<?php echo admin_url('admin-ajax.php')?>';
+        </script>
         <script type="text/javascript" src="<?= get_template_directory_uri() ?>/assets/js/vi.js"></script>
         <script type="text/javascript" src="<?= get_template_directory_uri() ?>/assets/js/jquery.min.js"></script>
         <script type="text/javascript" src="<?= get_template_directory_uri() ?>/assets/js/global.js"></script>

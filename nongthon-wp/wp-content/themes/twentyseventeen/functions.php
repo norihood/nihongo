@@ -609,9 +609,9 @@ function add_css_file() {
 	wp_enqueue_style ('jquery-ui', get_template_directory_uri().'/assets/css/jquery-ui.css');
 
 }
-add_action( 'wp_head', 'add_css_file' );
+add_action( 'wp_enqueue_scripts', 'add_css_file' );
 /**
- * custom menu
+ * custom menu header
  */
 function clean_custom_menus() {
 	global $post;
@@ -646,43 +646,35 @@ add_filter('show_admin_bar', '__return_false');
 define('CATEGORY_NEWS_ID', 11);
 define('VAN_BAN_PAGE_SLUG', 'van-ban-nong-thon-moi');
 define('VAN_BAN_POST_TYPE', 'laws');
+
+define('CO_QUAN_BAN_HANH', 'co-quan-ban-hanh');
+define('LOAI_VAN_BAN', 'loai-van-ban');
+define('DON_VI_PHONG_BAN', 'don-vi-phong-ban');
+define('LINH_VUC', 'linh-vuc');
+
+define('ALBUM_PAGE_SLUG', 'thu-vien-anh');
 /* ======= Constant ======= */
-function text_limit($str, $limit = 10) {
-	if (stripos($str, " ")) {
-		$ex_str = explode(" ", $str);
-		if (count($ex_str) > $limit) {
-			for ($i=0; $i < $limit; $i++) {
-				$str_s .= $ex_str[$i] . " ";
-			}
-			return $str_s . '...';
-		} else {
-			return $str;
-		}
-	} else {
-		return $str;
-	}
-}
 
 function tao_taxonomy() {
     /* Biến $label chứa các tham số thiết lập tên hiển thị của Taxonomy
          */
     $labels = array(
-        'co-quan-ban-hanh' => array(
+        CO_QUAN_BAN_HANH => array(
             'name'      => 'Cơ quan ban hành',
             'singular'  => 'Cơ quan ban hành',
             'menu_name' => 'Cơ quan ban hành'
         ),
-        'loai-van-ban' => array(
+        LOAI_VAN_BAN => array(
             'name'      => 'Loại văn bản / tài liệu',
             'singular'  => 'Loại văn bản / tài liệu',
             'menu_name' => 'Loại văn bản / tài liệu'
         ),
-        'don-vi-phong-ban' => array(
+        DON_VI_PHONG_BAN => array(
             'name'      => 'Đơn vị phòng ban',
             'singular'  => 'Đơn vị phòng ban',
             'menu_name' => 'Đơn vị phòng ban'
         ),
-        'linh-vuc' => array(
+        LINH_VUC => array(
             'name'      => 'Lĩnh vực',
             'singular'  => 'Lĩnh vực',
             'menu_name' => 'Lĩnh vực'
@@ -752,11 +744,12 @@ function tao_custom_post_type()
         'has_archive' => true, //Cho phép lưu trữ (month, date, year)
         'exclude_from_search' => false, //Loại bỏ khỏi kết quả tìm kiếm
         'publicly_queryable' => true, //Hiển thị các tham số trong query, phải đặt true
-        'capability_type' => 'post'
+        'capability_type' => 'post',
+        // 'rewrite' => true,
     );
  
     register_post_type(VAN_BAN_POST_TYPE, $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
- 
+    flush_rewrite_rules();
 }
 /* Kích hoạt hàm tạo custom post type */
 add_action('init', 'tao_custom_post_type');
@@ -793,9 +786,9 @@ function getPostViews($postID){
     if ($count=='') {
         delete_post_meta($postID, $count_key);
         add_post_meta($postID, $count_key, '0');
-        return "0 View";
+        return "0";
     }
-    return $count.' Views';
+    return $count;
 }
 function setPostViews($postID) {
     $count_key = 'post_views_count';
@@ -819,9 +812,9 @@ function get_count_download($postID){
     if ($count=='') {
         delete_post_meta($postID, $count_key);
         add_post_meta($postID, $count_key, '0');
-        return "0 download";
+        return "0";
     }
-    return $count.' download';
+    return $count;
 }
 function set_count_download($postID) {
     $postID = (isset($_POST['post_id'])) ? esc_attr($_POST['post_id']) : '';
@@ -841,6 +834,7 @@ function set_count_download($postID) {
 add_action( 'wp_ajax_count_download', 'set_count_download' );
 add_action( 'wp_ajax_nopriv_count_download', 'set_count_download' );
 
+/* ===== helper ===== */
 function get_thu($weekday) {
 //    $weekday = date("l");
     $weekday = strtolower($weekday);
@@ -869,7 +863,50 @@ function get_thu($weekday) {
     }
     return $weekday;
 }
-
+function convert_reverse_day($day = '', $slash = '') {
+    $date_arr = explode($slash, $day);
+    return $date_arr[2] . '-' 
+            . str_pad($date_arr[1], 2, "0", STR_PAD_LEFT) . '-' 
+            . str_pad($date_arr[0], 2, "0", STR_PAD_LEFT);
+}
+function text_limit($str, $limit = 10) {
+	if (stripos($str, " ")) {
+		$ex_str = explode(" ", $str);
+		if (count($ex_str) > $limit) {
+            $str_s = '';
+			for ($i=0; $i < $limit; $i++) {
+				$str_s .= $ex_str[$i] . " ";
+			}
+			return $str_s . '...';
+		} else {
+			return $str;
+		}
+	} else {
+		return $str;
+	}
+}
+function get_class_file ($mime_type = '') {
+    switch ($mime_type) {
+        case 'application/pdf':
+            $class = 'pdf_file';
+            break;
+        case 'application/msword':
+            $class = 'doc_file';
+            break;
+        case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+            $class = 'docx_file';
+            break;
+        case 'application/vnd.ms-excel':
+        case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+            $class = 'xlsx_file';
+            break;
+        default:
+            $class = 'file_file';
+            break;
+    }
+    return $class;
+}
+/* ===== helper ===== */
 // send mail
 function send_post_to_mail() {
     $postID = (isset($_POST['post_id'])) ? esc_attr($_POST['post_id']) : '';
@@ -968,13 +1005,106 @@ function get_post_types_by_taxonomy( $tax = 'category' ) {
     return ( isset( $wp_taxonomies[$tax] ) ) ? $wp_taxonomies[$tax]->object_type : array();
 }
 
-function title_filter($where, &$wp_query){
+function post_key_filter($where, &$wp_query){
     global $wpdb;
-    if($search_term = $wp_query->get( 'title_filter' )){
+    $compare_term = 'LIKE';
+    $define_search_arr = ['post_title', 'post_excerpt'];
+    // search với option Tất cả
+    if ($search_term = $wp_query->get('search_all')) {
+        $where_query_temp = '';
         $search_term = $wpdb->esc_like($search_term); //instead of esc_sql()
-        $search_term = ' \'%' . $search_term . '%\'';
-//        $title_filter_relation = (strtoupper($wp_query->get( 'title_filter_relation'))=='OR' ? 'OR' : 'AND');
-        $where .= ' AND ' . $wpdb->posts . '.post_title LIKE '.$search_term;
+        if ($wp_query->get('compare_all') != true) {
+            $text_array = explode(' ', $search_term);
+        } else {
+            $text_array = [$search_term];
+        }
+        foreach ($text_array as $key => $text_s) {
+            if (trim($text_s) == '') {
+                continue;
+            }
+            $text_s = '%' . $text_s . '%';
+            $where_query = '';
+            if ($key != 0) {
+                $where_query_temp .= ' OR ';
+            }
+            foreach ($define_search_arr as $key_def => $val) {
+                
+                if ($key_def != 0) {
+                    $where_query .= ' OR ';
+                }
+                $where_query .= '' . $wpdb->posts . '.' . $val . ' ' . $compare_term . ' \'' . $text_s . '\'';
+            }
+            $where_query .= ' OR (' . $wpdb->postmeta . '.meta_key = \'signer\' AND ' 
+                        . $wpdb->postmeta . '.meta_value ' . $compare_term . ' \'' . $text_s . '\')';
+            $where_query_temp .= $where_query;
+        }
+        if ($where_query_temp != '') {
+            $where .= ' AND (' . $where_query_temp . ')';
+        }
+    } else {
+        foreach ($define_search_arr as $val) {
+            if ($search_term = $wp_query->get($val)){
+                $search_term = $wpdb->esc_like($search_term); //instead of esc_sql()
+                if ($wp_query->get('compare_all') != true) {
+                    $text_array = explode(' ', $search_term);
+                } else {
+                    $text_array = [$search_term];
+                }
+                $where_query = '(';
+                foreach ($text_array as $key => $text_s) {
+                    if (trim($text_s) == '') {
+                        continue;
+                    }
+                    $text_s = '%' . $text_s . '%';
+                    if ($key != 0) {
+                        $where_query .= ' OR ';
+                    }
+                    $where_query .= '(' . $wpdb->posts . '.' . $val . ' ' . $compare_term . ' \'' . $text_s . '\')';
+                }
+                $where_query .= ')';
+                // $title_filter_relation = (strtoupper($wp_query->get( 'title_filter_relation'))=='OR' ? 'OR' : 'AND');
+                if ($where_query != '()') {
+                    $where .= ' AND ' . $where_query;
+                }
+            }
+        }
     }
+    // filter post day between
+    $post_date_start = $wp_query->get('post_date_start');
+    $post_date_end = $wp_query->get('post_date_end');
+    if ($post_date_start) {
+        $post_date_start = $wpdb->esc_like($post_date_start);
+        $where .= ' AND ' . $wpdb->posts . '.post_date >= \'' . convert_reverse_day($post_date_start, '/') . '\'';
+    }
+    if ($post_date_end) {
+        $post_date_end = $wpdb->esc_like($post_date_end);
+        $where .= ' AND ' . $wpdb->posts . '.post_date <= \'' . convert_reverse_day($post_date_end, '/') . '\'';
+    }
+//    echo '<pre>';
+//    print_r($where);
+//    die();
     return $where;
+}
+
+//Custom template search
+//function template_chooser($template) {
+//    global $wp_query;
+//    $post_type = get_query_var('post_type');
+//    if ($post_type == 'laws') {
+//        return locate_template('search-laws.php');
+//    }
+//    return $template;
+//}
+//add_filter('template_include', 'template_chooser');
+
+
+// change radio button for category
+if (current_user_can('activate_plugins') && (strstr($_SERVER['REQUEST_URI'], 'wp-admin/post-new.php') ||
+        strstr($_SERVER['REQUEST_URI'], 'wp-admin/post.php'))) {
+    ob_start('one_category_only');
+}
+
+function one_category_only($content) {
+//    $content = str_replace('type="checkbox" ', 'type="radio" ', $content);
+    return $content;
 }
