@@ -156,15 +156,19 @@
         <h3 class="header"><strong>•</strong>Thư viện Hình ảnh</h3>
         <div id="slider">
             <ul id="album_img">
-                <li >
-                    <a class="lightbox1" title="" href="<?=get_template_directory_uri()?>/assets/images/nx.jpg"><img src="<?=get_template_directory_uri()?>/assets/images/nx.jpg" alt="" width="240px" height="180px" border="0"></a>
-                </li>
-                <li>
-                    <a class="lightbox1" title="" href="<?=get_template_directory_uri()?>/assets/images/img_9203.jpg"><img src="<?=get_template_directory_uri()?>/assets/images/img_9203.jpg" alt="" width="240px" height="180px" border="0"></a>
-                </li>
-                <li>
-                    <a class="lightbox1" title="" href="<?=get_template_directory_uri()?>/assets/images/img_9765.jpg"><img src="<?=get_template_directory_uri()?>/assets/images/img_9765.jpg" alt="" width="240px" height="180px" border="0"></a>
-                </li>
+                <?php
+                global $nggdb;
+                $posts = get_posts('name=' . ALBUM_PAGE_SLUG . '&post_type=page');
+                $mypost = ( ! empty($posts) ) ? array_pop($posts) : false;
+                $album_id_meta = $mypost ? get_field('album_id', $mypost->ID) : 1;
+                $img_ids = $nggdb->get_ids_from_gallery($album_id_meta);
+                foreach ($img_ids as $img_id) {
+                    $img = $nggdb->find_image($img_id);
+                    echo '<li >
+                        <a class="lightbox1" title="" href="' . $img->get_permalink() . '"><img src="' . $img->get_permalink() . '" alt="' . $img->description . '" width="240px" height="180px" border="0"></a>
+                    </li>';
+                }
+                ?>
             </ul>
         </div>
     </div>

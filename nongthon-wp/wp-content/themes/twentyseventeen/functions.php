@@ -647,12 +647,16 @@ define('CATEGORY_NEWS_ID', 11);
 define('VAN_BAN_PAGE_SLUG', 'van-ban-nong-thon-moi');
 define('VAN_BAN_POST_TYPE', 'laws');
 
+// taxonomy
 define('CO_QUAN_BAN_HANH', 'co-quan-ban-hanh');
 define('LOAI_VAN_BAN', 'loai-van-ban');
 define('DON_VI_PHONG_BAN', 'don-vi-phong-ban');
 define('LINH_VUC', 'linh-vuc');
+define('PHAN_LOAI', 'phan-loai');
 
 define('ALBUM_PAGE_SLUG', 'thu-vien-anh');
+define('FAQ_POST_TYPE', 'faq');
+define('FAQ_PAGE_SLUG', 'hoi-dap');
 /* ======= Constant ======= */
 
 function tao_taxonomy() {
@@ -683,7 +687,7 @@ function tao_taxonomy() {
 
     foreach ($labels as $key => $label) {
         /* Biến $args khai báo các tham số trong custom taxonomy cần tạo */
-       $args = array(
+        $args = array(
            'labels'            => $label,
            'hierarchical'      => true,
            'public'            => true,
@@ -691,32 +695,40 @@ function tao_taxonomy() {
            'show_admin_column' => true,
            'show_in_nav_menus' => true,
            'show_tagcloud'     => true
-       );
+        );
 
        /* Hàm register_taxonomy để khởi tạo taxonomy */
        register_taxonomy($key, VAN_BAN_POST_TYPE, $args);
     }
     
+    $args_faq = array(
+           'labels'            => array(
+                'name'      => 'Phân loại',
+                'singular'  => 'Phân loại',
+                'menu_name' => 'Phân loại'
+            ),
+           'hierarchical'      => true,
+           'public'            => true,
+           'show_ui'           => true,
+           'show_admin_column' => true,
+           'show_in_nav_menus' => true,
+           'show_tagcloud'     => true
+       );
+    // taxonomy FAQ
+    register_taxonomy(PHAN_LOAI, FAQ_POST_TYPE, $args_faq);
  
 }
  
 // Hook into the 'init' action
 add_action( 'init', 'tao_taxonomy', 0 );
 
-function tao_custom_post_type()
-{
- 
-    /*
-     * Biến $label để chứa các text liên quan đến tên hiển thị của Post Type trong Admin
-     */
+function tao_custom_post_type() {
+    // Biến $label để chứa các text liên quan đến tên hiển thị của Post Type trong Admin
     $label = array(
         'name' => 'Văn bản', //Tên post type dạng số nhiều
         'singular_name' => 'Văn bản' //Tên post type dạng số ít
     );
- 
-    /*
-     * Biến $args là những tham số quan trọng trong Post Type
-     */
+    // Biến $args là những tham số quan trọng trong Post Type
     $args = array(
         'labels' => $label, //Gọi các label trong biến $label ở trên
         'description' => 'Post type quản lý file', //Mô tả của post type
@@ -749,6 +761,37 @@ function tao_custom_post_type()
     );
  
     register_post_type(VAN_BAN_POST_TYPE, $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
+    flush_rewrite_rules();
+    
+    $args_faq = array(
+        'labels' => array(
+            'name' => 'Hỏi và đáp',
+            'singular_name' => 'Hỏi và đáp'
+        ),
+        'description' => 'Các câu hỏi của người dùng',
+        'supports' => array(
+            'title',
+            'editor',
+            'revisions',
+            'custom-fields'
+        ),
+        'taxonomies' => array(),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true, //Hiển thị khung quản trị như Post/Page
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_in_admin_bar' => true,
+        'menu_position' => 6,
+        'menu_icon' => '',
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+        'capability_type' => 'post',
+        // 'rewrite' => true,
+    );
+    register_post_type(FAQ_POST_TYPE, $args_faq); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
     flush_rewrite_rules();
 }
 /* Kích hoạt hàm tạo custom post type */
@@ -1108,3 +1151,5 @@ function one_category_only($content) {
 //    $content = str_replace('type="checkbox" ', 'type="radio" ', $content);
     return $content;
 }
+//add_shortcode('wp_caption', 'img_caption_shortcode');
+//add_shortcode('caption', 'img_caption_shortcode');

@@ -30,8 +30,11 @@ get_header(); ?>
             <div class="view_albums">
                 Khu dân cư kiểu mẫu - Vườn mẫu 
                 <span style="font-size:11px; color:#999; font-weight:normal"><?php
-                echo (new Envira_Gallery_Lite())->get_gallery_image_count(get_post_meta(get_the_ID(), 'album_id', true) ?: 224);
-                ?> photos | <?=getPostViews(get_the_ID())?> view</span><br>
+                global $wpdb;
+                $gallery_id = get_post_meta(get_the_ID(), 'album_id', true) ?: 1;
+                $images = intval( $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->nggpictures WHERE galleryid = $gallery_id") );
+                echo $images; ?> 
+                photos | <?=getPostViews(get_the_ID())?> view</span><br>
             </div>
         <?php 
             the_content();

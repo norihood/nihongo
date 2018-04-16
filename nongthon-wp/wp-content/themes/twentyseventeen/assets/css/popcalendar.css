@@ -10,7 +10,9 @@
   width: auto;
   z-index: +999;
 }
-
+#pcIDcalendar {
+    display: none;
+}
 #pcIDcaption {
   background: url(images/bgcaption.png) repeat-x;
   color: #FFF;

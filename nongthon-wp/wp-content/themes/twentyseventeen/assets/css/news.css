@@ -773,3 +773,80 @@ padding:0 4px 0 0
 .post_next_page li a:hover {
     color: #FF0000;
 }
+/* ===== FAQ ===== */
+#faq .block_faq .title {
+    background: url(../images/faq.gif) no-repeat left -96px;
+    padding-left: 27px;
+}
+
+#faq .block_faq .title a {
+    text-decoration: underline;
+}
+
+#faq .catlist {
+    margin-bottom: 15px;
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+#faq .catlist li.description {
+    color: #666;
+    font: normal 12px arial,verdana,sans-serif;
+    padding-bottom: 10px;
+    padding-left: 27px;
+}
+
+#faq .catlist li.main {
+    background: url(../images/faq.gif) no-repeat left -24px;
+    font: bold 12px/24px arial,verdana,sans-serif;
+    padding-left: 27px;
+}
+
+#faq .page_title {
+    border-bottom: 1px solid #ccc;
+    font: bold 12px/23px arial,verdana,sans-serif;
+}
+
+#faq .show_detail .detail_faq {
+    padding-bottom: 15px;
+}
+
+#faq .show_detail .detail_faq .question {
+    padding-bottom: 10px;
+}
+
+#faq .show_detail .detail_faq .title {
+    background: url(../images/faq.gif) no-repeat left -48px;
+    border-bottom: 1px solid #92c2fe;
+    display: block;
+    font: bold 12px/24px arial,verdana,sans-serif;
+    margin-bottom: 5px;
+    padding-left: 27px;
+}
+
+#faq .show_detail .detail_faq .title .gotop {
+    float: right;
+    padding-top: 4px;
+}
+
+#faq .show_row {
+    padding-bottom: 30px;
+    padding-left: 20px;
+}
+
+#faq .welcome {
+    font: bold 13px arial,verdana,sans-serif;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+#faq .block_faq .title a:hover {
+    text-decoration: none;
+}
+
+#faq .catlist li.main:hover {
+    background: url(../images/faq.gif) no-repeat left 0;
+    font: bold 12px/24px arial,verdana,sans-serif;
+    padding-left: 27px;
+}
+/* ===== end FAQ ===== */

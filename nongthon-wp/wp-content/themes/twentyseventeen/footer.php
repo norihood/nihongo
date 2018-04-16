@@ -48,7 +48,6 @@
 <script type="text/javascript" src="<?=get_template_directory_uri()?>/assets/js/contentslider.js.download"></script>
 <script type="text/javascript" src="<?=get_template_directory_uri()?>/assets/js/jquery-ui.js"></script>
 <script type="text/javascript" src='https://www.google.com/recaptcha/api.js?hl=vn'></script>
-<script type="text/javascript" src="<?=get_template_directory_uri()?>/assets/js/popcalendar.js"></script>
 <script type="text/javascript">
     //<![CDATA[
     $(document).ready(function() {
@@ -81,11 +80,7 @@
 			pager: false,
 			wrapperClass: 'bx-wrapper p_album_wrapper',
 		});
-		// $( function() {
-		//     $( "#send_mail_popup" ).dialog();
-	 //  	} );
-        $("form").submit(function()
-        {alert();
+        $("form").submit(function() {
             $(this).find(':input[value=""]').attr("disabled", "disabled");
 
             return true; // ensure form still submits
