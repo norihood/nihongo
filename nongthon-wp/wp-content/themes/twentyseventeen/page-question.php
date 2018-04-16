@@ -5,16 +5,37 @@
  ?> 
 <?php
 get_header(); ?>
-<style>
-
-</style>
 <div class="span-13 contentcolumn">
 
     <?php
     set_query_var( 'slug_page', 'cau-hoi' );
     get_template_part('template-parts/post/breadcrumb');?>
+    <?php
+    if ('POST' == $_SERVER['REQUEST_METHOD'] && !empty($_POST['btsend'])) {
+        $new_post = array(
+            'post_title'   => $_POST['ftitle'],
+            'post_status'  => 'publish',
+            'post_type'    => FAQ_POST_TYPE
+        );
+        $pid = wp_insert_post($new_post);
+
+        wp_set_object_terms($pid, absint($_POST['fcatid']), PHAN_LOAI);
+        add_post_meta($pid, 'name_of_user', $_POST['fname'], true);
+        add_post_meta($pid, 'email_of_user', $_POST['femail'], true);
+        add_post_meta($pid, 'phone_number', $_POST['fphone'], true);
+        add_post_meta($pid, 'question', $_POST['fcontent'], true);
+        echo 'Xin cảm ơn quý vị đã quan tâm! chúng tôi sẽ trả lời thư của Quý vị trong thời gian sớm nhất.';
+    } else {
+    ?>
+    <script type="text/javascript">
+        var response_captcha;
+        function recaptchaCallback() {
+            response_captcha = grecaptcha.getResponse();
+        };
+    </script>
     <div class="content-box">
-        <form id="fcontact" method="post" action="" onsubmit="return sendcontact('6');">
+        <p class="validateTips"></p>
+        <form id="fquestion" method="post" action="">
             <div class="contact-form box-border content-box">
                 <p class="rows">
                     Tiêu đề:
@@ -24,8 +45,8 @@ get_header(); ?>
                 <p class="rows">
                     Thuộc chủ đề:
                     <br>
-                    <select id="catid" name="catid">
-                        <option value="0" selected="selected"></option>
+                    <select id="fcatid" name="fcatid">
+                        <option value="" selected="selected"></option>
                         <?php
                         $term_list = get_terms( PHAN_LOAI, array( 'parent' => 0, 'hide_empty' => false ) );
                         if ($term_list) {
@@ -36,7 +57,6 @@ get_header(); ?>
                         ?>
                     </select>
                 </p>
-
                 <p class="rows">
                     Họ và tên:
                     <br>
@@ -45,7 +65,7 @@ get_header(); ?>
                 <p class="rows">
                     Địa chỉ email:
                     <br>
-                    <input type="email" maxlength="60" value="" id="femail_iavim" name="femail" class="input">
+                    <input type="text" maxlength="60" value="" id="femail" name="femail" class="input">
                 </p>
 
                 <p class="rows">
@@ -58,13 +78,12 @@ get_header(); ?>
                     <br>
                     <select class="sl2" id="fpart" name="fpart">
                         <option value="1">Webmaster</option>
-
                     </select>
                 </p>
                 <p class="rows">
                     Nội dung:
                     <br>
-                    <textarea cols="50" rows="3" id="fcon" name="fcon" onkeyup="return nv_ismaxlength(this, 1000);"></textarea>
+                    <textarea cols="50" rows="3" id="fcontent" name="fcontent"></textarea>
                 </p>
                 <p class="rows">
                     <div class="g-recaptcha" data-sitekey="6LffzkkUAAAAAOSB3XMwNGhMieqhNGP7uNv0MhAF" data-callback="recaptchaCallback"></div>
@@ -77,8 +96,88 @@ get_header(); ?>
         </form>
 
     </div>
-    
+    <?php } ?>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var dialog, form,
+            emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+            ftitle = $('#ftitle'),
+            fcatid = $("#fcatid"),
+            fname = $('#fname'),
+            femail = $("#femail"),
+            fcontent = $("#fcontent"),
+            tips = $(".validateTips");
+
+        function updateTips(t) {
+            tips.append('<p class="error">' + t + '</p>')
+                .addClass("ui-state-highlight");
+            setTimeout(function () {
+                tips.removeClass("ui-state-highlight", 1500);
+            }, 500);
+        }
+//
+        function resetTipsAndForm() {
+            tips.html('');
+            $('#fquestion').find('input, textarea, select').removeClass('form_error');
+        }
+//
+        function checkRequired(o, msg) {
+            if (o.val().length < 1) {
+                o.addClass("form_error");
+                updateTips(msg);
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function checkRegexp(o, regexp, n) {
+            if (!(regexp.test(o.val()))) {
+                o.addClass("form_error");
+                updateTips(n);
+                return false;
+            } else {
+                return true;
+            }
+        }
+        
+        function scroll_to_top_question() {
+            $('html, body').animate({
+                scrollTop: $(".contentcolumn").offset().top
+            }, 1000);
+        }
+        function validate_form_question() {
+            var flag_check = false;
+            grecaptcha.reset();
+            resetTipsAndForm();
+
+            var length_title = checkRequired(ftitle, "Hãy nhập Tiêu đề"),
+                length_cat = checkRequired(fcatid, "Hãy chọn một chủ đề"),
+                length_name = checkRequired(fname, "Hãy nhập Tên"),
+                format_email = checkRegexp(femail, emailRegex, "Email không đúng định dạng."),
+                length_content = checkRequired(fcontent, "Hãy nhập Nội dung");
+
+            if (length_title && length_cat && length_name && format_email && length_content) {
+                if (response_captcha == '') {
+                    updateTips('Hãy tick vào captcha.');
+                    flag_check = false;
+                } else {
+                    flag_check = true;
+                    return true;
+                }
+            }
+            scroll_to_top_question();
+            response_captcha = '';
+            return flag_check;
+        }
+        form = $('#fquestion').off('submit').on("submit", function (event) {
+//            event.preventDefault();
+            $val = validate_form_question(this);
+            return $val;
+        });
+    })
+</script>
 <!-- right sidebar -->
 <?php 
 get_template_part('template-parts/sidebar/sidebar', 'right'); ?>

@@ -80,11 +80,7 @@
 			pager: false,
 			wrapperClass: 'bx-wrapper p_album_wrapper',
 		});
-        $("form").submit(function() {
-            $(this).find(':input[value=""]').attr("disabled", "disabled");
-
-            return true; // ensure form still submits
-        });
+        
     })
     //]]>
 </script>

@@ -51,10 +51,10 @@ get_header(); ?>
                 '</div>
                 <div class="question">
                     <strong>Câu hỏi:</strong><br>
-                    <p><em>' . get_post_meta($post->ID, 'question', true) . '</em></p>
+                    <p><em>' . nl2br(get_post_meta($post->ID, 'question', true)) . '</em></p>
                 </div>
                 <div class="answer">
-                    <strong>Trả lời:</strong><br>' . do_shortcode($post->post_content) .
+                    <strong>Trả lời:</strong><br>' . nl2br(do_shortcode($post->post_content)) .
                 '</div>
             </div>';
         }

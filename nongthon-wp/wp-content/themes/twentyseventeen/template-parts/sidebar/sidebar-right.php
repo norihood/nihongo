@@ -90,6 +90,15 @@
 
         </div>
     </div>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("form").submit(function() {
+            $(this).find(':input[value=""]').attr("disabled", "disabled");
+
+            return true; // ensure form still submits
+        });
+    });
+    </script>
 <?php } // end if page-laws.php ?>
     <div class="box silver">
         <h3 class="header"><strong>•</strong>Tiêu điểm</h3>
