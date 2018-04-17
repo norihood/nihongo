@@ -28,7 +28,7 @@ get_header(); ?>
     } else {
     ?>
     <script type="text/javascript">
-        var response_captcha;
+        var response_captcha = '';
         function recaptchaCallback() {
             response_captcha = grecaptcha.getResponse();
         };
@@ -83,7 +83,7 @@ get_header(); ?>
                 <p class="rows">
                     Nội dung:
                     <br>
-                    <textarea cols="50" rows="3" id="fcontent" name="fcontent"></textarea>
+                    <textarea cols="50" rows="5" id="fcontent" name="fcontent"></textarea>
                 </p>
                 <p class="rows">
                     <div class="g-recaptcha" data-sitekey="6LffzkkUAAAAAOSB3XMwNGhMieqhNGP7uNv0MhAF" data-callback="recaptchaCallback"></div>
@@ -116,12 +116,12 @@ get_header(); ?>
                 tips.removeClass("ui-state-highlight", 1500);
             }, 500);
         }
-//
+
         function resetTipsAndForm() {
             tips.html('');
             $('#fquestion').find('input, textarea, select').removeClass('form_error');
         }
-//
+
         function checkRequired(o, msg) {
             if (o.val().length < 1) {
                 o.addClass("form_error");
@@ -141,11 +141,11 @@ get_header(); ?>
                 return true;
             }
         }
-        
+
         function scroll_to_top_question() {
             $('html, body').animate({
                 scrollTop: $(".contentcolumn").offset().top
-            }, 1000);
+            }, 'fast');
         }
         function validate_form_question() {
             var flag_check = false;
@@ -159,7 +159,8 @@ get_header(); ?>
                 length_content = checkRequired(fcontent, "Hãy nhập Nội dung");
 
             if (length_title && length_cat && length_name && format_email && length_content) {
-                if (response_captcha == '') {
+//                alert(response_captcha);
+                if (response_captcha == '' || response_captcha == undefined) {
                     updateTips('Hãy tick vào captcha.');
                     flag_check = false;
                 } else {

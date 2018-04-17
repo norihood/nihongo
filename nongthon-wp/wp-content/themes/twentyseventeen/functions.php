@@ -657,6 +657,9 @@ define('PHAN_LOAI', 'phan-loai');
 define('ALBUM_PAGE_SLUG', 'thu-vien-anh');
 define('FAQ_POST_TYPE', 'faq');
 define('FAQ_PAGE_SLUG', 'hoi-dap');
+define('VIDEO_POST_TYPE', 'list-video');
+// taxonomy video
+define('LOAI_VIDEO', 'loai-video');
 /* ======= Constant ======= */
 
 function tao_taxonomy() {
@@ -716,6 +719,22 @@ function tao_taxonomy() {
        );
     // taxonomy FAQ
     register_taxonomy(PHAN_LOAI, FAQ_POST_TYPE, $args_faq);
+
+    $args_video = array(
+           'labels'            => array(
+                'name'      => 'Loại Video',
+                'singular'  => 'Loại Video',
+                'menu_name' => 'Loại Video'
+            ),
+           'hierarchical'      => true,
+           'public'            => true,
+           'show_ui'           => true,
+           'show_admin_column' => true,
+           'show_in_nav_menus' => true,
+           'show_tagcloud'     => true
+       );
+    // taxonomy FAQ
+    register_taxonomy(LOAI_VIDEO, VIDEO_POST_TYPE, $args_video);
  
 }
  
@@ -763,6 +782,7 @@ function tao_custom_post_type() {
     register_post_type(VAN_BAN_POST_TYPE, $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
     flush_rewrite_rules();
     
+    // FAQ post type
     $args_faq = array(
         'labels' => array(
             'name' => 'Hỏi và đáp',
@@ -792,6 +812,38 @@ function tao_custom_post_type() {
         // 'rewrite' => true,
     );
     register_post_type(FAQ_POST_TYPE, $args_faq); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
+    flush_rewrite_rules();
+    
+    // VIDEO post type
+    $args_video = array(
+        'labels' => array(
+            'name' => 'Video',
+            'singular_name' => 'Video'
+        ),
+        'description' => 'Video',
+        'supports' => array(
+            'title',
+//            'editor',
+            'revisions',
+            'custom-fields'
+        ),
+        'taxonomies' => array(),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true, //Hiển thị khung quản trị như Post/Page
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_in_admin_bar' => true,
+        'menu_position' => 7,
+        'menu_icon' => '',
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+        'capability_type' => 'post',
+        // 'rewrite' => true,
+    );
+    register_post_type(VIDEO_POST_TYPE, $args_video); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
     flush_rewrite_rules();
 }
 /* Kích hoạt hàm tạo custom post type */
@@ -848,8 +900,17 @@ function setPostViews($postID) {
 // Remove issues with prefetching adding extra views
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
+function set_ajax_youtube_view() {
+    $postID = (isset($_POST['post_id'])) ? esc_attr($_POST['post_id']) : '';
+    setPostViews($postID);
+    wp_send_json_success('true');
+	die();
+}
+add_action( 'wp_ajax_youtube_view', 'set_ajax_youtube_view' );
+add_action( 'wp_ajax_nopriv_youtube_view', 'set_ajax_youtube_view' );
+
 // lượt download
-function get_count_download($postID){
+function get_count_download($postID) {
     $count_key = 'post_count_download';
     $count = get_post_meta($postID, $count_key, true);
     if ($count=='') {
@@ -1151,5 +1212,3 @@ function one_category_only($content) {
 //    $content = str_replace('type="checkbox" ', 'type="radio" ', $content);
     return $content;
 }
-//add_shortcode('wp_caption', 'img_caption_shortcode');
-//add_shortcode('caption', 'img_caption_shortcode');
