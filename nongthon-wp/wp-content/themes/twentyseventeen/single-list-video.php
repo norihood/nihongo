@@ -61,7 +61,7 @@ get_header();
                 echo '<div class="video_item">
                     <div class="item_child">
                         <a href="' . get_permalink($video->ID) . '" title="' . $video->post_title . '">
-                            <img src="' . get_the_post_thumbnail_url($video->ID) . '" alt="" width="">
+                            <img src="' . (new Video_Thumbnails())->get_video_thumbnail($video->ID) . '" alt="" width="">
                         </a>
                         <div class="title_video">
                             <a href="' . get_permalink($video->ID) . '" title="' . $video->post_title . '">' . $video->post_title . '</a>
@@ -85,73 +85,60 @@ get_header();
         ?>
 
         <script type="text/javascript">
-//            var player, playing = false;
-//            function onYouTubeIframeAPIReady() {alert('fire');
-//                player = new YT.Player('video_youtube', {
-//                    height: '360',
-//                    width: '540',
-//                    videoId: '<?=$id_youtube?>',
-//                    events: {
-//                        'onStateChange': onPlayerStateChange
-//                    }
-//                });
-//            }
-//
-//            function onPlayerStateChange(event) {
-//                if (!playing) {
-//                    $.ajax({
-//                        type: "post",
-//                        dataType: "json",
-//                        url: '<?php echo admin_url('admin-ajax.php'); ?>',
-//                        data: {
-//                            action: "youtube_view", //Tên action
-//                            post_id: <?=get_the_ID()?>
-//                        },
-//                        context: this,
-//                        beforeSend: function () {
-//                            //Làm gì đó trước khi gửi dữ liệu vào xử lý
-//                        },
-//                        success: function (response) {
-//                            //Làm gì đó khi dữ liệu đã được xử lý
-//                            if (response.success) {
-//                                console.log(response.data);
-//                            } else {
-//                                console.log('Đã có lỗi xảy ra');
-//                            }
-//                        },
-//                        error: function (jqXHR, textStatus, errorThrown) {
-//                            console.log('Có lỗi xảy ra.');
-//                            //Làm gì đó khi có lỗi xảy ra
-//                            console.log('The following error occured: ' + textStatus, errorThrown);
-//                        }
-//                    });
-//                    playing = true;
-//                }
-//            }
-            if(document.getElementById('iframe_api') === null){
-                        var tag = document.createElement('script');
-                        tag.src = "https://www.youtube.com/iframe_api";
-                        tag.id = "iframe_api";
-                        var firstScriptTag = document.getElementsByTagName('script')[0];
-                        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-                    }
-            else
-                runPlayer();
-
-            function runPlayer(){
-                        var player;
-                        player = new YT.Player(element.children()[0], {
-                            height: '360',
-                            width: '540',
-                            videoId: '<?=$id_youtube?>',
-                            events: {
-                                onStateChange: function (event) {
-                                    alert();
-                                }
+            var player, playing = false;
+            function onPlayerStateChange(event) {
+                if (!playing) {
+                    $.ajax({
+                        type: "post",
+                        dataType: "json",
+                        url: '<?php echo admin_url('admin-ajax.php'); ?>',
+                        data: {
+                            action: "youtube_view", //Tên action
+                            post_id: <?=get_the_ID()?>
+                        },
+                        context: this,
+                        beforeSend: function () {
+                            //Làm gì đó trước khi gửi dữ liệu vào xử lý
+                        },
+                        success: function (response) {
+                            //Làm gì đó khi dữ liệu đã được xử lý
+                            if (response.success) {
+                                console.log(response.data);
+                            } else {
+                                console.log('Đã có lỗi xảy ra');
                             }
-                        });
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.log('Có lỗi xảy ra.');
+                            //Làm gì đó khi có lỗi xảy ra
+                            console.log('The following error occured: ' + textStatus, errorThrown);
+                        }
+                    });
+                    playing = true;
+                }
+            }
+            if (document.getElementById('iframe_api') === null) {
+                var tag = document.createElement('script');
+                tag.src = "https://www.youtube.com/iframe_api";
+                tag.id = "iframe_api";
+                var firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            }
+            else {
+                runPlayer();
+            }
+            function runPlayer(){
+                var player;
+                player = new YT.Player('video_youtube', {
+                    height: '360',
+                    width: '540',
+                    videoId: '<?=$id_youtube?>',
+                    events: {
+                        onStateChange: onPlayerStateChange
                     }
-            $window.onYouTubeIframeAPIReady = function () {
+                });
+            }
+            window.onYouTubeIframeAPIReady = function () {
                 runPlayer();
             };
         </script>

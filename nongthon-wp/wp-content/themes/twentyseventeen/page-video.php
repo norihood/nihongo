@@ -43,7 +43,7 @@ get_header(); ?>
                             $html_list_video .= '<div class="video_item">
                                 <div class="item_child">
                                     <a href="' . get_permalink($video->ID) . '" title="' . $video->post_title . '">
-                                        <img src="' . get_the_post_thumbnail_url($video->ID) . '" alt="" width="">
+                                        <img src="' . (new Video_Thumbnails())->get_video_thumbnail($video->ID) . '" alt="" width="">
                                     </a>
                                     <div class="title_video">
                                         <a href="' . get_permalink($video->ID) . '" title="' . $video->post_title . '">' . $video->post_title . '</a>
