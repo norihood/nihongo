@@ -100,7 +100,7 @@ get_header(); ?>
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
-        var dialog, form,
+        var form,
             emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
             ftitle = $('#ftitle'),
             fcatid = $("#fcatid"),

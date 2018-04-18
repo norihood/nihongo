@@ -660,6 +660,8 @@ define('FAQ_PAGE_SLUG', 'hoi-dap');
 define('VIDEO_POST_TYPE', 'list-video');
 // taxonomy video
 define('LOAI_VIDEO', 'loai-video');
+
+define('CONTACT_PAGE_SLUG', 'hom-thu');
 /* ======= Constant ======= */
 
 function tao_taxonomy() {
@@ -735,7 +737,7 @@ function tao_taxonomy() {
        );
     // taxonomy FAQ
     register_taxonomy(LOAI_VIDEO, VIDEO_POST_TYPE, $args_video);
- 
+    
 }
  
 // Hook into the 'init' action
@@ -1212,3 +1214,7 @@ function one_category_only($content) {
 //    $content = str_replace('type="checkbox" ', 'type="radio" ', $content);
     return $content;
 }
+
+include 'template-parts/admin-page/p_plugin_admin.php';
+(new P_Contact_Plugin())->init();
+
