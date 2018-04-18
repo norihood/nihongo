@@ -1,3 +1,39 @@
+<?php
+global $wpdb;
+$wp_list_table = new _P_List_Table('p-contact');
+
+if (!empty($_GET['order']) && in_array(strtoupper($_GET['order']), array('DESC', 'ASC'))) {
+    $order = $_GET['order'];
+} else {
+    $order = 'DESC';
+}
+if (!empty($_GET['orderby']) && in_array($_GET['orderby'], array('title', 'read_status', 'created_date'))) {
+    $orderby = $_GET['orderby'];
+} else {
+    $orderby = 'id';
+}
+$where = ' WHERE 1=1 ';
+if (!empty($_GET['filter_contact']) && in_array(strtolower($_GET['filter_contact']), array('read', 'unread'))) {
+    $where .= ' AND read_status = ';
+    $filter = $_GET['filter_contact'];
+    switch ($filter) {
+        case 'read':
+            $where .= '1';
+            break;
+        case 'unread':
+            $where .= '0';
+            break;
+        default:break;
+    }
+}
+if (!empty($_GET['s'])) {
+    $search = $_GET['s'];
+    $where .= sprintf(' AND (title LIKE \'%%s%\' OR content LIKE \'%%s%\' OR name LIKE \'%%s%\' OR email \'%%s%\' OR phone LIKE \'%%s%\') ',
+                array($search, $search, $search, $search, $search));
+}
+$sql_str = 'SELECT * FROM wp_p_contact ' . $where . ' ORDER BY ' . $orderby . ' ' . $order;
+$list_contact = $wpdb->get_results($sql_str, ARRAY_A);
+?>
 <div id="ngg_page_content">
     <script type="text/javascript">
 <!--
@@ -86,129 +122,42 @@
         <h2>Danh sách thư liên hệ</h2>
         <form class="search-form" action="" method="get">
             <p class="search-box">
-                <label class="hidden" for="media-search-input">Search Images:</label>
-                <input type="hidden" id="page-name" name="page" value="nggallery-manage-gallery">
+                <label class="hidden" for="media-search-input">Tìm liên lạc:</label>
+                <input type="hidden" id="page-name" name="page" value="p-contact">
                 <input type="text" id="media-search-input" name="s" value="">
-                <input type="submit" value="Search Images" class="button">
+                <input type="submit" value="Tìm kiếm" class="button">
             </p>
         </form>
-        <form id="editgalleries" class="nggform" method="POST" action="admin.php?page=nggallery-manage-gallery&amp;orderby=gid&amp;order=ASC&amp;paged=1" accept-charset="utf-8">
-            <input type="hidden" id="_wpnonce" name="_wpnonce" value="971b0b5b36">
-            <input type="hidden" name="_wp_http_referer" value="/wp-admin/admin.php?page=nggallery-manage-gallery">
-            <input type="hidden" name="page" value="manage-galleries">
-
+        <form id="editgalleries" class="nggform" method="GET" action="" accept-charset="utf-8">
+            <input type="hidden" name="page" value="p-contact">
             <div class="tablenav top">
-
                 <div class="alignleft actions">
-                    <select name="bulkaction" id="bulkaction">
-                        <option value="no_action">Tác vụ</option>
-                        <option value="read">Đã đọc</option>
-                        <option value="unread">Chưa đọc</option>
-                        <option value="delete">Xóa</option>
+                    <select name="filter_contact" id="filter_contact">
+                        <option value="all">Tất cả</option>
+                        <option value="read" <?php echo ($filter == 'read') ? 'selected' : ''?>>Đã đọc</option>
+                        <option value="unread" <?php echo ($filter == 'unread') ? 'selected' : ''?>>Chưa đọc</option>
                     </select>
-                    <input name="showThickbox" class="button-secondary" type="submit" value="Áp dụng" onclick="if (!checkSelected())
-                            return false;">
-                </div>
-
-
-                <div class="tablenav-pages one-page">
-                    <span class="displaying-num">1 item</span>
-                    <span class="pagination-links">
-                        <a class="first-page disabled" title="Go to the first page" href="http://dev5.local/wp-admin/admin.php?page=nggallery-manage-gallery">«</a>
-                        <a class="prev-page disabled" title="Go to the previous page" href="http://dev5.local/wp-admin/admin.php?page=nggallery-manage-gallery&amp;paged=1">‹</a>
-                        <span class="paging-input">
-                            <input class="current-page" title="Current page" type="text" name="post_paged" value="1" size="1"> trên <span class="total-pages">1</span>
-                        </span>
-                        <a class="next-page disabled" title="Go to the next page" href="http://dev5.local/wp-admin/admin.php?page=nggallery-manage-gallery&amp;paged=1">›</a>
-                        <a class="last-page disabled" title="Go to the last page" href="http://dev5.local/wp-admin/admin.php?page=nggallery-manage-gallery&amp;paged=1">»</a>
-                    </span>
+                    <input name="btn-submit" class="button-secondary" type="submit" value="Lọc">
                 </div>
             </div>
             <table class="wp-list-table widefat" cellspacing="0">
-                <?php
-//                register_column_headers('contact-manage-artist', array(
-//                    'cb' => '<input name="checkall" type="checkbox" onclick="" />',
-//                    'title' => 'Tiêu đề',
-//                    'name' => 'Tên người gửi',
-//                    'email' => 'Email',
-//                    'read' => 'Trạng thái',
-//                    'created_date' => 'Ngày gửi',
-//                    
-//                ));
-                add_filter( 'manage_p-contact_columns', 'set_custom_mycpt_sortable_columns' );
-
-                function set_custom_mycpt_sortable_columns() {
-                  $columns['title'] = 'custom_taxonomy';
-                  $columns['read'] = 'acf_field';
-                  $columns = apply_filters('p-contact_columns', $columns);
-                  return $columns;
-                }
-                ?>
                 <thead>
                     <tr>
-                        <?php  print_column_headers('contact-manage-artist'); ?>
-<!--                        <td id="cb" class="manage-column column-cb check-column">
-                            <label class="screen-reader-text" for="cb-select-all-1">Chọn toàn bộ</label>
-                            <input id="cb-select-all-1" type="checkbox">
-                        </td>
-                        <th scope="col" id="title" class="manage-column column-title sortable asc">
-                            <a href="http://dev5.local/wp-admin/admin.php?page=nggallery-manage-gallery&amp;orderby=gid&amp;order=desc">
-                                <span>Tiêu đề</span><span class="sorting-indicator"></span>
-                            </a>
-                        </th>
-                        <th scope="col" id="name" class="manage-column column-name">
-                            Tên người gửi
-                        </th>
-                        <th scope="col" id="email" class="manage-column column-email">Email</th>
-                        <th scope="col" id="read" class="manage-column column-read sortable desc">
-                            <a href="http://dev5.local/wp-admin/admin.php?page=nggallery-manage-gallery&amp;orderby=author&amp;order=asc">
-                                <span>Trạng thái</span><span class="sorting-indicator"></span>
-                            </a>
-                        </th>
-                        <th scope="col" id="created_date" class="manage-column column-created_date sortable asc">
-                            <a href="http://dev5.local/wp-admin/admin.php?page=nggallery-manage-gallery&amp;orderby=author&amp;order=asc">
-                                <span>Ngày gửi</span><span class="sorting-indicator"></span>
-                            </a>
-                        </th>-->
+                        <?php $wp_list_table->print_column_headers(true); ?>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <td id="cb" class="manage-column column-cb check-column">
-                            <label class="screen-reader-text" for="cb-select-all-1">Chọn toàn bộ</label>
-                            <input id="cb-select-all-1" type="checkbox">
-                        </td>
-                        <th scope="col" id="title" class="manage-column column-title sortable asc">
-                            <a href="http://dev5.local/wp-admin/admin.php?page=nggallery-manage-gallery&amp;orderby=gid&amp;order=desc">
-                                <span>Tiêu đề</span><span class="sorting-indicator"></span>
-                            </a>
-                        </th>
-                        <th scope="col" id="name" class="manage-column column-name">
-                            Tên người gửi
-                        </th>
-                        <th scope="col" id="email" class="manage-column column-email">Email</th>
-                        <th scope="col" id="read" class="manage-column column-read sortable desc">
-                            <a href="http://dev5.local/wp-admin/admin.php?page=nggallery-manage-gallery&amp;orderby=author&amp;order=asc">
-                                <span>Trạng thái</span><span class="sorting-indicator"></span>
-                            </a>
-                        </th>
-                        <th scope="col" id="created_date" class="manage-column column-created_date sortable asc">
-                            <a href="http://dev5.local/wp-admin/admin.php?page=nggallery-manage-gallery&amp;orderby=author&amp;order=asc">
-                                <span>Ngày gửi</span><span class="sorting-indicator"></span>
-                            </a>
-                        </th>
+                        <?php $wp_list_table->print_column_headers(false); ?>
                     </tr>
                 </tfoot>
                 <tbody id="the-list">
                     <?php
-                    global $wpdb;
-                    $sql_str = 'SELECT * FROM wp_p_contact ORDER BY created_date DESC';
-                    $list_contact = $wpdb->get_results($sql_str, ARRAY_A);
                     if ($list_contact) {
                         foreach ($list_contact as $key => $contact) {
                             echo '<tr id="contact-' . $contact['id'] . '">
                                 <th scope="row" class="column-cb check-column">
-                                    <input name="doaction[]" type="checkbox" value="1">
+                                    <input name="doaction[]" type="checkbox" value="' . $contact['id'] . '">
                                 </th>
                                 <td class="title column-title">
                                     <a href="admin.php?page=p-contact&amp;contact_id=' . $contact['id'] . '" class="edit" title="Chi tiết">'
@@ -225,19 +174,67 @@
                     ?>
                 </tbody>
             </table>
-            <div class="tablenav bottom">
-                <div class="tablenav-pages one-page">
-                    <span class="displaying-num">1 item</span>
-                    <span class="pagination-links">
-                        <a class="first-page disabled" title="Go to the first page" href="http://dev5.local/wp-admin/admin.php?page=nggallery-manage-gallery">«</a>
-                        <a class="prev-page disabled" title="Go to the previous page" href="http://dev5.local/wp-admin/admin.php?page=nggallery-manage-gallery&amp;paged=1">‹</a>
-                        <span class="paging-input">1 trên <span class="total-pages">1</span></span>
-                        <a class="next-page disabled" title="Go to the next page" href="http://dev5.local/wp-admin/admin.php?page=nggallery-manage-gallery&amp;paged=1">›</a>
-                        <a class="last-page disabled" title="Go to the last page" href="http://dev5.local/wp-admin/admin.php?page=nggallery-manage-gallery&amp;paged=1">»</a>
-                    </span>
-                </div>
-            </div>
         </form>
     </div>
 
 </div>
+<?php
+class _P_List_Table extends WP_List_Table {
+	var $_screen;
+	var $_columns;
+
+	function __construct($screen)
+	{
+		if ( is_string( $screen ) )
+			$screen = convert_to_screen( $screen );
+
+		$this->_screen = $screen;
+		$this->_columns = array() ;
+
+		add_filter( 'manage_' . $screen->id . '_columns', array( &$this, 'get_columns' ), 0 );
+	}
+
+	function get_column_info() {
+		$columns = get_column_headers( $this->_screen );
+		$hidden = get_hidden_columns( $this->_screen );
+		$_sortable = $this->get_sortable_columns();
+
+		foreach ( $_sortable as $id => $data ) {
+			if ( empty( $data ) )
+				continue;
+
+			$data = (array) $data;
+			if ( !isset( $data[1] ) )
+				$data[1] = false;
+
+			$sortable[$id] = $data;
+		}
+
+		return array( $columns, $hidden, $sortable, null );
+	}
+
+    // define the columns to display, the syntax is 'internal name' => 'display name'
+	function get_columns() {
+    	$columns = array(
+            'cb' => '<input name="checkall" type="checkbox" onclick="" />',
+            'title' => 'Tiêu đề',
+            'name' => 'Tên người gửi',
+            'email' => 'Email',
+            'read' => 'Trạng thái',
+            'created_date' => 'Ngày gửi',
+        );
+
+    	$columns = apply_filters('p-contact_columns', $columns);
+
+    	return $columns;
+	}
+
+	function get_sortable_columns() {
+		return array(
+			'title'   => 'title',
+            'read' => 'read_status',
+			'created_date'   => 'created_date'
+		);
+	}
+}
+?>
