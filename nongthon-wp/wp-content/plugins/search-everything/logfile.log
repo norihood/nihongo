@@ -1,0 +1,625 @@
+
+
+2018-04-19 09:54:30 
+search_everything plugin: 
+searching categories
+
+2018-04-19 09:54:30 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 09:54:30 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 09:54:30 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 09:54:30 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 09:54:33 
+search_everything plugin: 
+searching categories
+
+2018-04-19 09:54:33 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 09:54:33 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 09:54:33 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 09:54:33 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 09:54:35 
+search_everything plugin: 
+searching categories
+
+2018-04-19 09:54:35 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 09:54:35 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 09:54:35 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 09:54:35 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 09:54:36 
+search_everything plugin: 
+searching categories
+
+2018-04-19 09:54:36 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 09:54:36 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 09:54:36 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 09:54:36 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 09:54:40 
+search_everything plugin: 
+searching categories
+
+2018-04-19 09:54:40 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 09:54:40 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 09:54:40 
+search_everything plugin: 
+categories where:  OR (((tter.slug LIKE 'nong') AND (tter.slug LIKE 'thon')) OR (tter.slug LIKE '\'thon\''))  OR (((ttax.description LIKE 'nong') AND (ttax.description LIKE 'thon')) OR (ttax.description LIKE 'nong thon')) 
+
+2018-04-19 09:54:40 
+search_everything plugin: 
+meta where:  OR (((m.meta_value LIKE 'nong') AND (m.meta_value LIKE 'thon')) OR (m.meta_value LIKE 'nong thon')) 
+
+2018-04-19 09:54:40 
+search_everything plugin: 
+global where:  AND (((((wp_posts.post_title LIKE 'nong') OR (wp_posts.post_content LIKE 'nong')) AND ((wp_posts.post_title LIKE 'thon') OR (wp_posts.post_content LIKE 'thon'))) OR (((tter.slug LIKE 'nong') AND (tter.slug LIKE 'thon')) OR (tter.slug LIKE '\'thon\''))  OR (((ttax.description LIKE 'nong') AND (ttax.description LIKE 'thon')) OR (ttax.description LIKE 'nong thon'))  OR (((m.meta_value LIKE 'nong') AND (m.meta_value LIKE 'thon')) OR (m.meta_value LIKE 'nong thon'))  OR (((wp_posts.post_excerpt LIKE 'nong') AND (wp_posts.post_excerpt LIKE 'thon')) OR (wp_posts.post_excerpt LIKE 'nong thon')) )) 
+
+2018-04-19 09:54:40 
+search_everything plugin: 
+tags join:  LEFT JOIN wp_term_relationships AS trel ON (wp_posts.ID = trel.object_id) LEFT JOIN wp_term_taxonomy AS ttax ON (  ( ttax.taxonomy = 'category' )  AND trel.term_taxonomy_id = ttax.term_taxonomy_id) LEFT JOIN wp_terms AS tter ON (ttax.term_id = tter.term_id) 
+
+2018-04-19 09:54:40 
+search_everything plugin: 
+metadata join:  LEFT JOIN wp_term_relationships AS trel ON (wp_posts.ID = trel.object_id) LEFT JOIN wp_term_taxonomy AS ttax ON (  ( ttax.taxonomy = 'category' )  AND trel.term_taxonomy_id = ttax.term_taxonomy_id) LEFT JOIN wp_terms AS tter ON (ttax.term_id = tter.term_id)  LEFT JOIN wp_postmeta AS m ON (wp_posts.ID = m.post_id) 
+
+2018-04-19 09:54:40 
+search_everything plugin: 
+SELECT DISTINCT SQL_CALC_FOUND_ROWS  wp_posts.* FROM wp_posts  LEFT JOIN wp_term_relationships AS trel ON (wp_posts.ID = trel.object_id) LEFT JOIN wp_term_taxonomy AS ttax ON (  ( ttax.taxonomy = 'category' )  AND trel.term_taxonomy_id = ttax.term_taxonomy_id) LEFT JOIN wp_terms AS tter ON (ttax.term_id = tter.term_id)  LEFT JOIN wp_postmeta AS m ON (wp_posts.ID = m.post_id)  WHERE 1=1 AND ( ( (((((wp_posts.post_title LIKE 'nong') OR (wp_posts.post_content LIKE 'nong')) AND ((wp_posts.post_title LIKE 'thon') OR (wp_posts.post_content LIKE 'thon'))) OR (((tter.slug LIKE 'nong') AND (tter.slug LIKE 'thon')) OR (tter.slug LIKE '\'thon\''))  OR (((ttax.description LIKE 'nong') AND (ttax.description LIKE 'thon')) OR (ttax.description LIKE 'nong thon'))  OR (((m.meta_value LIKE 'nong') AND (m.meta_value LIKE 'thon')) OR (m.meta_value LIKE 'nong thon'))  OR (((wp_posts.post_excerpt LIKE 'nong') AND (wp_posts.post_excerpt LIKE 'thon')) OR (wp_posts.post_excerpt LIKE 'nong thon')) ))  AND wp_posts.post_type IN ('post', 'page', 'attachment', 'wpdmpro', 'laws', 'faq', 'list-video') AND (wp_posts.post_status = 'publish' OR wp_posts.post_author = 1 AND wp_posts.post_status = 'private')) AND post_type != 'revision') AND post_status != 'future'  ORDER BY wp_posts.post_date DESC LIMIT 0, 2
+
+2018-04-19 09:54:43 
+search_everything plugin: 
+searching categories
+
+2018-04-19 09:54:43 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 09:54:43 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 09:54:43 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 09:54:43 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 09:54:45 
+search_everything plugin: 
+searching categories
+
+2018-04-19 09:54:45 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 09:54:45 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 09:54:45 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 09:54:45 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 09:54:46 
+search_everything plugin: 
+searching categories
+
+2018-04-19 09:54:46 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 09:54:46 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 09:54:46 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 09:54:46 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:05:12 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:05:12 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:05:12 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:05:12 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:05:12 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:05:16 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:05:16 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:05:16 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:05:16 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:05:16 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:05:17 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:05:17 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:05:17 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:05:17 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:05:17 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:05:18 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:05:18 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:05:18 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:05:18 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:05:18 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:05:22 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:05:22 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:05:22 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:05:22 
+search_everything plugin: 
+categories where:  OR ((tter.slug LIKE '{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}nong-thon{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}'))  OR ((ttax.description LIKE '{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}nong thon{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}')) 
+
+2018-04-19 10:05:22 
+search_everything plugin: 
+meta where:  OR ((m.meta_value LIKE '{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}nong thon{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}')) 
+
+2018-04-19 10:05:22 
+search_everything plugin: 
+global where:  AND (((((wp_posts.post_title LIKE '{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}nong thon{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}') OR (wp_posts.post_content LIKE '{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}nong thon{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}'))) OR ((tter.slug LIKE '{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}nong-thon{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}'))  OR ((ttax.description LIKE '{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}nong thon{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}'))  OR ((m.meta_value LIKE '{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}nong thon{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}'))  OR ((wp_posts.post_excerpt LIKE '{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}nong thon{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}')) )) 
+
+2018-04-19 10:05:22 
+search_everything plugin: 
+tags join:  LEFT JOIN wp_term_relationships AS trel ON (wp_posts.ID = trel.object_id) LEFT JOIN wp_term_taxonomy AS ttax ON (  ( ttax.taxonomy = 'category' )  AND trel.term_taxonomy_id = ttax.term_taxonomy_id) LEFT JOIN wp_terms AS tter ON (ttax.term_id = tter.term_id) 
+
+2018-04-19 10:05:22 
+search_everything plugin: 
+metadata join:  LEFT JOIN wp_term_relationships AS trel ON (wp_posts.ID = trel.object_id) LEFT JOIN wp_term_taxonomy AS ttax ON (  ( ttax.taxonomy = 'category' )  AND trel.term_taxonomy_id = ttax.term_taxonomy_id) LEFT JOIN wp_terms AS tter ON (ttax.term_id = tter.term_id)  LEFT JOIN wp_postmeta AS m ON (wp_posts.ID = m.post_id) 
+
+2018-04-19 10:05:22 
+search_everything plugin: 
+SELECT DISTINCT SQL_CALC_FOUND_ROWS  wp_posts.* FROM wp_posts  LEFT JOIN wp_term_relationships AS trel ON (wp_posts.ID = trel.object_id) LEFT JOIN wp_term_taxonomy AS ttax ON (  ( ttax.taxonomy = 'category' )  AND trel.term_taxonomy_id = ttax.term_taxonomy_id) LEFT JOIN wp_terms AS tter ON (ttax.term_id = tter.term_id)  LEFT JOIN wp_postmeta AS m ON (wp_posts.ID = m.post_id)  WHERE 1=1 AND ( ( (((((wp_posts.post_title LIKE '{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}nong thon{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}') OR (wp_posts.post_content LIKE '{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}nong thon{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}'))) OR ((tter.slug LIKE '{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}nong-thon{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}'))  OR ((ttax.description LIKE '{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}nong thon{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}'))  OR ((m.meta_value LIKE '{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}nong thon{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}'))  OR ((wp_posts.post_excerpt LIKE '{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}nong thon{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}')) ))  AND wp_posts.post_type IN ('post', 'page', 'attachment', 'wpdmpro', 'laws', 'faq', 'list-video') AND (wp_posts.post_status = 'publish' OR wp_posts.post_author = 1 AND wp_posts.post_status = 'private')) AND post_type != 'revision') AND post_status != 'future'  ORDER BY wp_posts.post_title LIKE '{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}nong thon{9cdd2400048ecf1ac5cd7723c12a58e359b3dcffe31b8ea13d213a13aebd476a}' DESC, wp_posts.post_date DESC LIMIT 0, 2
+
+2018-04-19 10:05:25 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:05:25 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:05:25 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:05:25 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:05:25 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:05:27 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:05:27 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:05:27 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:05:27 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:05:27 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:05:28 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:05:28 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:05:28 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:05:28 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:05:28 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:06:57 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:06:57 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:06:57 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:06:57 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:06:57 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:07:00 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:07:00 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:07:00 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:07:00 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:07:00 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:07:02 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:07:02 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:07:02 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:07:02 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:07:02 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:07:03 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:07:03 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:07:03 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:07:03 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:07:03 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:07:07 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:07:07 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:07:07 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:07:07 
+search_everything plugin: 
+categories where:  OR (((tter.slug LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}') AND (tter.slug LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}')) OR (tter.slug LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong-thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}'))  OR (((ttax.description LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}') AND (ttax.description LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}')) OR (ttax.description LIKE 'nong thon')) 
+
+2018-04-19 10:07:07 
+search_everything plugin: 
+meta where:  OR (((m.meta_value LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}') AND (m.meta_value LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}')) OR (m.meta_value LIKE 'nong thon')) 
+
+2018-04-19 10:07:07 
+search_everything plugin: 
+global where:  AND (((((wp_posts.post_title LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}') OR (wp_posts.post_content LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}')) AND ((wp_posts.post_title LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}') OR (wp_posts.post_content LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}'))) OR (((tter.slug LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}') AND (tter.slug LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}')) OR (tter.slug LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong-thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}'))  OR (((ttax.description LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}') AND (ttax.description LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}')) OR (ttax.description LIKE 'nong thon'))  OR (((m.meta_value LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}') AND (m.meta_value LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}')) OR (m.meta_value LIKE 'nong thon'))  OR (((wp_posts.post_excerpt LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}') AND (wp_posts.post_excerpt LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}')) OR (wp_posts.post_excerpt LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}')) )) 
+
+2018-04-19 10:07:07 
+search_everything plugin: 
+tags join:  LEFT JOIN wp_term_relationships AS trel ON (wp_posts.ID = trel.object_id) LEFT JOIN wp_term_taxonomy AS ttax ON (  ( ttax.taxonomy = 'category' )  AND trel.term_taxonomy_id = ttax.term_taxonomy_id) LEFT JOIN wp_terms AS tter ON (ttax.term_id = tter.term_id) 
+
+2018-04-19 10:07:07 
+search_everything plugin: 
+metadata join:  LEFT JOIN wp_term_relationships AS trel ON (wp_posts.ID = trel.object_id) LEFT JOIN wp_term_taxonomy AS ttax ON (  ( ttax.taxonomy = 'category' )  AND trel.term_taxonomy_id = ttax.term_taxonomy_id) LEFT JOIN wp_terms AS tter ON (ttax.term_id = tter.term_id)  LEFT JOIN wp_postmeta AS m ON (wp_posts.ID = m.post_id) 
+
+2018-04-19 10:07:07 
+search_everything plugin: 
+SELECT DISTINCT SQL_CALC_FOUND_ROWS  wp_posts.* FROM wp_posts  LEFT JOIN wp_term_relationships AS trel ON (wp_posts.ID = trel.object_id) LEFT JOIN wp_term_taxonomy AS ttax ON (  ( ttax.taxonomy = 'category' )  AND trel.term_taxonomy_id = ttax.term_taxonomy_id) LEFT JOIN wp_terms AS tter ON (ttax.term_id = tter.term_id)  LEFT JOIN wp_postmeta AS m ON (wp_posts.ID = m.post_id)  WHERE 1=1 AND ( ( (((((wp_posts.post_title LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}') OR (wp_posts.post_content LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}')) AND ((wp_posts.post_title LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}') OR (wp_posts.post_content LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}'))) OR (((tter.slug LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}') AND (tter.slug LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}')) OR (tter.slug LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong-thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}'))  OR (((ttax.description LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}') AND (ttax.description LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}')) OR (ttax.description LIKE 'nong thon'))  OR (((m.meta_value LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}') AND (m.meta_value LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}')) OR (m.meta_value LIKE 'nong thon'))  OR (((wp_posts.post_excerpt LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}') AND (wp_posts.post_excerpt LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}')) OR (wp_posts.post_excerpt LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}')) ))  AND wp_posts.post_type IN ('post', 'page', 'attachment', 'wpdmpro', 'laws', 'faq', 'list-video') AND (wp_posts.post_status = 'publish' OR wp_posts.post_author = 1 AND wp_posts.post_status = 'private')) AND post_type != 'revision') AND post_status != 'future'  ORDER BY (CASE WHEN wp_posts.post_title LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}' THEN 1 WHEN wp_posts.post_title LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}' AND wp_posts.post_title LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}' THEN 2 WHEN wp_posts.post_title LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}' OR wp_posts.post_title LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}' THEN 3 WHEN wp_posts.post_excerpt LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}' THEN 4 WHEN wp_posts.post_content LIKE '{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}nong thon{8765279dfe3f62b78ec1d7f0f9ac7e825e8d11f5ccaa86e381128dbe241c5339}' THEN 5 ELSE 6 END), wp_posts.post_date DESC LIMIT 0, 2
+
+2018-04-19 10:07:11 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:07:11 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:07:11 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:07:11 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:07:11 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:07:12 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:07:12 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:07:12 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:07:12 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:07:12 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:07:13 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:07:13 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:07:13 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:07:13 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:07:13 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:10:43 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:10:43 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:10:43 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:10:43 
+search_everything plugin: 
+categories where:  OR (((tter.slug LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}') AND (tter.slug LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}')) OR (tter.slug LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong-thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}'))  OR (((ttax.description LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}') AND (ttax.description LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}')) OR (ttax.description LIKE 'nong thon')) 
+
+2018-04-19 10:10:43 
+search_everything plugin: 
+meta where:  OR (((m.meta_value LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}') AND (m.meta_value LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}')) OR (m.meta_value LIKE 'nong thon')) 
+
+2018-04-19 10:10:43 
+search_everything plugin: 
+global where:  AND (((((wp_posts.post_title LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}') OR (wp_posts.post_content LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}')) AND ((wp_posts.post_title LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}') OR (wp_posts.post_content LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}'))) OR (((tter.slug LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}') AND (tter.slug LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}')) OR (tter.slug LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong-thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}'))  OR (((ttax.description LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}') AND (ttax.description LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}')) OR (ttax.description LIKE 'nong thon'))  OR (((m.meta_value LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}') AND (m.meta_value LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}')) OR (m.meta_value LIKE 'nong thon'))  OR (((wp_posts.post_excerpt LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}') AND (wp_posts.post_excerpt LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}')) OR (wp_posts.post_excerpt LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}')) )) 
+
+2018-04-19 10:10:43 
+search_everything plugin: 
+tags join:  LEFT JOIN wp_term_relationships AS trel ON (wp_posts.ID = trel.object_id) LEFT JOIN wp_term_taxonomy AS ttax ON (  ( ttax.taxonomy = 'category' )  AND trel.term_taxonomy_id = ttax.term_taxonomy_id) LEFT JOIN wp_terms AS tter ON (ttax.term_id = tter.term_id) 
+
+2018-04-19 10:10:43 
+search_everything plugin: 
+metadata join:  LEFT JOIN wp_term_relationships AS trel ON (wp_posts.ID = trel.object_id) LEFT JOIN wp_term_taxonomy AS ttax ON (  ( ttax.taxonomy = 'category' )  AND trel.term_taxonomy_id = ttax.term_taxonomy_id) LEFT JOIN wp_terms AS tter ON (ttax.term_id = tter.term_id)  LEFT JOIN wp_postmeta AS m ON (wp_posts.ID = m.post_id) 
+
+2018-04-19 10:10:43 
+search_everything plugin: 
+SELECT DISTINCT SQL_CALC_FOUND_ROWS  wp_posts.* FROM wp_posts  LEFT JOIN wp_term_relationships AS trel ON (wp_posts.ID = trel.object_id) LEFT JOIN wp_term_taxonomy AS ttax ON (  ( ttax.taxonomy = 'category' )  AND trel.term_taxonomy_id = ttax.term_taxonomy_id) LEFT JOIN wp_terms AS tter ON (ttax.term_id = tter.term_id)  LEFT JOIN wp_postmeta AS m ON (wp_posts.ID = m.post_id)  WHERE 1=1 AND ( ( (((((wp_posts.post_title LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}') OR (wp_posts.post_content LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}')) AND ((wp_posts.post_title LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}') OR (wp_posts.post_content LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}'))) OR (((tter.slug LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}') AND (tter.slug LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}')) OR (tter.slug LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong-thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}'))  OR (((ttax.description LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}') AND (ttax.description LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}')) OR (ttax.description LIKE 'nong thon'))  OR (((m.meta_value LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}') AND (m.meta_value LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}')) OR (m.meta_value LIKE 'nong thon'))  OR (((wp_posts.post_excerpt LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}') AND (wp_posts.post_excerpt LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}')) OR (wp_posts.post_excerpt LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}')) ))  AND wp_posts.post_type IN ('post', 'page', 'attachment', 'wpdmpro', 'laws', 'faq', 'list-video') AND (wp_posts.post_status = 'publish' OR wp_posts.post_author = 1 AND wp_posts.post_status = 'private')) AND post_type != 'revision') AND post_status != 'future'  ORDER BY (CASE WHEN wp_posts.post_title LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}' THEN 1 WHEN wp_posts.post_title LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}' AND wp_posts.post_title LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}' THEN 2 WHEN wp_posts.post_title LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}' OR wp_posts.post_title LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}' THEN 3 WHEN wp_posts.post_excerpt LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}' THEN 4 WHEN wp_posts.post_content LIKE '{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}nong thon{cadd7a34364e6e6dafdb975a59a2ff3240f77ad0aa75240c2e4ac405e7b95cc9}' THEN 5 ELSE 6 END), wp_posts.post_date DESC LIMIT 0, 2
+
+2018-04-19 10:10:47 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:10:47 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:10:47 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:10:47 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:10:47 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:10:48 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:10:48 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:10:48 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:10:48 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:10:48 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 10:10:50 
+search_everything plugin: 
+searching categories
+
+2018-04-19 10:10:50 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 10:10:50 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 10:10:50 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 10:10:50 
+search_everything plugin: 
+metadata join: 

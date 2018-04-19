@@ -619,7 +619,7 @@ function clean_custom_menus() {
 	if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])) {
 		$menu = wp_get_nav_menu_object($locations[$menu_name]);
 		$menu_items = wp_get_nav_menu_items($menu->term_id);
-
+        
 		$menu_list = '<nav>' ."\n";
 		$menu_list .= "\t\t\t\t". '<ul class="nav fl p_nav">' ."\n";
 		foreach ((array) $menu_items as $key => $menu_item) {
@@ -1217,4 +1217,3 @@ function one_category_only($content) {
 
 include 'template-parts/admin-page/p_plugin_admin.php';
 (new P_Contact_Plugin())->init();
-

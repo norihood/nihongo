@@ -10,6 +10,11 @@ get_header(); ?>
     get_template_part('template-parts/post/contact', 'breadcrumb');?>
     <?php
     if ('POST' == $_SERVER['REQUEST_METHOD'] && !empty($_POST['btsend'])) {
+        if ( ! wp_verify_nonce( $_POST['_wpnonce'], 'p-contact' ) ) {
+            // This nonce is not valid.
+            wp_redirect( '/hom-thu/' ); exit;
+            die( 'Security check' ); 
+        }
         global $wpdb;
 //        $wpdb->escape();
         $wpdb->insert('wp_p_contact', 
@@ -34,7 +39,9 @@ get_header(); ?>
                 '%s'
             ) 
         );
-        echo 'Xin cảm ơn quý vị đã quan tâm! chúng tôi sẽ trả lời thư của Quý vị trong thời gian sớm nhất.';
+        echo 'Xin cảm ơn quý vị đã quan tâm! chúng tôi sẽ trả lời thư của Quý vị trong thời gian sớm nhất.'
+            . '<br>Sẽ chuyển về trang hòm thư trong 5 giây nữa.';
+        echo '<meta http-equiv="Refresh" content="5;url=/hom-thu/">';
     } else {
     ?>
     <script type="text/javascript">
@@ -49,6 +56,7 @@ get_header(); ?>
         </div>
         <p class="validateTips"></p>
         <form id="fcontact" method="post" action="">
+            <?php wp_nonce_field('p-contact'); ?>
             <div class="content clearfix">
                 <div class="ftitle">
                     <label for="ftitle">

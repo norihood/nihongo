@@ -18,19 +18,19 @@
 get_header(); ?>
 
 <div class="span-13 contentcolumn">
-
+    <?php
+    set_query_var( 'slug_page', 'gioi-thieu' );
+    set_query_var( 'img_top', '<img alt="" src="' . get_template_directory_uri() . '/assets/images/bannerhcm.jpg" style="width: 540px; height: 71px; ">' );
+    get_template_part('template-parts/post/breadcrumb');?>
     <?php
     while ( have_posts() ) : the_post();
 
-        get_template_part( 'template-parts/page/content', 'page' );
-
-        // If comments are open or we have at least one comment, load up the comment template.
-        if ( comments_open() || get_comments_number() ) :
-            comments_template();
-        endif;
+        the_content();
 
     endwhile; // End of the loop.
     ?>
 </div>
-
+<!-- right sidebar -->
+<?php 
+get_template_part('template-parts/sidebar/sidebar', 'right'); ?>
 <?php get_footer();

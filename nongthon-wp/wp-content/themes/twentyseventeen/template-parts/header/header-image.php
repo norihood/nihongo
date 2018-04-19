@@ -24,20 +24,30 @@
 </div>
 
 <div class="nav">
-    <?php if (function_exists(clean_custom_menus())) clean_custom_menus(); ?>
+    <?php //if (function_exists(clean_custom_menus())) clean_custom_menus(); ?>
+    <nav>
+        <ul class="nav fl p_nav">
+            <li class=""><a title="Trang chủ" href="/"><span><strong>•</strong>Trang chủ</span></a></li>
+            <li class=""><a title="Giới thiệu" href="/gioi-thieu/"><span><strong>•</strong>Giới thiệu</span></a></li>
+            <li class=""><a title="Văn bản nông thôn mới" href="/van-ban-nong-thon-moi/"><span><strong>•</strong>Văn bản nông thôn mới</span></a></li>
+            <li class=""><a title="Thư viện ảnh" href="/thu-vien-anh/"><span><strong>•</strong>Thư viện ảnh</span></a></li>
+            <li class=""><a title="Hỏi đáp" href="/hoi-dap/"><span><strong>•</strong>Hỏi đáp</span></a></li>
+            <li class=""><a title="Video" href="/video/"><span><strong>•</strong>Video</span></a></li>
+            <li class=""><a title="Hòm thư" href="/hom-thu/"><span><strong>•</strong>Hòm thư</span></a></li>
+        </ul>
+    </nav>
 </div>
 <div id="message"></div>
 <div class="clock fl">
     <span id="divclock" style="font-weight: 700;"></span>
 </div>
-<form action="http://nongthonmoihatinh.vn/" method="get" class="search fr" onsubmit="return nv_search_submit( & #39; topmenu_search_query & #39; , & #39; topmenu_search_checkss & #39; , & #39; topmenu_search_submit & #39; , 3, 60);">
+<form action="<?=home_url()?>" method="get" class="search fr">
     <fieldset>
-        <input type="hidden" id="topmenu_search_checkss" value="">
-        <input class="txt" type="text" name="topmenu_search_query" id="topmenu_search_query" maxlength="60">
-        <input class="submit" type="button" value="Go" name="topmenu_search_submit" id="topmenu_search_submit" onclick="nv_search_submit( & #39; topmenu_search_query & #39; , & #39; topmenu_search_checkss & #39; , & #39; topmenu_search_submit & #39; , 3, 60);">
+        <input class="txt" type="text" name="s" id="topmenu_search_query" maxlength="60">
+        <input class="submit" type="submit" value="Go" name="topmenu_search_submit" id="topmenu_search_submit">
     </fieldset>
 </form>
-<div style="text-align:center; font-size: 14px; color: red;font-weight: normal;background:url(../images/message_bg.jpg;font-family:Times New Roman,Arial,Verdana,sans-serif; margin-bottom: 5px">
+<div class="top_slogan">
     <marquee behavior="scroll" direction="left" width="535" scrolldelay="30" scrollamount="2"><font color="ff0000">
         <strong>GƯƠNG MẪU, CHỦ ĐỘNG, TÂM HUYẾT, KHOA HỌC, HIỆU QUẢ</strong></font>
     </marquee>

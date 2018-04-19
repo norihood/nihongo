@@ -868,23 +868,26 @@ ul.tieu-diem li:nth-child(even) a {
     padding-left: 27px;
 }
 .form_error {
-    border: 1px solid #ff0000;
+    border: 1px solid #ff0000 !important;
 }
-#fquestion p {
+#fquestion p, .contact label {
     font-size: 14px;
     font-weight: bold;
 }
-#fquestion input[type=text], #fquestion select, #fquestion textarea {
+#fquestion input[type=text], #fquestion select, #fquestion textarea,
+.contact input[type=text], .contact select, .contact textarea {
     font-size: 14px;
     padding: 5px 4px;
     border-radius: 3px;
     box-sizing: border-box;
     border: 1px solid #c5c5c5;
 }
-#fquestion input[type=text], #fquestion select {
+#fquestion input[type=text], #fquestion select,
+.contact input[type=text], .contact select{
     width: 300px;
 }
-#fquestion input[type=submit], #fquestion input[type=reset] {
+#fquestion input[type=submit], #fquestion input[type=reset],
+.contact input[type=submit], .contact input[type=reset]{
     margin: .5em .4em .5em 0;
     cursor: pointer;
     background: #f6f6f6;
@@ -936,20 +939,8 @@ ul.tieu-diem li:nth-child(even) a {
     width: auto;
     height: 22px;
 }
-
-.err {
-    color: #ff0000;
-    font-weight: bold;
-    margin-bottom: 10px;
+.contact .validateTips {
     padding: 10px;
-    text-align: center;
 }
 
-
-.bt_reset1 {
-    background: url(../images/contact/refresh.png) center no-repeat;
-    border: 0;
-    width: 22px;
-    height: 22px;
-}
 /* ===== end Contact ===== */

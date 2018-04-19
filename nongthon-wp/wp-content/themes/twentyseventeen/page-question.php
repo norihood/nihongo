@@ -12,6 +12,11 @@ get_header(); ?>
     get_template_part('template-parts/post/breadcrumb');?>
     <?php
     if ('POST' == $_SERVER['REQUEST_METHOD'] && !empty($_POST['btsend'])) {
+        if ( ! wp_verify_nonce( $_POST['_wpnonce'], 'p-question' ) ) {
+            // This nonce is not valid.
+            wp_redirect( '/cau-hoi/' ); exit;
+            die( 'Security check' ); 
+        }
         $new_post = array(
             'post_title'   => $_POST['ftitle'],
             'post_status'  => 'publish',
@@ -24,7 +29,9 @@ get_header(); ?>
         add_post_meta($pid, 'email_of_user', $_POST['femail'], true);
         add_post_meta($pid, 'phone_number', $_POST['fphone'], true);
         add_post_meta($pid, 'question', $_POST['fcontent'], true);
-        echo 'Xin cảm ơn quý vị đã quan tâm! chúng tôi sẽ trả lời thư của Quý vị trong thời gian sớm nhất.';
+        echo 'Xin cảm ơn quý vị đã quan tâm! chúng tôi sẽ trả lời thư của Quý vị trong thời gian sớm nhất.'
+            . '<br>Sẽ chuyển về trang đặt câu hỏi trong 5 giây nữa.';
+        echo '<meta http-equiv="Refresh" content="5;url=/cau-hoi/">';
     } else {
     ?>
     <script type="text/javascript">
@@ -36,6 +43,7 @@ get_header(); ?>
     <div class="content-box">
         <p class="validateTips"></p>
         <form id="fquestion" method="post" action="">
+            <?php wp_nonce_field('p-question'); ?>
             <div class="contact-form box-border content-box">
                 <p class="rows">
                     Tiêu đề:

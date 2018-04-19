@@ -1,0 +1,97 @@
+
+
+2018-04-19 08:41:39 
+search_everything plugin: 
+searching categories
+
+2018-04-19 08:41:39 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 08:41:39 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 08:41:39 
+search_everything plugin: 
+categories where:  OR ((tter.slug LIKE '{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}dfdfd{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}'))  OR ((ttax.description LIKE '{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}dfdfd{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}')) 
+
+2018-04-19 08:41:39 
+search_everything plugin: 
+meta where:  OR ((m.meta_value LIKE '{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}dfdfd{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}')) 
+
+2018-04-19 08:41:39 
+search_everything plugin: 
+global where:  AND (((((wp_posts.post_title LIKE '{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}dfdfd{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}') OR (wp_posts.post_content LIKE '{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}dfdfd{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}'))) OR ((tter.slug LIKE '{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}dfdfd{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}'))  OR ((ttax.description LIKE '{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}dfdfd{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}'))  OR ((m.meta_value LIKE '{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}dfdfd{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}'))  OR ((wp_posts.post_excerpt LIKE '{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}dfdfd{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}')) )) 
+
+2018-04-19 08:41:39 
+search_everything plugin: 
+tags join:  LEFT JOIN wp_term_relationships AS trel ON (wp_posts.ID = trel.object_id) LEFT JOIN wp_term_taxonomy AS ttax ON (  ( ttax.taxonomy = 'category' )  AND trel.term_taxonomy_id = ttax.term_taxonomy_id) LEFT JOIN wp_terms AS tter ON (ttax.term_id = tter.term_id) 
+
+2018-04-19 08:41:39 
+search_everything plugin: 
+metadata join:  LEFT JOIN wp_term_relationships AS trel ON (wp_posts.ID = trel.object_id) LEFT JOIN wp_term_taxonomy AS ttax ON (  ( ttax.taxonomy = 'category' )  AND trel.term_taxonomy_id = ttax.term_taxonomy_id) LEFT JOIN wp_terms AS tter ON (ttax.term_id = tter.term_id)  LEFT JOIN wp_postmeta AS m ON (wp_posts.ID = m.post_id) 
+
+2018-04-19 08:41:39 
+search_everything plugin: 
+SELECT DISTINCT SQL_CALC_FOUND_ROWS  wp_posts.* FROM wp_posts  LEFT JOIN wp_term_relationships AS trel ON (wp_posts.ID = trel.object_id) LEFT JOIN wp_term_taxonomy AS ttax ON (  ( ttax.taxonomy = 'category' )  AND trel.term_taxonomy_id = ttax.term_taxonomy_id) LEFT JOIN wp_terms AS tter ON (ttax.term_id = tter.term_id)  LEFT JOIN wp_postmeta AS m ON (wp_posts.ID = m.post_id)  WHERE 1=1 AND ( ( (((((wp_posts.post_title LIKE '{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}dfdfd{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}') OR (wp_posts.post_content LIKE '{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}dfdfd{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}'))) OR ((tter.slug LIKE '{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}dfdfd{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}'))  OR ((ttax.description LIKE '{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}dfdfd{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}'))  OR ((m.meta_value LIKE '{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}dfdfd{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}'))  OR ((wp_posts.post_excerpt LIKE '{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}dfdfd{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}')) ))  AND wp_posts.post_type IN ('post', 'page', 'attachment', 'wpdmpro', 'laws', 'faq', 'list-video') AND (wp_posts.post_status = 'publish' OR wp_posts.post_author = 1 AND wp_posts.post_status = 'private')) AND post_type != 'revision') AND post_status != 'future'  ORDER BY wp_posts.post_title LIKE '{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}dfdfd{d4f86b5878411f7cdb918aab44eb321489fe4c03a644e08ae3aff8363907d1d3}' DESC, wp_posts.post_date DESC LIMIT 0, 2
+
+2018-04-19 08:41:43 
+search_everything plugin: 
+searching categories
+
+2018-04-19 08:41:43 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 08:41:43 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 08:41:43 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 08:41:43 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 08:41:45 
+search_everything plugin: 
+searching categories
+
+2018-04-19 08:41:45 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 08:41:45 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 08:41:45 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 08:41:45 
+search_everything plugin: 
+metadata join: 
+
+2018-04-19 08:41:46 
+search_everything plugin: 
+searching categories
+
+2018-04-19 08:41:46 
+search_everything plugin: 
+searching excerpts
+
+2018-04-19 08:41:46 
+search_everything plugin: 
+searching metadata
+
+2018-04-19 08:41:46 
+search_everything plugin: 
+tags join: 
+
+2018-04-19 08:41:46 
+search_everything plugin: 
+metadata join: 

@@ -1,59 +1,9 @@
 <?php
-global $wpdb;
-$wp_list_table = new _P_List_Table('p-contact');
-
-if (!empty($_GET['order']) && in_array(strtoupper($_GET['order']), array('DESC', 'ASC'))) {
-    $order = $_GET['order'];
-} else {
-    $order = 'DESC';
-}
-if (!empty($_GET['orderby']) && in_array($_GET['orderby'], array('title', 'read_status', 'created_date'))) {
-    $orderby = $_GET['orderby'];
-} else {
-    $orderby = 'id';
-}
-$where = ' WHERE 1=1 ';
-if (!empty($_GET['filter_contact']) && in_array(strtolower($_GET['filter_contact']), array('read', 'unread'))) {
-    $where .= ' AND read_status = ';
-    $filter = $_GET['filter_contact'];
-    switch ($filter) {
-        case 'read':
-            $where .= '1';
-            break;
-        case 'unread':
-            $where .= '0';
-            break;
-        default:break;
-    }
-}
-if (!empty($_GET['s'])) {
-    $search = $_GET['s'];
-    $where .= sprintf(' AND (title LIKE \'%%s%\' OR content LIKE \'%%s%\' OR name LIKE \'%%s%\' OR email \'%%s%\' OR phone LIKE \'%%s%\') ',
-                array($search, $search, $search, $search, $search));
-}
-$sql_str = 'SELECT * FROM wp_p_contact ' . $where . ' ORDER BY ' . $orderby . ' ' . $order;
-$list_contact = $wpdb->get_results($sql_str, ARRAY_A);
+$wp_list_table = new _P_List_Table($page_slug);
 ?>
 <div id="ngg_page_content">
     <script type="text/javascript">
 <!--
-
-    // Listen for frame events
-    jQuery(function ($) {
-        if ($(this).data('ready'))
-            return;
-
-        if (window.Frame_Event_Publisher) {
-
-            // If a new gallery is added, refresh the page
-            Frame_Event_Publisher.listen_for('attach_to_post:new_gallery attach_to_post:manage_images attach_to_post:images_added', function () {
-                window.location.href = window.location.href.toString();
-            });
-        }
-
-        $(this).data('ready', true);
-    });
-
 
     function checkAll(form)
     {
@@ -81,61 +31,26 @@ $list_contact = $wpdb->get_results($sql_str, ARRAY_A);
         }
         return num;
     }
-
-    // this function check for a the number of selected images, sumbmit false when no one selected
-    function checkSelected() {
-
-        if (typeof document.activeElement == "undefined" && document.addEventListener) {
-            document.addEventListener("focus", function (e) {
-                document.activeElement = e.target;
-            }, true);
-        }
-
-        if (document.activeElement.name == 'post_paged')
-            return true;
-
-        var numchecked = getNumChecked(document.getElementById('editgalleries'));
-
-        if (numchecked < 1) {
-            alert('No images selected');
-            return false;
-        }
-
-        actionId = jQuery('#bulkaction').val();
-
-        switch (actionId) {
-            case "resize_images":
-                showDialog('resize_images', 'Resize images');
-                return false;
-                break;
-            case "new_thumbnail":
-                showDialog('new_thumbnail', 'Create new thumbnails');
-                return false;
-                break;
-        }
-
-        return confirm('You are about to start the bulk edit for ' + numchecked + ' galleries \n \n \'Cancel\' to stop, \'OK\' to proceed.');
-    }
     //-->
     </script>
     <div class="wrap">
-        <h2>Danh sách thư liên hệ</h2>
+        <h2><?=$heading_contact?></h2>
         <form class="search-form" action="" method="get">
             <p class="search-box">
                 <label class="hidden" for="media-search-input">Tìm liên lạc:</label>
-                <input type="hidden" id="page-name" name="page" value="p-contact">
+                <input type="hidden" id="page-name" name="page" value="<?=$page_slug?>">
                 <input type="text" id="media-search-input" name="s" value="">
                 <input type="submit" value="Tìm kiếm" class="button">
             </p>
         </form>
         <form id="editgalleries" class="nggform" method="GET" action="" accept-charset="utf-8">
-            <input type="hidden" name="page" value="p-contact">
+            <input type="hidden" name="page" value="<?=$page_slug?>">
             <div class="tablenav top">
                 <div class="alignleft actions">
                     <select name="filter_contact" id="filter_contact">
                         <option value="all">Tất cả</option>
-                        <option value="read" <?php echo ($filter == 'read') ? 'selected' : ''?>>Đã đọc</option>
-                        <option value="unread" <?php echo ($filter == 'unread') ? 'selected' : ''?>>Chưa đọc</option>
+                        <option value="read" <?php echo (!empty($_GET['filter_contact']) && $_GET['filter_contact'] == 'read') ? 'selected' : ''?>>Đã đọc</option>
+                        <option value="unread" <?php echo (!empty($_GET['filter_contact']) && $_GET['filter_contact'] == 'unread') ? 'selected' : ''?>>Chưa đọc</option>
                     </select>
                     <input name="btn-submit" class="button-secondary" type="submit" value="Lọc">
                 </div>
@@ -160,7 +75,7 @@ $list_contact = $wpdb->get_results($sql_str, ARRAY_A);
                                     <input name="doaction[]" type="checkbox" value="' . $contact['id'] . '">
                                 </th>
                                 <td class="title column-title">
-                                    <a href="admin.php?page=p-contact&amp;contact_id=' . $contact['id'] . '" class="edit" title="Chi tiết">'
+                                    <a href="admin.php?page=' . $page_slug . '&amp;contact_id=' . $contact['id'] . '" class="edit" title="Chi tiết">'
                                         . $contact['title'] .
                                     '</a>
                                 </td>
@@ -170,6 +85,8 @@ $list_contact = $wpdb->get_results($sql_str, ARRAY_A);
                                 <td class="created_date column-created_date">' . date('d-m-Y', strtotime($contact['created_date'])) . '</td>
                             </tr>';
                         }
+                    } else {
+                        echo '<tr><td colspan="6" align="center"><strong>Không có liên lạc nào.</strong></td></tr>';
                     }
                     ?>
                 </tbody>
@@ -224,7 +141,7 @@ class _P_List_Table extends WP_List_Table {
             'created_date' => 'Ngày gửi',
         );
 
-    	$columns = apply_filters('p-contact_columns', $columns);
+    	$columns = apply_filters($page_slug . '_columns', $columns);
 
     	return $columns;
 	}
