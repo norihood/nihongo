@@ -11,7 +11,7 @@
                     </label>
                 </dd>
                 <dt class="fl" style="text-align:left;">
-                    <input class="intxt" id="search_query" name="s" value="" maxlength="60">
+                    <input style="width:260px;" type="text" id="search_text" name="s" value="<?php echo (!empty($_GET['s']) ? $_GET['s'] : '')?>" maxlength="60">
                 </dt>
             </dl>
             <dl class="clearfix" style="margin-bottom:5px">
@@ -19,8 +19,13 @@
                     &nbsp;
                 </dd>
                 <dt class="fl" style="text-align:left;">
-                    <input name="sentence" id="search_logic_and" type="radio" value="1">Cả cụm từ &nbsp; 
-                    <input name="sentence" id="search_logic_or" type="radio" checked="checked" value="">Tối thiểu 1 từ
+                    <label style="font-weight: normal;">
+                        <input name="sentence" id="search_logic_and" type="radio" value="1" <?php echo ((!empty($_GET['sentence']) && $_GET['sentence'] == 1) ? 'checked' : '')?>>Cả cụm từ 
+                    </label>
+                    &nbsp; 
+                    <label style="font-weight: normal;">
+                        <input name="sentence" id="search_logic_or" type="radio" value="" <?php echo ((empty($_GET['sentence']) || $_GET['sentence'] != 1) ? 'checked' : '')?>>Tối thiểu 1 từ
+                    </label>
                 </dt>
             </dl>            
             <dl class="clearfix">
@@ -32,17 +37,25 @@
                 <dt class="fl" style="text-align:left;">
                     <select name="m" id="search_query_mod">
                         <option value="all">Tìm kiếm trên site</option>
-                        <option value="he-thong-to-chuc">Hệ thống tổ chức</option>
-                        <option value="gioi-thieu">Giới thiệu</option>
-                        <option value="tin-tuc">Tin Tức</option>
-                        <option value="hoi-dap">Hỏi đáp</option>
-                        <option value="van-ban">Văn bản nông thôn mới</option>
+                        <option value="he-thong-to-chuc" <?php echo ((!empty($_GET['m']) && $_GET['m'] == 'he-thong-to-chuc') ? 'selected' : '')?>>Hệ thống tổ chức</option>
+                        <option value="gioi-thieu" <?php echo ((!empty($_GET['m']) && $_GET['m'] == 'gioi-thieu') ? 'selected' : '')?>>Giới thiệu</option>
+                        <option value="tin-tuc" <?php echo ((!empty($_GET['m']) && $_GET['m'] == 'tin-tuc') ? 'selected' : '')?>>Tin Tức</option>
+                        <option value="hoi-dap" <?php echo ((!empty($_GET['m']) && $_GET['m'] == 'hoi-dap') ? 'selected' : '')?>>Hỏi đáp</option>
+                        <option value="van-ban" <?php echo ((!empty($_GET['m']) && $_GET['m'] == 'van-ban') ? 'selected' : '')?>>Văn bản nông thôn mới</option>
                     </select>
                     <input type="submit" id="search_submit" value="Tìm kiếm">&nbsp;&nbsp;
-                    <a href="advSearch" class="advSearch">Nâng cao</a>
                 </dt>
             </dl>
         </div>
     </form>
-
+    <script type="text/javascript">
+        $('#form_search').on('submit', function(){
+            var search_text = $(this).find('#search_text').val();
+            if (search_text.length < 1) {
+                alert('Hãy nhập nội dung muốn tìm kiếm');
+                return false;
+            }
+            return true;
+        })
+    </script>
 </div>

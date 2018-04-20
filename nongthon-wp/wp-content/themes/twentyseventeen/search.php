@@ -18,43 +18,62 @@ get_header(); ?>
     get_template_part('template-parts/post/breadcrumb');
     get_template_part('template-parts/search/search', 'form');
     ?>
-
-    <div id="primary" class="content-area">
-        <main id="main" class="site-main" role="main">
-
-            <?php
-            if (have_posts()) :
-                /* Start the Loop */
-                while (have_posts()) : the_post();
-
-                    /**
-                     * Run the loop for the search to output the results.
-                     * If you want to overload this in a child theme then include a file
-                     * called content-search.php and that will be used instead.
-                     */
-                    get_template_part('template-parts/post/content', 'excerpt');
-
-                endwhile; // End of the loop.
-
-                the_posts_pagination(array(
-                    'prev_text'          => twentyseventeen_get_svg(array('icon' => 'arrow-left')) . '<span class="screen-reader-text">' . __('Previous page', 'twentyseventeen') . '</span>',
-                    'next_text'          => '<span class="screen-reader-text">' . __('Next page', 'twentyseventeen') . '</span>' . twentyseventeen_get_svg(array('icon' => 'arrow-right')),
-                    'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'twentyseventeen') . ' </span>',
-                ));
-
-            else :
-                ?>
-
-                <p><?php _e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'twentyseventeen'); ?></p>
-                <?php
-                get_search_form();
-
-            endif;
-            ?>
-
-        </main><!-- #main -->
-    </div><!-- #primary -->
-
+    <div id="search_result">
+        
+    <?php
+    if (have_posts()) : ?>
+        <div class="result-mod">
+            Kết quả tìm kiếm : <?php global $wp_query;
+                                echo $wp_query->found_posts; ?>
+        </div>
+        <div class="result-frame">
+        <?php 
+        /* Start the Loop */
+        while (have_posts()) {
+            the_post();
+            $post_type = get_post_type();
+            if ($post_type == 'post') {
+                $description = get_post_meta( get_the_ID(), 'description', true );
+                echo '<div class="result-title">
+                        <a href="' . get_permalink() . '">' . get_the_title() . '</a>
+                    </div>
+                    <div class="result-content">'
+                        . $description .
+                    '</div>';
+            } elseif ($post_type == 'laws') {
+                echo '<div class="result-title">
+                        <a href="' . get_permalink() . '">' . get_the_title() . '</a>
+                    </div>
+                    <div class="result-content">'
+                        . wp_strip_all_tags(get_the_excerpt()) .
+                    '</div>';
+            } elseif ($post_type == 'faq') {
+                $term = get_the_terms( get_the_ID(), PHAN_LOAI );
+                if (!empty($term)) {
+                    echo '<div class="result-title">
+                            <a href="' . get_term_link($term[0]->term_id) . '#answer_' . get_the_ID() . '">' . get_the_title() . '</a>
+                        </div>
+                        <div class="result-content">'
+                            . get_post_meta( get_the_ID(), 'question', true ) .
+                        '</div>';
+                }
+            } elseif ($post_type == 'page') {
+                echo '<div class="result-title">
+                        <a href="' . get_permalink() . '">' . get_the_title() . '</a>
+                    </div>
+                    <div class="result-content">'
+                        . text_limit(wp_strip_all_tags(get_the_content()), 40) .
+                    '</div>';
+            }
+        } // End of the loop.
+        wp_pagenavi();
+         ?>
+        </div>
+    <?php else :
+            echo '<div class="result-mod">Không tìm thấy dữ liệu nào có liên quan đến "' . $_GET['s'] . '"</div>';
+        endif;
+    ?>
+    </div>
 </div><!-- .wrap -->
 <!-- right sidebar -->
 <?php 

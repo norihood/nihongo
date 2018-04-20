@@ -662,6 +662,9 @@ define('VIDEO_POST_TYPE', 'list-video');
 define('LOAI_VIDEO', 'loai-video');
 
 define('CONTACT_PAGE_SLUG', 'hom-thu');
+define('QUESTION_PAGE_SLUG', 'cau-hoi');
+define('VIDEO_PAGE_SLUG', 'video');
+define('ABOUT_PAGE_SLUG', 'gioi-thieu');
 /* ======= Constant ======= */
 
 function tao_taxonomy() {
@@ -840,7 +843,7 @@ function tao_custom_post_type() {
         'menu_icon' => '',
         'can_export' => true,
         'has_archive' => true,
-        'exclude_from_search' => false,
+        'exclude_from_search' => true,
         'publicly_queryable' => true,
         'capability_type' => 'post',
         // 'rewrite' => true,
@@ -1036,76 +1039,6 @@ function send_post_to_mail() {
 add_action( 'wp_ajax_send_post_to_mail', 'send_post_to_mail' );
 add_action( 'wp_ajax_nopriv_send_post_to_mail', 'send_post_to_mail' );
 
-// pagination
-function page_nav() {
-
-    if (is_singular()) return;
-
-    global $wp_query;
-
-    /** Stop execution if there's only 1 page */
-    if ($wp_query->max_num_pages <= 1) return;
-    $paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
-    $max   = intval($wp_query->max_num_pages);
-
-    /** Add current page to the array */
-    if ($paged >= 1) {
-        $links[] = $paged;
-    }
-
-    /** Add the pages around the current page to the array */
-    if ($paged >= 3) {
-        $links[] = $paged - 1;
-        $links[] = $paged - 2;
-    }
-
-    if (( $paged + 2 ) <= $max) {
-        $links[] = $paged + 2;
-        $links[] = $paged + 1;
-    }
-
-    echo '<div class="p_pagination">
-            <ul>' . "\n";
-
-    /** Previous Post Link */
-    if (get_previous_posts_link()) {
-        printf('<li>%s</li>' . "\n", get_previous_posts_link('Trang trước'));
-    }
-
-    /** Link to first page, plus ellipses if necessary */
-    if (!in_array(1, $links)) {
-        $class = 1 == $paged ? ' class="active"' : '';
-        printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link(1)), '1');
-        if (!in_array(2, $links))
-            echo '<li>…</li>';
-    }
-
-    /** Link to current page, plus 2 pages in either direction if necessary */
-    sort($links);
-    foreach ((array) $links as $link) {
-        $class = $paged == $link ? ' class="active"' : '';
-        printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($link)), $link);
-    }
-
-    /** Link to last page, plus ellipses if necessary */
-    if (!in_array($max, $links)) {
-        if (!in_array($max - 1, $links)) {
-            echo '<li>…</li>' . "\n";
-        }
-
-        $class = $paged == $max ? ' class="active"' : '';
-        printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($max)), $max);
-    }
-
-    /** Next Post Link */
-    if (get_next_posts_link()) {
-        printf('<li>%s</li>' . "\n", get_next_posts_link('Trang sau'));
-    }
-
-    echo '</ul>
-        </div>' . "\n";
-}
-
 function get_post_types_by_taxonomy( $tax = 'category' ) {
     global $wp_taxonomies;
     return ( isset( $wp_taxonomies[$tax] ) ) ? $wp_taxonomies[$tax]->object_type : array();
@@ -1217,3 +1150,11 @@ function one_category_only($content) {
 
 include 'template-parts/admin-page/p_plugin_admin.php';
 (new P_Contact_Plugin())->init();
+
+add_filter('pre_get_posts','wpb_search_filter');
+function wpb_search_filter($query) {
+    if (is_search() && !is_admin()) {
+        $query->set('post_type', ['post', 'laws', 'faq']);
+    }
+    return $query;
+}

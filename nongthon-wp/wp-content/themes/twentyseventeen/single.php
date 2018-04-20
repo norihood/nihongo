@@ -89,9 +89,9 @@ get_header();
                 <?php $tags_arr = wp_get_post_tags(get_the_ID());
                 if ($tags_arr) {
                     foreach ($tags_arr as $tag) {
-                        echo '<a title="' . $tag->name . '" href="' . get_tag_link($tag->term_id) . '">
-                                <em>' . $tag->name . '</em>
-                            </a>';
+//                        echo '<a title="' . $tag->name . '" href="' . get_tag_link($tag->term_id) . '">
+                        echo '<em>' . $tag->name . '</em>,&nbsp;';
+//                            </a>';
                     }
                 }
                 ?>

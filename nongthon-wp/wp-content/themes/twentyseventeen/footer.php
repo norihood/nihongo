@@ -80,7 +80,14 @@
 			pager: false,
 			wrapperClass: 'bx-wrapper p_album_wrapper',
 		});
-        
+        $('#topmenu_search').on('submit', function(){
+            var search_text = $(this).find('input[type=text]').val();
+            if (search_text.length < 1) {
+                alert('Hãy nhập nội dung muốn tìm kiếm');
+                return false;
+            }
+            return true;
+        })
     })
     //]]>
 </script>

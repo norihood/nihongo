@@ -21,13 +21,16 @@
         <input name="text_search" id="q" type="text" value="<?php echo (isset($_GET['text_search'])) ? $_GET['text_search'] : '' ?>" maxlength="60" style="border: 1px solid #CCCCCC; width: 200px">
         <input name="submit1" type="submit" value="Tìm kiếm">
         <a href="javascript:" onclick="laws_swhidden( 'laws_search' ); return false;">Tìm kiếm nâng cao</a>
-        <table id="laws_search" border="0" style="width:420px; display:<?=$display?>; margin-bottom: 0;">
-            <tbody><tr>
-                    <td colspan="2" style="text-align: center;"> <strong><em>Tìm chính xác cụm từ </em></strong>
+        <table id="laws_search" border="0" style="width:450px; display:<?=$display?>; margin-bottom: 0;">
+            <tbody>
+                <tr>
+                    <td colspan="2" style="text-align: center;"> 
+                        <label><em>Tìm chính xác cụm từ </em>
                         <input type="checkbox" name="fullq" value="1" <?php echo (isset($_GET['fullq']) && $_GET['fullq'] == 1) ? 'checked' : '' ?>>
+                        </label>
                     </td>
                 </tr>
-                <tr><td style="text-align: left">Trong: </td>
+                <tr><td style="text-align: left"><label>Trong: </label></td>
                     <td style="text-align: right">
                         <select name="text_option">
                             <option value="">Tất cả</option>
@@ -41,7 +44,7 @@
                 $taxonomies=get_taxonomies(['object_type' => array(VAN_BAN_POST_TYPE)], 'objects', 'and');
                 if ($taxonomies) {
                     foreach ($taxonomies  as $taxonomy ) {
-                        echo '<tr><td style="text-align: left">' . $taxonomy->label . ': </td>
+                        echo '<tr><td style="text-align: left"><label>' . $taxonomy->label . ': </label></td>
                                 <td style="text-align: right">
                                     <select name="field_' . $taxonomy->name . '">
                                         <option value="">Tất cả</option>';
@@ -64,13 +67,13 @@
                 ?>
                 <tr>
                 </tr><tr>
-                    <td style="text-align: left">Ngày ban hành: </td>
+                    <td style="text-align: left"><label>Ngày ban hành: </label></td>
                     <td style="text-align: right">
                         Từ: 
-                        <input id="ttime" name="start_date" style="width: 70px;" value="<?php echo (isset($_GET['start_date'])) ? $_GET['start_date'] : '' ?>" type="text">
+                        <input id="ttime" name="start_date" style="width: 90px;" value="<?php echo (isset($_GET['start_date'])) ? $_GET['start_date'] : '' ?>" type="text">
                         <img src="<?=get_template_directory_uri()?>/assets/images/calendar.jpg" style="cursor: pointer; vertical-align: middle;" onclick="popCalendar.show(this, 'ttime' , 'dd/mm/yyyy' , true);" alt="">
                         &nbsp;&nbsp;Đến: 
-                        <input id="dtime" name="end_date" style="width: 70px;" value="<?php echo (isset($_GET['end_date'])) ? $_GET['end_date'] : '' ?>" type="text">
+                        <input id="dtime" name="end_date" style="width: 90px;" value="<?php echo (isset($_GET['end_date'])) ? $_GET['end_date'] : '' ?>" type="text">
                         <img src="<?=get_template_directory_uri()?>/assets/images/calendar.jpg" style="cursor: pointer; vertical-align: middle;" onclick="popCalendar.show(this, 'dtime' , 'dd/mm/yyyy' , true);" alt="">
                     </td>
                 </tr>
