@@ -141,7 +141,7 @@ class _P_List_Table extends WP_List_Table {
             'created_date' => 'Ngày gửi',
         );
 
-    	$columns = apply_filters($page_slug . '_columns', $columns);
+    	$columns = apply_filters($screen . '_columns', $columns);
 
     	return $columns;
 	}

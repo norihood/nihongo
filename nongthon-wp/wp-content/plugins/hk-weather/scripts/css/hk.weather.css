@@ -1,0 +1,138 @@
+.hk-weather{
+    border:1px solid #f44;
+    padding:10px;
+    position:relative;
+    color:#fff;
+    font-family:Roboto;
+    background:#f44
+}
+.hk-weather strong{
+    color:#fff
+}
+.hk-w-mau-nen input{
+    border:none;
+    box-shadow:none;
+    height:40px;
+    background:#f1f1f1
+}
+.hk-w-mau-nen{
+    float:left;
+    width:50%
+}
+.info-weather-hk{
+    background:#ff6f6f;
+    padding:10px;
+    border-radius:5px
+}
+.hk-weather h1{
+    margin:0;
+    padding:0;
+    font-size:20px
+}
+.hk-weather p{
+    margin:0;
+    margin-bottom:10px
+}
+.hk-wt-img img{
+    max-width:100%;
+    margin-top:-7px
+}
+p.hk-wt-do{
+    font-size:20px;
+    font-weight:600
+}
+.clear{
+    clear:both
+}
+.info-weather-hk ul li{
+    float:left;
+    width:33.33333%;
+    text-align:center;
+    margin-bottom:0;
+    margin-top:0;
+    padding-top:0;
+    padding-bottom:0;
+    list-style:none;
+    border:none
+}
+.over{
+    float:left;
+    width:50%;
+    text-align:center;
+    overflow:hidden
+}
+.info-weather-hk ul li:first-child{
+    text-align:left
+}
+.info-weather-hk ul{
+    margin:0;
+    padding:0;
+    margin-bottom:5px
+}
+.hk-weather select{
+    color:#e00;
+    background:none;
+    border:none;
+    position:absolute;
+    cursor:pointer;
+    right:0;
+    font-size:15px;
+    width:120px
+}
+.hk-weather-tinh ul{
+    display:none;
+    list-style:none;
+    padding:0;
+    width:340px;
+    position:absolute;
+    right:0;
+    z-index:9999;
+    background:rgba(255,255,255,0.9);
+    padding:10px;
+    font-size:15px;
+    border-radius:7px;
+    border:1px solid #ededed
+}
+.hk-weather-tinh select {
+    color: #fff;
+    background: none;
+    border: none;
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+    font-size: 12px;
+    width: 95px;
+}
+.hk-weather-tinh select option {
+    color: #e00;
+}
+.hk-weather-tinh{
+    position:absolute;
+    right:14px
+}
+.hk-weather-tinh ul li{
+    margin-bottom:8px;
+    color:#0177b5;
+    font-weight:600;
+    float:left;
+    width:33.333%;
+    cursor:pointer
+}
+.hk-weather-tinh ul li:hover{
+    color:#e00
+}
+.hk-weather-tinh p:after{
+    content:'';
+    display:inline-block;
+    width:0;
+    height:0;
+    border:7px solid rgba(238,0,0,0);
+    border-top:7px solid #fff;
+    position:relative;
+    top:5px;
+    left:5px
+}
+.hk-weather-tinh p{
+    font-size:12px;
+    cursor:pointer
+}

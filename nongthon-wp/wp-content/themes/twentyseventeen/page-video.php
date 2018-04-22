@@ -7,7 +7,7 @@
 get_header(); ?>
 <div class="span-13 contentcolumn">
     <?php
-    set_query_var( 'slug_page', 'video' );
+    set_query_var( 'slug_page', VIDEO_PAGE_SLUG );
     get_template_part('template-parts/post/breadcrumb');?>
     <div id="sw_cont">
         <div class="video_list_block">

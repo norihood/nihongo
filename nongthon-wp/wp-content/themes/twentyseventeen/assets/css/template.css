@@ -562,3 +562,29 @@ cursor: pointer;
     text-decoration: none;
 }
 /* ===== end search ===== */
+.ty_gia {
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #f3f6f8;
+    /*color: #fff;*/
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #c8c8c8;
+}
+.ty_gia td, .ty_gia th {
+    border-top: 1px solid #c8c8c8;
+    border-left: 1px solid #c8c8c8;
+}
+.ty_gia tr:first-child td, .ty_gia tr:first-child th {
+    border-top:none;
+}
+.ty_gia td:first-child, .ty_gia th:first-child {
+    border-left: none;
+}
+.ty_gia th {
+    font-weight: bold;
+}
+.ty_gia a {
+    cursor: pointer;
+}

@@ -7,7 +7,7 @@ get_header();
 <div class="span-13 contentcolumn">
     <script src="https://www.youtube.com/iframe_api"></script>
     <?php
-    set_query_var( 'slug_page', 'video' );
+    set_query_var( 'slug_page', VIDEO_PAGE_SLUG );
     get_template_part('template-parts/post/breadcrumb');?>
     <div id="sw_cont">
     <?php
@@ -147,8 +147,6 @@ get_header();
 </div>
 <!-- right sidebar -->
 <?php get_template_part('template-parts/sidebar/sidebar', 'right'); ?>
-<!-- popup send mail -->
-<?php get_template_part('template-parts/post/content', 'sendmail'); ?>
 <?php
 get_footer();
 ?>

@@ -607,6 +607,7 @@ function add_css_file() {
 	wp_enqueue_style ('nav_menu', get_template_directory_uri().'/assets/css/nav_menu.css');
 	wp_enqueue_style ('ddsmoothmenu', get_template_directory_uri().'/assets/css/ddsmoothmenu.css');
 	wp_enqueue_style ('jquery-ui', get_template_directory_uri().'/assets/css/jquery-ui.css');
+	wp_enqueue_style ('music', get_template_directory_uri().'/assets/css/music.css');
 
 }
 add_action( 'wp_enqueue_scripts', 'add_css_file' );
@@ -665,6 +666,10 @@ define('CONTACT_PAGE_SLUG', 'hom-thu');
 define('QUESTION_PAGE_SLUG', 'cau-hoi');
 define('VIDEO_PAGE_SLUG', 'video');
 define('ABOUT_PAGE_SLUG', 'gioi-thieu');
+
+define('MUSIC_PAGE_SLUG', 'music');
+define('MUSIC_POST_TYPE', 'am-nhac');
+define('ALBUM_MUSIC', 'albums');
 /* ======= Constant ======= */
 
 function tao_taxonomy() {
@@ -740,6 +745,22 @@ function tao_taxonomy() {
        );
     // taxonomy FAQ
     register_taxonomy(LOAI_VIDEO, VIDEO_POST_TYPE, $args_video);
+    
+    $args_music = array(
+           'labels'            => array(
+                'name'      => 'Album',
+                'singular'  => 'Album',
+                'menu_name' => 'Album'
+            ),
+           'hierarchical'      => true,
+           'public'            => true,
+           'show_ui'           => true,
+           'show_admin_column' => true,
+           'show_in_nav_menus' => true,
+           'show_tagcloud'     => true
+       );
+    // taxonomy music
+    register_taxonomy(ALBUM_MUSIC, MUSIC_POST_TYPE, $args_music);
     
 }
  
@@ -850,6 +871,38 @@ function tao_custom_post_type() {
     );
     register_post_type(VIDEO_POST_TYPE, $args_video); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
     flush_rewrite_rules();
+    
+    // Music post type
+    $args_music = array(
+        'labels' => array(
+            'name' => 'Âm nhạc',
+            'singular_name' => 'Âm nhạc'
+        ),
+        'description' => 'Âm nhạc',
+        'supports' => array(
+            'title',
+//            'editor',
+            'revisions',
+            'custom-fields'
+        ),
+        'taxonomies' => array(),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true, //Hiển thị khung quản trị như Post/Page
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_in_admin_bar' => true,
+        'menu_position' => 7,
+        'menu_icon' => '',
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => true,
+        'publicly_queryable' => true,
+        'capability_type' => 'post',
+        // 'rewrite' => true,
+    );
+    register_post_type(MUSIC_POST_TYPE, $args_music); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
+    flush_rewrite_rules();
 }
 /* Kích hoạt hàm tạo custom post type */
 add_action('init', 'tao_custom_post_type');
@@ -943,6 +996,29 @@ function set_count_download($postID) {
 add_action( 'wp_ajax_count_download', 'set_count_download' );
 add_action( 'wp_ajax_nopriv_count_download', 'set_count_download' );
 
+// taxonomy view
+function getTermViews($term_id){
+    $count_key = 'term_views_count';
+    $count = get_term_meta($term_id, $count_key, true);
+    if ($count=='') {
+        delete_term_meta($term_id, $count_key);
+        add_term_meta($term_id, $count_key, '0');
+        return "0";
+    }
+    return $count;
+}
+function setTermViews($term_id) {
+    $count_key = 'term_views_count';
+    $count = get_term_meta($term_id, $count_key, true);
+    if ($count=='') {
+        $count = 0;
+        delete_term_meta($term_id, $count_key);
+        add_term_meta($term_id, $count_key, '0');
+    } else {
+        $count++;
+        update_term_meta($term_id, $count_key, $count);
+    }
+}
 /* ===== helper ===== */
 function get_thu($weekday) {
 //    $weekday = date("l");
@@ -1158,3 +1234,95 @@ function wpb_search_filter($query) {
     }
     return $query;
 }
+
+// tỷ giá vàng
+function getExchangeRatesVCB() {
+    $Link    = $Link2   = '';
+    $dir     = 'cache/';
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+    $Link    = $dir . 'ExchangeRates.xml';
+    $Link2   = 'http://vietcombank.com.vn/ExchangeRates/ExrateXML.aspx';
+    $content = @file_get_contents($Link2);
+    if ($content == '') {
+        $content = @file_get_contents($Link);
+    }
+    else {
+        copy($Link2, $Link);
+    }
+
+    if ($content != '' and preg_match_all('/Exrate CurrencyCode="(.*)" CurrencyName="(.*)" Buy="(.*)" Transfer="(.*)" Sell="(.*)"/', $content, $matches) and count($matches) > 0) {
+        $exchange_rates = array(
+            'USD' => array(),
+            'EUR' => array()
+//                    , 'GBP' => array()
+//                    , 'HKD' => array()
+//                    , 'JPY' => array()
+//                    , 'CHF' => array()
+//                    , 'AUD' => array()
+//                    , 'CAD' => array()
+//                    , 'SGD' => array()
+//                    , 'THB' => array()
+        );
+        foreach ($matches[1] as $key => $value) {
+            if (isset($exchange_rates[$value])) {
+                $exchange_rates[$value] = array(
+                    'id'       => $value
+                    , 'name'     => $matches[2][$key]
+                    , 'buy'      => $matches[3][$key]
+                    , 'transfer' => $matches[4][$key]
+                    , 'sell'     => $matches[5][$key]
+                );
+            }
+        }
+        Return $exchange_rates;
+    }
+}
+function tygiavang() {
+    $Link    = $Link2   = '';
+    $dir     = 'cache/';
+    if (!is_dir($dir))
+        mkdir($dir, 0755, true);
+    $Link    = $dir . 'tygiavang.xml';
+    $Link2   = 'http://www.sjc.com.vn/xml/tygiavang.xml';
+    $content = @file_get_contents($Link2);
+    if ($content == '') {
+        $content = @file_get_contents($Link);
+    }
+    else {
+        copy($Link2, $Link);
+    }
+    $xml = simplexml_load_string($content);
+    return $xml;
+}
+
+include 'template-parts/admin-page/p_music_error.php';
+(new P_Music_Error())->init();
+
+function send_error_music() {
+    global $wpdb;
+//        $wpdb->escape();
+    $wpdb->insert('wp_p_music_error', 
+        array(
+            'term_id' => $_POST['term_id'],
+            'type_term' => $_POST['type_term'],
+            'name' => $_POST['name'],
+            'reason_select' => $_POST['reason_select'],
+            'reason_text' => $_POST['reason_text'],
+            'created_date' => date('Y-m-d H:i:s')
+        ),
+        array(
+            '%s',
+            '%s',
+            '%s',
+            '%s',
+            '%s',
+            '%s'
+        ) 
+    );
+    wp_send_json_success('true');
+	die();
+}
+add_action( 'wp_ajax_error_music', 'send_error_music' );
+add_action( 'wp_ajax_nopriv_error_music', 'send_error_music' );

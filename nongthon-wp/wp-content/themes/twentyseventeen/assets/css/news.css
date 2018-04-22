@@ -870,14 +870,16 @@ ul.tieu-diem li:nth-child(even) a {
 .form_error {
     border: 1px solid #ff0000 !important;
 }
-#fquestion p, .contact label, .sea-frame label, .bdlaw label {
+#fquestion p, .contact label, .sea-frame label,
+.bdlaw label, .musictable label {
     font-size: 14px;
     font-weight: bold;
 }
 #fquestion input[type=text], #fquestion select, #fquestion textarea,
 .contact input[type=text], .contact select, .contact textarea,
 .sea-frame input[type=text], .sea-frame select, .sea-frame textarea,
-.bdlaw input[type=text], .bdlaw select, .bdlaw textarea {
+.bdlaw input[type=text], .bdlaw select, .bdlaw textarea,
+.musictable input[type=text], .musictable select, .musictable textarea {
     font-size: 14px;
     padding: 5px 4px;
     border-radius: 3px;
@@ -891,7 +893,8 @@ ul.tieu-diem li:nth-child(even) a {
 #fquestion input[type=submit], #fquestion input[type=reset],
 .contact input[type=submit], .contact input[type=reset],
 .sea-frame input[type=submit],
-.bdlaw input[type=submit] {
+.bdlaw input[type=submit],
+.musictable input[type=submit] {
     margin: .5em .4em .5em 0;
     cursor: pointer;
     background: #f6f6f6;

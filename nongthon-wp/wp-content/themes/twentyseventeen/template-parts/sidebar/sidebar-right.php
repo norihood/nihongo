@@ -1,5 +1,5 @@
 <div class="span-6 last right-sidebar">
-    <?php if ($page_laws == true) { ?>
+    <?php if (isset($page_laws) && $page_laws == true) { ?>
     <?php
     $args=array(
       'object_type' => array(VAN_BAN_POST_TYPE) 
@@ -8,20 +8,6 @@
     $output = 'objects'; // or objects
     $operator = 'and'; // 'and' or 'or'
     $taxonomies=get_taxonomies($args,$output,$operator);
-    // if  ($taxonomies) {
-    //     echo '<pre>';
-    //     print_r($taxonomies);
-    //     die();
-    //   foreach ($taxonomies  as $taxonomy ) {
-    //     echo '<p>'. $taxonomy. '</p>';
-    //   }
-    // }
-// $taxonomyName = "linh-vuc";
-// //This gets top layer terms only.  This is done by setting parent to 0.  
-// $parent_terms = get_terms( $taxonomyName, array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ) ); 
-// echo '<pre>';
-// print_r($parent_terms);
-// die();
     ?>
     <div class="box silver">
         <h3 class="header"><strong>•</strong>Menu Văn Bản</h3>
@@ -192,6 +178,88 @@
     </div>
     <div class="box silver">
         <h3 class="header"><strong>•</strong>Thời tiết - Tỷ giá</h3>
-        <!-- <iframe title="Thời tiết" src="<?=get_template_directory_uri()?>/weather/thoitiet.html" width="240px" height="228px" frameborder="0" scrolling="no"></iframe> -->
+        <!--<iframe title="Thời tiết" src="<?=get_template_directory_uri()?>/weather/thoitiet.html" width="240px" height="228px" frameborder="0" scrolling="no"></iframe>-->
+            <?php echo do_shortcode('[hk_weather]'); ?>
+        <br>
+        <?php
+        $data_ty_gia = getExchangeRatesVCB();
+        $data_vang = tygiavang();
+        ?>
+        <h3 style="text-align:center;">Tỷ giá vàng - ngoại tệ (VNĐ)</h3>
+        <table class="ty_gia" cell-padding="0">
+            <tr>
+                <th></th>
+                <th>
+                    Giá mua
+                </th>
+                <th>
+                    Giá bán
+                </th>
+                
+            </tr>
+            <tr>
+                <td>
+                    USD
+                </td>
+                <td>
+                    <?=$data_ty_gia['USD']['buy']?>
+                </td>
+                <td>
+                    <?=$data_ty_gia['USD']['sell']?>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    EUR
+                </td>
+                <td>
+                    <?=$data_ty_gia['EUR']['buy']?>
+                </td>
+                <td>
+                    <?=$data_ty_gia['EUR']['sell']?>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    Vàng
+                </td>
+                <td>
+                    <?=$data_vang->ratelist->city[1]->item['buy']?>
+                </td>
+                <td>
+                    <?=$data_vang->ratelist->city[1]->item['sell']?>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <table class="ty_gia" cell-padding="0">
+            <tr>
+                <th width="40%">
+                    Kết quả xổ số
+                </th>
+                <td>
+                    <a href="javascript:window.open('http://www.kqxs.vn/', 'Kết quả xổ số', 'width=600,height=700');">Xem</a>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Thị trường chứng khoáng
+                </th>
+                <td>
+                    <a href="javascript:window.open('http://banggia2.ssi.com.vn/', 'Thị trường chứng khoáng', 'width=800,height=700');">Xem</a>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Liên hệ
+                </th>
+                <td>
+                    <p>Email: <a href="mailto:nongthonhatinh@gmail.com">Gmail</a> | <a href="mailto:nongthonhatinh@yahoo.com">Yahoo</a></p>
+                    <p>Mobile: 0904444357</p>
+                </td>
+            </tr>
+        </table>
     </div>
 </div><!-- right sidebar -->

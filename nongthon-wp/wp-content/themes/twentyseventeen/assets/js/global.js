@@ -419,3 +419,7 @@ function count_dowload(id) {
     })
     return false;
 }
+function Select_all(id) {
+    document.getElementById(id).focus();
+    document.getElementById(id).select();
+}

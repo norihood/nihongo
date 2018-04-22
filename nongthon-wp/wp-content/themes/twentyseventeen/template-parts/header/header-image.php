@@ -61,16 +61,15 @@
             $currentTaxonomy = get_query_var('taxonomy');//get_queried_object();
             $taxObject = get_taxonomy($currentTaxonomy);
             $postTypeArray = $taxObject->object_type;
-            if (in_array(VAN_BAN_POST_TYPE, $postTypeArray)) {
-                $van_ban_menu = 'current';
-            } elseif (in_array(FAQ_POST_TYPE, $postTypeArray)) {
-                $faq_menu = 'current';
-            } elseif (in_array(VIDEO_POST_TYPE, $postTypeArray)) {
-                $video_menu = 'current';
+            if (is_array($postTypeArray)) {
+                if (in_array(VAN_BAN_POST_TYPE, $postTypeArray)) {
+                    $van_ban_menu = 'current';
+                } elseif (in_array(FAQ_POST_TYPE, $postTypeArray)) {
+                    $faq_menu = 'current';
+                } elseif (in_array(VIDEO_POST_TYPE, $postTypeArray)) {
+                    $video_menu = 'current';
+                }
             }
-//            echo '<pre>';
-//            print_r($postTypeArray);
-//            die();
         }
         
     }
