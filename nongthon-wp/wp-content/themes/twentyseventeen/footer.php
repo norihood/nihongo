@@ -43,6 +43,8 @@
 <script type="text/javascript">
     nv_DigitalClock('divclock');
 </script>
+<script type="text/javascript" src="<?=get_template_directory_uri()?>/assets/js/divbox.js"></script>
+<script type="text/javascript" src="<?= get_template_directory_uri() ?>/assets/js/ddsmoothmenu.js.download"></script>
 <script type="text/javascript" src="<?=get_template_directory_uri()?>/assets/js/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="<?=get_template_directory_uri()?>/assets/js/mudim.js.download"></script>
 <script type="text/javascript" src="<?=get_template_directory_uri()?>/assets/js/contentslider.js.download"></script>
@@ -87,7 +89,19 @@
                 return false;
             }
             return true;
-        })
+        });
+        $('a.lightbox1').divbox({container: '#container'});
+        ddsmoothmenu.init({
+            arrowimages: {
+                down: ['downarrowclass', '<?= get_template_directory_uri() ?>/assets/images/down.gif', 23],
+                right: ['rightarrowclass', '<?= get_template_directory_uri() ?>/assets/images/right.gif']
+            },
+            mainmenuid: "smoothmenu_75", //Menu DIV id
+            zIndex: 150,
+            orientation: 'v', //Horizontal or vertical menu: Set to "h" or "v"
+            classname: 'ddsmoothmenu-v', //class added to menu's outer DIV
+            contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+        });
     })
     //]]>
 </script>

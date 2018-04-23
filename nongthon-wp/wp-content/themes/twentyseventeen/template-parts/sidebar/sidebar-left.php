@@ -1,20 +1,6 @@
 <div class="span-5">
     <div class="box silver">
         <h3 class="header"><strong>•</strong>Menu Hệ thống</h3>
-        <script type="text/javascript" src="<?= get_template_directory_uri() ?>/assets/js/ddsmoothmenu.js.download"></script>
-        <script type="text/javascript">
-            ddsmoothmenu.init({
-                arrowimages: {
-                    down: ['downarrowclass', '<?= get_template_directory_uri() ?>/assets/images/down.gif', 23],
-                    right: ['rightarrowclass', '<?= get_template_directory_uri() ?>/assets/images/right.gif']
-                },
-                mainmenuid: "smoothmenu_75", //Menu DIV id
-                zIndex: 200,
-                orientation: 'v', //Horizontal or vertical menu: Set to "h" or "v"
-                classname: 'ddsmoothmenu-v', //class added to menu's outer DIV
-                contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
-            })
-        </script>
         <div id="smoothmenu_75" class="ddsmoothmenu-v">
             <ul>
             <?php
