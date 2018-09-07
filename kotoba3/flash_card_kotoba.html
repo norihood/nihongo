@@ -352,9 +352,9 @@
               if (Notification.permission !== "granted") {
                 Notification.requestPermission();
               } else {
-                var notification = new Notification('日本語の勉強', {
+                var notification = new Notification(kanji, {
                   icon: 'nihongo.jpg',
-                  body: '' + kanji + '',
+                  body: '日本語の勉強',
                 });
 
                 notification.onclick = function () {
@@ -524,10 +524,10 @@
                                 if(rawFile.status === 200)
                                 {
                                     var allText = rawFile.responseText;
-                                    console.log(allText);
+                                    // console.log(allText);
                                     var regex = /(<body[^>]*>(.|\r|\n|\t)*?<\/body>)/;
                                     var arr = regex.exec(allText);
-                                    console.log(arr);
+                                    // console.log(arr);
                                     arr[1].replace(/(\n|\t)/, '');
                                     // console.log(arr[1]);
                                     var obj_html = $('<div>').html(arr[1]).contents();
@@ -658,7 +658,8 @@
                                 j++;
                                 if (j >= id_kotoba.length) {
                                     j = 0;
-                            }
+                                    app_js.shuffle(id_kotoba);
+                                }
                             }
                         }, TIMEOUT_INTERVAL);
                     },
