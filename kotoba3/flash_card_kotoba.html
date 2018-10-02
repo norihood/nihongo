@@ -535,6 +535,7 @@
                                     var entry_content = obj_html.find('.entry-content .item-word');
                                     var regex_nihongo = /[\u3000-\u303f\u3040-\u309f\u30a0-\u30ff\uff00-\uff9f\u4e00-\u9faf\u3400-\u4dbf]+/;
                                     var regex_hanviet = /\[[^\]].*\]/;
+                                    var regex_remember = /"x"/;
                                     entry_content.each(function(index, e) {
                                         var div = $(e).children('div');
                                         var nihongo_text = i + '_' + div.find('span').text();
@@ -550,7 +551,8 @@
                                             'kanji': arr_regex[0],
                                             'han_viet': hanviet || '',
                                             'betonamugo': div.find('div:eq(1)').text(),
-                                            'tatoeba': ''
+                                            'tatoeba': '',
+                                            'remember' : regex_remember.test(nihongo_text)
                                         };
                                         i++;
                                         // console.log(index, e);
@@ -641,20 +643,24 @@
                         var tmp;
                         var j = 0;
                         console.log('active interval');
-                        var intervalId = setInterval(function(){
+                        var intervalId = setInterval(function() {
                             if (nihongo_arr[id_kotoba[j]] == undefined) {
-                                console.log(nihongo_arr[id_kotoba[j]]);
+                                console.log('value undefined');
                                 clearInterval(intervalId);
                                 j = 0;
                             } else {
-                                console.log(j);
-                                // alert(nihongo_arr[id_kotoba[j]]['kanji']);
-                                console.log(nihongo_arr[id_kotoba[j]]['nihongo']);
-                                console.log(nihongo_arr[id_kotoba[j]]['kanji']);
-                                console.log(nihongo_arr[id_kotoba[j]]['han_viet']);
-                                console.log(nihongo_arr[id_kotoba[j]]['betonamugo']);
-                                notifyMe(nihongo_arr[id_kotoba[j]]['kanji']);
-
+                                while (nihongo_arr[id_kotoba[j]] != undefined && nihongo_arr[id_kotoba[j]]['remember'] == true) {
+                                    j++;
+                                }
+                                if (nihongo_arr[id_kotoba[j]] != undefined) {
+                                    console.log(j);
+                                    // alert(nihongo_arr[id_kotoba[j]]['kanji']);
+                                    console.log(nihongo_arr[id_kotoba[j]]['nihongo']);
+                                    console.log(nihongo_arr[id_kotoba[j]]['kanji']);
+                                    console.log(nihongo_arr[id_kotoba[j]]['han_viet']);
+                                    console.log(nihongo_arr[id_kotoba[j]]['betonamugo']);
+                                    notifyMe(nihongo_arr[id_kotoba[j]]['kanji']);
+                                }
                                 j++;
                                 if (j >= id_kotoba.length) {
                                     j = 0;
