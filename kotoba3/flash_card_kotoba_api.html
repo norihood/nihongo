@@ -258,6 +258,9 @@
                 <button type="button" id="action_interval" class="btn btn-primary btn-lg">
                     Start Interval
                 </button>
+                <button type="button" id="action_interval_api" class="btn btn-primary btn-lg">
+                    Start Interval API
+                </button>
             </div>
         </div>
 <!-- <div id="get_kotoba"></div> -->
@@ -437,6 +440,11 @@
                         // Start Interval
                         $('#action_interval').on('click', function() {
                             app_js.active_interval();
+                        })
+
+                        // Start Interval API
+                        $('#action_interval_api').on('click', function() {
+                            app_js.active_interval_api();
                         })
 
                         // transform 3d
@@ -669,6 +677,53 @@
                                 }
                             }
                         }, TIMEOUT_INTERVAL);
+                    },
+                    active_interval_api: function() {
+                        app_js.reset_variables();
+                        var nihongo_arr = nihongo_kotoba_obj;
+                        var arr_word = [];
+                        $.ajax({
+                            method: 'GET',
+                            contentType: "application/json; charset=utf-8",
+                            url: 'gg_sheet.php',
+                            dataType: "json",
+                            success: function(res) {
+                                console.log(res);
+                                var id_kotoba = res.id;
+                                var nihongo_arr = res.data;
+                                
+                                console.log(nihongo_arr);
+                                app_js.shuffle(id_kotoba);
+                                var tmp;
+                                var j = 0;
+                                console.log('active interval');
+                                var intervalId = setInterval(function() {
+                                    if (nihongo_arr[id_kotoba[j]] == undefined) {
+                                        console.log('value undefined');
+                                        clearInterval(intervalId);
+                                        j = 0;
+                                    } else {
+                                        while (nihongo_arr[id_kotoba[j]] != undefined && nihongo_arr[id_kotoba[j]]['remember'] == true) {
+                                            j++;
+                                        }
+                                        if (nihongo_arr[id_kotoba[j]] != undefined) {
+                                            console.log(j);
+                                            // alert(nihongo_arr[id_kotoba[j]]['kanji']);
+                                            console.log(nihongo_arr[id_kotoba[j]]['nihongo']);
+                                            console.log(nihongo_arr[id_kotoba[j]]['kanji']);
+                                            console.log(nihongo_arr[id_kotoba[j]]['han_viet']);
+                                            console.log(nihongo_arr[id_kotoba[j]]['betonamugo']);
+                                            notifyMe(nihongo_arr[id_kotoba[j]]['kanji']);
+                                        }
+                                        j++;
+                                        if (j >= id_kotoba.length) {
+                                            j = 0;
+                                            app_js.shuffle(id_kotoba);
+                                        }
+                                    }
+                                }, TIMEOUT_INTERVAL);
+                            }
+                        });
                     },
                     // get result
                     get_result: function(){
