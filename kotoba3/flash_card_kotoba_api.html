@@ -185,6 +185,31 @@
                 float: left;
                 cursor: pointer;
             }
+            .kotoba_bg {
+                background-color: #cadcff;
+                width: 100%;
+                height: 100%;
+            }
+            .kotoba_bg p {
+                display: block;
+                font-size: 35px;
+            }
+            .kotoba_bg p.kanji_goi{
+                padding: 40px 0;
+                color: #fb0e0e;
+                font-size: 60px;
+            }
+            .kotoba_bg p.hiragana_goi{
+                color: #0000ff;
+            }
+            .kotoba_bg p.hantu_goi{
+                font-size: 30px;
+                color: #a800ff;
+            }
+            .kotoba_bg p.nghia_goi{
+                font-size: 30px;
+                color: #6a0ec0;
+            }
         </style>
     </head>
 
@@ -195,30 +220,7 @@
     w3.includeHTML();
     </script> -->
         <!-- Top menu -->
-        <nav class="navbar" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">Andia - a super cool design agency...</a>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="top-navbar-1">
-                    <ul class="nav navbar-nav navbar-right">                        
-                        <li class="active">
-                            <a href="services.html"><i class="fa fa-tasks"></i><br>Hiragana</a>
-                        </li>
-                        <li>
-                            <a href="about.html"><i class="fa fa-user"></i><br>Katakana</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <div w3-include-html="../nav_top.html"></div>
 
         <!-- Page Title -->
         <div class="page-title-container">
@@ -227,7 +229,23 @@
                     <div class="col-sm-12 wow fadeIn">
                         <i class="fa fa-tasks"></i>
                         <h1 id="title_alphabet" data-alphabet="nihongo_kotoba">nihongo_kotoba /</h1>
-                        <p>Here are the services we offer</p>
+                        <p>Here are the verbs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-title-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 wow fadeIn" align="center">
+                        <div id="show_kotoba" class="flip">
+                            <div class="kotoba_bg">
+                                <p class="kanji_goi">Kanji</p>
+                                <p class="hiragana_goi">hiragana</p>
+                                <p class="hantu_goi">Hán tự</p>
+                                <p class="nghia_goi">Nghĩa</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -235,63 +253,11 @@
 
         <div class="row">
             <div class="col-md-5 col-md-offset-5 text-left list_checkbox">   
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" class="" name="select_all" id="select_all" value=""> Select all
-                    </label>
-                </div>
-                <form action="" method="post" accept-charset="utf-8" id="form_word" class="">
-                    <div class="form-group">
-
-                    </div>        
-                </form>
                 <!-- Button trigger modal -->
-                <div class="form-group">
-                    <label>
-                        Pick time for each answer ( put empty with no time ): 
-                        <input type="text" class="form-control" name="pick_time" id="pick_time" value="">
-                    </label>
-                </div>
-                <button type="button" id="action_modal" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                    Start test
-                </button>
-                <button type="button" id="action_interval" class="btn btn-primary btn-lg">
-                    Start Interval
-                </button>
                 <button type="button" id="action_interval_api" class="btn btn-primary btn-lg">
-                    Start Interval API
+                    Start Notification API
                 </button>
             </div>
-        </div>
-<!-- <div id="get_kotoba"></div> -->
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false"　data-backdrop="static">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Test Nihongo</h4>
-              </div>
-              <div class="modal-body">
-
-                <!-- carousel -->
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="height: 500px;">
-                    <form action="" method="post" accept-charset="utf-8" id="form_nihongo">
-
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox" data-amount-slide="3">
-                    </div>
-                    </form>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-success" href="#carousel-example-generic" role="button" data-slide="prev" style="background-color: #5cb85c;">Previous</button>
-                <button type="button" class="btn btn-success" href="#carousel-example-generic" role="button" data-slide="next" style="background-color: #5cb85c;">Next</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-              </div>
-            </div>
-          </div>
         </div>
         <!-- Call To Action -->
         <div class="call-to-action-container">
@@ -387,88 +353,11 @@
 
                     init: function(){
                         app_js.event_init();
-                        var json_list_section = {};
-                        for (var i = 1; i <= 6; i++) {
-                            for (var j = 1; j <= 6; j++) {
-                                json_list_section[String(i) + String(j)] = 'bai ' + i + '-' + j;
-                            }
-                        }
-                        // console.log(json_list_section);
-                        app_js.get_nihongo(json_list_section);
                     },
                     event_init: function(){
-                        
-                        var myModal_ele = $('#myModal');
-                        var count_slide = 0;            
-
-                        carousel_ele.carousel({
-                          interval: false,
-                          pause: 'hover',
-                          wrap: false
-                        });
-                        
-                        myModal_ele.modal({
-                          backdrop: 'static',
-                          show: false,
-                          keyboard: false
-                        })
-
-                        // event click button test
-                        $('#action_modal').on('click', function(){
-                            count_slide = 0;
-                            app_js.active_modal();
-                            time_countdown = $('#pick_time').val();
-                            if(time_countdown == ''){
-                                time_countdown = false;
-                            }
-                        });
-
-                        //select all
-                        $('#select_all').on('change', function(){
-                            if(this.checked) {
-                                  $('#form_word :checkbox').each(function() {
-                                      this.checked = true;
-                                  });
-                              }
-                              else {
-                                $('#form_word :checkbox').each(function() {
-                                      this.checked = false;
-                                  });
-                              }
-                        });
-
-                        // Start Interval
-                        $('#action_interval').on('click', function() {
-                            app_js.active_interval();
-                        })
-
                         // Start Interval API
                         $('#action_interval_api').on('click', function() {
                             app_js.active_interval_api();
-                        })
-
-                        // transform 3d
-                        myModal_ele.on('click', '.flip', function () {
-                            var $card = $(this).find('.card');
-                            if ($card.hasClass("flipped")) {
-                                $card.removeClass('flipped');
-                                //.addClass('unflipped');
-                            } else {
-                                $card.addClass('flipped');
-                                //.removeClass('unflipped');
-                            }
-                        });
-
-                        //event next slide
-                        $('button[data-slide="next"]').on('click', function(e) {
-                            var count = $('input.not_remember:checked').length;
-                            $('.slide_ans span.not_remember').html(count);
-                        });
-
-                        $('#myModal').on('click', '.audio', function(e) {
-                            app_js.run_audio(this);
-                        }).on('ended', '.audio', function(e) {
-                            alert();
                         })
                     },
                     run_audio: function(_ele) {
@@ -513,6 +402,7 @@
                     },
                     //get word for test
                     get_arr_word: function(form_ele){
+                        console.log(form_ele);
                         var data = $(form_ele).serializeArray();
                         // console.log(data);
                         var arr = [];
@@ -522,161 +412,11 @@
                         // console.log(arr);
                         return arr;
                     },
-                    readTextFile: function(file) {
-                        var rawFile = new XMLHttpRequest();
-                        rawFile.open("GET", file, false);
-                        rawFile.onreadystatechange = function ()
-                        {
-                            if(rawFile.readyState === 4)
-                            {
-                                if(rawFile.status === 200)
-                                {
-                                    var allText = rawFile.responseText;
-                                    // console.log(allText);
-                                    var regex = /(<body[^>]*>(.|\r|\n|\t)*?<\/body>)/;
-                                    var arr = regex.exec(allText);
-                                    // console.log(arr);
-                                    arr[1].replace(/(\n|\t)/, '');
-                                    // console.log(arr[1]);
-                                    var obj_html = $('<div>').html(arr[1]).contents();
-                                    // console.log(obj_html);
-                                    var entry_content = obj_html.find('.entry-content .item-word');
-                                    var regex_nihongo = /[\u3000-\u303f\u3040-\u309f\u30a0-\u30ff\uff00-\uff9f\u4e00-\u9faf\u3400-\u4dbf]+/;
-                                    var regex_hanviet = /\[[^\]].*\]/;
-                                    var regex_remember = /"x"/;
-                                    entry_content.each(function(index, e) {
-                                        var div = $(e).children('div');
-                                        var nihongo_text = i + '_' + div.find('span').text();
-                                        var arr_regex = regex_nihongo.exec(nihongo_text);
-                                        var name = i + '_' + arr_regex[0];
-                                        var arr_regex_hanviet = regex_hanviet.exec(nihongo_text);
-                                        // console.log(arr_regex_hanviet);
-                                        var hanviet = arr_regex_hanviet && arr_regex_hanviet[0];
-                                        id_kotoba.push(name);
-                                        nihongo_kotoba_obj[name] = {
-                                            'nihongo': div.find('div:eq(0)').text(),
-                                            // 'audio': $(e).find('td:nth-child(2) a').attr('href'),
-                                            'kanji': arr_regex[0],
-                                            'han_viet': hanviet || '',
-                                            'betonamugo': div.find('div:eq(1)').text(),
-                                            'tatoeba': '',
-                                            'remember' : regex_remember.test(nihongo_text)
-                                        };
-                                        i++;
-                                        // console.log(index, e);
-                                    })
-                                    console.log(nihongo_kotoba_obj);
-                                    console.log(id_kotoba);
-                                }
-                            }
-                        }
-                        rawFile.send(null); 
-                    },
                     reset_variables: function() {
                         nihongo_kotoba_obj = {},
                         i = 0,
                         id_kotoba = [];
                         $('.carousel-inner').html('ko co data');
-                    },
-                    // push html into carousel
-                    active_modal: function(){
-                        app_js.reset_variables();
-
-                        var nihongo_arr = nihongo_kotoba_obj;
-                        var arr_word = [];
-                        // $('#form_word input').val();
-                        arr_word = app_js.get_arr_word('#form_word');
-                        for (var i = 0; i < arr_word.length; i++) {
-                            app_js.readTextFile("data/" + arr_word[i] + ".html");
-                        }
-                        // console.log(arr_word);
-                        // console.log(arr_word);
-                        app_js.shuffle(id_kotoba);
-                        console.log(id_kotoba);
-                        amount_slide = arr_word.length + 1;
-                        var arr_temporary = [],
-                            arr_three_word = [],
-                            str_html = '';
-
-                        str_html += '<div class="item active">'
-                                    +   '<div class="flip">'
-                                    +       '<div class="text_content only_text">ready</div>'
-                                    +       '<div class="countdown"></div>'
-                                    +   '</div>'
-                                    + '</div>';
-                        for (var i = id_kotoba.length - 1; i >= 0; i--) {
-                            str_html += '<div class="item slide_ans">'
-                                        +   '<p>' + (i + 1) + '/' + id_kotoba.length + ' <b>( Not remember: <span class="not_remember">0</span> )</b></p>'
-                                        +   '<div class="flip">'
-                                        +       '<div class="card">';
-                            if (config_front == 1) {
-                                str_html +=         '<div class="face front">' + nihongo_arr[id_kotoba[i]]['nihongo'] + '</div>'
-                                        +           '<div class="face back">' + nihongo_arr[id_kotoba[i]]['betonamugo'];
-                            } else if (config_front == 2) {
-                                str_html +=         '<div class="face front">' + nihongo_arr[id_kotoba[i]]['betonamugo'] + '</div>'
-                                        +           '<div class="face back">' + nihongo_arr[id_kotoba[i]]['nihongo'];
-                            }
-                            str_html +=                 '<br>' + '<span style="color:red;">' + nihongo_arr[id_kotoba[i]]['kanji'] + '</span>'
-                                        +               '<br>' + nihongo_arr[id_kotoba[i]]['han_viet']
-                                        +           '</div>'
-                                        +       '</div>'
-                                        +   '</div>'
-                                        +   '<div>'
-                                        +       '<span class="audio fa fa-volume-up fa-2x" data-audio="' + nihongo_arr[id_kotoba[i]]['audio'] + '"></span>'
-                                        +       '<label class="checkbox-inline" style="font-size: 25px;"><input class="not_remember" type="checkbox" name="not_remember[]">Not remember</label>'
-                                        +   '</div>'
-                                    + '</div>';
-                        }
-                        str_html += '<div class="item">'
-                                    +   '<div class="text_content text_result">'
-                                    +       'result'
-                                    +       '<div class="result"></div>'
-                                    +   '</div>'
-                                    + '</div>';
-                        $('.carousel-inner').html(str_html);
-                    },
-                    active_interval: function() {
-                        app_js.reset_variables();
-                        var nihongo_arr = nihongo_kotoba_obj;
-                        var arr_word = [];
-                        // $('#form_word input').val();
-                        arr_word = app_js.get_arr_word('#form_word');
-                        for (var i = 0; i < arr_word.length; i++) {
-                            console.log(arr_word[i]);
-                            app_js.readTextFile("data/" + arr_word[i] + ".html");
-                            // app_js.readTextFile("data/11.html");
-                        }
-                        // console.log(arr_word);
-                        
-                        app_js.shuffle(id_kotoba);
-                        var tmp;
-                        var j = 0;
-                        console.log('active interval');
-                        var intervalId = setInterval(function() {
-                            if (nihongo_arr[id_kotoba[j]] == undefined) {
-                                console.log('value undefined');
-                                clearInterval(intervalId);
-                                j = 0;
-                            } else {
-                                while (nihongo_arr[id_kotoba[j]] != undefined && nihongo_arr[id_kotoba[j]]['remember'] == true) {
-                                    j++;
-                                }
-                                if (nihongo_arr[id_kotoba[j]] != undefined) {
-                                    console.log(j);
-                                    // alert(nihongo_arr[id_kotoba[j]]['kanji']);
-                                    console.log(nihongo_arr[id_kotoba[j]]['nihongo']);
-                                    console.log(nihongo_arr[id_kotoba[j]]['kanji']);
-                                    console.log(nihongo_arr[id_kotoba[j]]['han_viet']);
-                                    console.log(nihongo_arr[id_kotoba[j]]['betonamugo']);
-                                    notifyMe(nihongo_arr[id_kotoba[j]]['kanji']);
-                                }
-                                j++;
-                                if (j >= id_kotoba.length) {
-                                    j = 0;
-                                    app_js.shuffle(id_kotoba);
-                                }
-                            }
-                        }, TIMEOUT_INTERVAL);
                     },
                     active_interval_api: function() {
                         app_js.reset_variables();
@@ -713,6 +453,14 @@
                                             console.log(nihongo_arr[id_kotoba[j]]['kanji']);
                                             console.log(nihongo_arr[id_kotoba[j]]['han_viet']);
                                             console.log(nihongo_arr[id_kotoba[j]]['betonamugo']);
+                                            var html_str = '<p class="kanji_goi">' + nihongo_arr[id_kotoba[j]]['kanji'] + '</p>'
+                                                        + '<p class="hiragana_goi">' + nihongo_arr[id_kotoba[j]]['nihongo'] + '</p>'
+                                                        + '<p class="hantu_goi">' + nihongo_arr[id_kotoba[j]]['han_viet'] + '</p>'
+                                                        + '<p class="nghia_goi">' + nihongo_arr[id_kotoba[j]]['betonamugo'] + '</p>';
+                                            $('.kotoba_bg').fadeOut('slow', function() {
+                                                $(this).html(html_str)
+                                                    .fadeIn('slow');
+                                            });
                                             notifyMe(nihongo_arr[id_kotoba[j]]['kanji']);
                                         }
                                         j++;
@@ -725,115 +473,42 @@
                             }
                         });
                     },
-                    // get result
-                    get_result: function(){
-                        var form = $('#form_nihongo');
-                        var data = form.serializeArray();
-                        var arr_ans = {};
-                        var count_right = 0;
-                        form.find('.slide_ans').each(function(index, el) {
-                            var key = $(this).find('.bigword').attr('data_word');
-                            var value = $(this).find('input:checked').val();
-                            if(value != undefined){
-                                arr_ans[key] = value;
-                            }else{
-                                arr_ans[key] = '';  
-                            }
-                                                    
-                        });
-                        
-                        $.each(arr_ans, function(index, val) {
-                            if(index == val){
-                                count_right++;
-                            }
-                        });
-
-                        var length_ans = Object.keys(arr_ans).length;
-                        // console.log(count_right);
-                        // console.log(length_ans);
-                        // console.log((count_right/length_ans) * 100 );
-
-                        $('.result').html('<p>' + count_right + '/' + length_ans + '</p><p>' + app_js.get_congratulation((count_right/length_ans) * 100) + '</p>');
-                    },
-                    // render nihongo
-                    get_nihongo: function(obj){
-                        var form_word = $('#form_word');
-                        var json = {};
-                        var html = '';
-
-                        $.each(obj, function(index, val) {
-
-                            html += '<div class="checkbox">'
-                                    + '<label>'
-                                    +    '<input type="checkbox" name="word" id="optionsRadios1" value="' + index + '">' + val
-                                    + '</label>'
-                                    + '</div>';
-                        });
-                        nihongo_arr = obj;
-
-                        form_word.find('.form-group').html(html);
-                    },
-                    //countdown
-                    get_countdown: function(time_start){
-                        var time_countdown = time_start;
-                        countdown_interval = setInterval(function(){
-                            $('.item.active .countdown').html(time_countdown);
-                            if(time_countdown == 1){
-                                time_countdown = time_start;
-                            }else{
-                                time_countdown--;
-                            }
-                        }, 1000);
-                    },
-                    // set Timeout to next slide
-                    set_timeout_nextslide: function(time){
-                        if(next_timeout) {
-                            clearTimeout(next_timeout);
-                        }
-                        next_timeout = setTimeout(function(){
-                                        carousel_ele.carousel('next');
-                                    }, (time * 1000 + 700));
-                    },
-                    //text congratulations
-                    get_congratulation: function(percent){
-                        if(percent <= 40){
-                            return 'Not Good';
-                        }else if (percent <= 60) {
-                            return 'Good';
-                        }else if (percent <= 80) {
-                            return 'Very Good';
-                        }else if (percent < 100) {
-                            return 'You\'re pro';
-                        }else if (percent = 100) {
-                            return 'Perfect';
-                        }
-                    } 
                 };
 
 
                 app_js.init();
             })(jQuery)
         </script>
-        <script type="text/javascript">
-            
-            // var json_init = [];
-            // // $('#get_kotoba').find('tr').each(function(index) {
-            // //   var key = $(this).find('td:nth-child(1)').text();
-            // //   var text_nihongo = $(this).find('td:nth-child(2)').text();
-            // //   var text_betonamu = $(this).find('td:nth-child(3)').text();
-            // //   json_init.push([text_nihongo + '_' + (parseInt(key) + 342), text_betonamu]);
-            // // });
-            // // console.log(json_init);
-            // var html = '{<br>';
-            // for (var key in nihongo_kotoba_obj) {
-            //  html += '\'' + key + '\' \: {<br>\'nihongo\' \: \'' + key.replace(/_[0-9]+/gi, '') + '\',<br> \'betonamugo\' \: \'' + nihongo_kotoba_obj[key] + '\',<br> \'tatoeba\' \: \'\'<br>},<br>';
-            // }
-            // // for (var i = 0; i < nihongo_kotoba_obj.length; i++) {
-            // //   html += '\'' + nihongo_kotoba_obj[i][0] + '\'\: \'' + json_init[i][1] + '\',<br>';
-            // // }
-            // html += '}<br>';
-            // $('#get_kotoba').html(html);
-            
+        <!-- include html -->
+        <script>
+        function includeHTML() {
+          var z, i, elmnt, file, xhttp;
+          /*loop through a collection of all HTML elements:*/
+          z = document.getElementsByTagName("*");
+          for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+              /*make an HTTP request using the attribute value as the file name:*/
+              xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                  /*remove the attribute, and call this function once more:*/
+                  elmnt.removeAttribute("w3-include-html");
+                  includeHTML();
+                }
+              } 
+              xhttp.open("GET", file, true);
+              xhttp.send();
+              /*exit the function:*/
+              return;
+            }
+          }
+        }
+        includeHTML();
         </script>
     </body>
 

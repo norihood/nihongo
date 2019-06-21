@@ -1,0 +1,15 @@
+@font-face {
+    font-family:"Open Sans SemiBold Italic";
+    src:url("OpenSans-SemiBoldItalic.woff2") format("woff2"),url("OpenSans-SemiBoldItalic.woff") format("woff"),url("OpenSans-SemiBoldItalic.otf") format("opentype");
+    font-style:normal;font-weight:400;
+}
+
+@font-face {
+	font-family: 'Conv_PayPalSansBig-Medium';
+	src: url('PayPalSansBig-Medium.eot');
+	src: local('☺'), url('PayPalSansBig-Medium.woff') format('woff'), url('PayPalSansBig-Medium.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+

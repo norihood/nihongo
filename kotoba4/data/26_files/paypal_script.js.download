@@ -1,0 +1,120 @@
+var frame1_text = "Book your getaway";
+var frame2_text = "Without exposing your<br>financial details";
+var frame3_text = "Paypal makes it possible";
+var cta_text = "Find out more";
+
+// Preloader
+function preload(){function e(){n===t-1?r[t]():n++}var n=0,a=new Array,t=preload.arguments.length-1,r=preload.arguments;for(i=0;i<t;i++)a[i]=new Image,a[i].src=preload.arguments[i],addEvent(a[i],"load",e)}function addEvent(e,n,a){e.addEventListener?e.addEventListener(n,a,!1):e.attachEvent&&e.attachEvent("on"+n,a)}	
+preload('bg1.jpg','bg2.jpg','logo.png',init);
+
+// Presets
+function slideFromLeft(elements, stagger) {
+	return new TimelineMax()
+	.staggerFrom(elements, .3, {x: 800, ease:Back.easeOut.config(1)}, stagger)
+}
+function slideFromRight(elements, stagger) {
+	return new TimelineMax()
+	.staggerFrom(elements, .5, {x: -300, ease:Back.easeOut.config(1)}, stagger)
+}
+
+function slideToLeft(elements, stagger) {
+	return new TimelineMax()
+	.staggerTo(elements, .7, {x: 0, ease:Back.easeOut.config(1)}, stagger)
+}
+
+function slideBack(elements) {
+	return new TimelineMax()
+	.to(elements, .3, {x: -50, ease:Power2.easeOut})
+	.to(elements, .3, {x: 0, ease:Back.easeOut.config(1)})
+}
+
+function textIn (elements, stagger) {
+	return new TimelineMax()
+	.from(elements, .3, {x: -700, ease:Power2.easeOut}, stagger)
+}
+
+function textOut (elements, stagger) {
+  return new TimelineMax()
+  .to(elements, .3, {x: 800, ease:Power2.easeOut}, stagger)
+}
+
+function setSlides(){
+	return new TimelineMax()
+	.set('.slide3', {x:1680})
+	.set('.slide2', {x:1680})
+}
+
+//TrimObject
+function insertObj(t) {
+  var _el = document.createElement("DIV");
+  _el.innerHTML = t;
+  return _el;
+}
+
+function TrimObject(id) {
+  var _el = document.getElementById(id);
+  var _str = _el.getAttribute('dymcText');
+  var _newStr = _str.split("<br>");
+  _el.innerHTML = "";
+
+  for (var i=0; i < _newStr.length;) {
+    var newDymcTxt = new insertObj(_newStr[i])
+    _el.appendChild(newDymcTxt)
+    i++;
+  };
+} 
+
+function setValueTo(id,attr,value) {
+  return document.getElementById(id).setAttribute(attr, value);
+}
+
+// Initial
+function init() {
+  window.onload = function(){
+    setValueTo('HeaderDymcTxt1','dymcText',frame1_text);
+    setValueTo('HeaderDymcTxt2','dymcText',frame2_text);
+    setValueTo('HeaderDymcTxt3','dymcText',frame3_text);
+    document.getElementById('CtaDymcTxt').innerHTML = cta_text;
+
+    startAnim();
+  }
+}
+
+function startAnim(){
+  TrimObject('HeaderDymcTxt1');
+  TrimObject('HeaderDymcTxt2');
+  TrimObject('HeaderDymcTxt3');
+
+  var f1 = document.querySelectorAll('#HeaderDymcTxt1>div'),
+      f2 = document.querySelectorAll('#HeaderDymcTxt2>div'),
+      f3 = document.querySelectorAll('#HeaderDymcTxt3>div, .cta');
+
+  var timeline = new TimelineMax()
+  .set('main', {display:'block'})
+  .set('.colors', {skewX:-10})
+  .set('#frame1, #frame2, #frame3, #frame4', {transformOrigin:'0% 100%', force3D:false})
+
+  // Frame1 In
+  // .add(slideFromLeft(['.slide4', '.slide3','.slide2'], 0.2))
+  // .add(slideFromRight('.slide1', 0.2), '-=.6')
+  // .from('.logo', .5, {x:300, ease:Back.easeOut.config(.5)}, '-=.3')
+  // .from('#frame1', .7, {scale:1.05, ease:Power2.easeOut}, '-=.65')
+  // .add(textIn(f1, 0.1),'-=.4') 
+  
+	// Frame1 Out
+  .add(setSlides, '+=.5')
+  .set('.slide3', {backgroundColor:'#009CDE'},'+=.5')
+  .add(slideToLeft(['.slide3', '.slide2'],.15), 'frame2')
+  .add(slideBack('.slide1'), 'frame2')
+  .to('#frame1', .1,{opacity:0}, 'frame2+=.01')
+  .set('#frame2', {opacity:1},'frame2+=.4')
+
+  // Frame2 In
+  // .from('#frame2', .7, {scale:1.05, ease:Power2.easeOut}, '-=.65')
+  // .add(textIn(f2, 0.1),'frame2+=.8') 
+  
+  //Frame3 In
+  .add('f3Out', '+=1')
+  .add(textOut(f2), 'f3Out') 
+  .add(textIn(f3),'f3Out')
+}

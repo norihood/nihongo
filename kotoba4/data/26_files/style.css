@@ -1,0 +1,193 @@
+body,html{
+	margin: 0;
+	padding: 0;
+	letter-spacing: 0.9px;
+}
+main{
+	width: 728px;
+	height: 90px;
+	position:relative; 
+	overflow:hidden; 
+	display:none;
+	box-sizing:border-box; 
+	border:1px solid #333333;
+	background: #009cde; 
+	background: -moz-linear-gradient(top, #009cde 0%, #003188 100%); 
+	background: -webkit-linear-gradient(top, #009cde 0%,#003188 100%); 
+	background: linear-gradient(to bottom, #009cde 0%,#003188 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009cde', endColorstr='#003188',GradientType=0 ); 
+}
+main a{
+	width: 728px;
+	height: 90px;
+}
+
+main a:hover #CtaBtn .cta-txt{
+	color:#FFFFFF;
+}
+main a:hover #CtaBtn .cta-bg{
+	background-color:#009CDE;
+}
+
+.v-center:after {
+	position: relative !important;
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.v-center > div {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.frames {
+	width: 728px;
+	height: 90px;
+}
+
+.cta-txt,
+.cta-bg{
+	-webkit-transition:all .5s ease;
+	-moz-transition:all .5s ease;
+	-ms-transition:all .5s ease;
+	-o-transition:all .5s ease;
+	transition:all .5s ease;
+}
+
+section, section div{
+	position: absolute;
+	pointer-events: none;
+}
+.logo{
+  	bottom: -7px;
+    right: 0px;
+}
+
+#frame1{
+	background: url(bg1.jpg) no-repeat;
+	width: 728px;
+	height: 90px;
+}
+
+#frame2{
+	background: url(bg2.jpg) no-repeat;
+	width: 728px;
+	height: 90px;
+	opacity: 0;
+}
+
+#frame3{
+	/*background: url(bg2.jpg) no-repeat;*/
+	width: 728px;
+	height: 90px;
+	/*opacity: 0;*/
+}
+
+#slides {
+	width: 728px;
+	height: 90px;
+	position: relative;
+	overflow: hidden;
+}
+
+.colors{
+	width: 928px;
+	height:140px;
+	top: -30px;
+	left: -940px;
+}
+
+.slide3{
+	background-color:#003188;
+}
+
+.slide2,
+.slide4 {
+	background-color: #00d098;
+}
+
+.slide4{
+	left: -922px;
+}
+
+.slide1 {
+	background-color:#009CDE;
+	left: 724px;
+}
+
+/* ---------- DYNAMIC TEXT ---------- */
+
+/* HEADER SECTION */
+.header-wrap {
+	position: relative !important;
+	text-transform: uppercase;
+}
+
+.header-wrap * span {
+	color: #ffff00;
+}
+
+.header-wrap > div {
+	position: relative !important;
+
+	font-family: 'Conv_DharmaGothicE-BoldItalic';
+	font-size: 38px;
+	line-height: 0.8;
+	color: #FFF;
+}
+
+/* HEADER CLEARANCE */
+.header-wrap > div:nth-child(1) {
+  	padding-left: 20px;
+}
+
+.header-wrap > div:nth-child(2) {
+	padding-top: 7px;
+	padding-left: 16px;
+}
+
+.header-wrap > div:nth-child(3) {
+	padding-top: 7px;
+	padding-left: 12px;
+}
+
+#HeaderDymcTxt3{
+	padding-top:12px;
+}
+
+/* ------------ */
+
+/* CTA SECTION */
+.cta {
+	position: relative !important;
+	margin-top: 5px;
+	margin-left: 15px;
+	display: table;
+}
+
+.cta-txt {
+	position: relative !important;
+	display: inline-block;
+	padding: 12px 17px;
+	text-align: center;
+
+	font-family: 'Conv_PayPalSansBig-Medium';
+	font-size: 14px;
+	line-height: 0.78;
+    letter-spacing: -0.2px;
+	color: #009CDE;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.cta-bg {
+	width: 100%;
+	height: 100%;
+	background-color: #FFFFFF;
+	border-radius: 10px;
+}
+/* ------------ */

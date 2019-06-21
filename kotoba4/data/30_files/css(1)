@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Mplus 1p';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Mplus 1p Light'), local('Mplus1p-Light'), url(https://fonts.gstatic.com/l/font?kit=k3kUo8oPIeJRyV8MHcZkKWHEG8ut326ckcnycn32z_aE6HYwfPWqcbOPrt0J1V2yofD2O_rTVsjxjg1q2DajWtuyA6z8WBTKNc4_bJ9lqq_hZGWcHlx6XQny50el3LEhBjCooLdhQUa9svkriJsQfNvfrUKXrRVloJFjeNE&skey=1f5b7326409871c7&v=v11) format('woff2');
+}
+@font-face {
+  font-family: 'Mplus 1p';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Mplus 1p'), local('Mplus1p-Regular'), url(https://fonts.gstatic.com/l/font?kit=k3kTo8oPIeJRyV8MHf7NGSjhB8PvkmqWm8bqaW1lPQ6E6HEwffSqcaCPrtMJ1Vuyocn2O_vTVsXxjglq2DejWsqyAJv8WA_KNeY_baRlqr3hZFycHkp9ZiPy53yl3qYgJzeon5xibXa9ts4rtYgQeO7ekUyXsSBrrps&skey=ce6b3497355c8867&v=v11) format('woff2');
+}

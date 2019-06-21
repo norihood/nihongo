@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- saved from url=(0673)https://adi.admicro.vn/adt/banners/nam2015/4043/min_html5/anhluongthe/2018_10_18/728x90_T0_72/728x90_T0_72/728x90_T0_72.html?url=https%3A%2F%2Flg1.logging.admicro.vn%2Fgdsp%3Fdmn%3Dhttps%253A%2F%2Fwww.vnjpclub.com%2Fminna-no-nihongo%2Fbai-36-tu-vung.html%26ggid%3DCAESEHfDltHeKnmKJCU-56ME23M%26ecpm%3D600%26grid%3DXAYlIwACa0kKloyNHgk9Vg%3D%3D%26lsn%3D1543906429731%26ii%3D1690006384%26bi%3D0%26cmpg%3D33865%26items%3D121651%26zid%3D475108%26cid%3D-1%26pt%3Dgdsp%26%26tp%3D11%26tpn%3D4%26cov%3D1%26pr%3D12209681135%26adc_cpa%3D1%26re%3Dhttp%253A%252F%252Fbidv.com.vn%252Fuudai%252Fgiaithuong.html%253Futm_source%253DU_Adx%2526utm_medium%253Dcpc&admid=adnzone_475108_0_121651 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--Rm9ybWF0U3VjY2Vzc2Z1bGw=-->
+
+<title>728x90_T0_72</title>
+
+
+
+<script src="./createjs-2015.11.26.min.js.download"></script>
+<script src="./728x90_T0_72.js.download"></script>
+<script>
+var canvas, stage, exportRoot;
+function init() {
+	// --- write your JS code here ---
+	
+	canvas = document.getElementById("canvas");
+	images = images||{};
+
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(lib.properties.manifest);
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function handleComplete(evt) {
+	exportRoot = new lib._728x90_T0_72();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+	stage.enableMouseOver();
+
+	window.addEventListener("message",receiveMessage,false);
+		createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+var getQuery=function(e){var d="";return(e=new RegExp("[?&]"+encodeURIComponent(e)+"=([^&]*)").exec(location.search))&&(d=decodeURIComponent(e[1])),d},URLAdm=getQuery("url"),admid=getQuery("admid");"undefined"!==admid&&"null"!==admid&&parent.postMessage("complete_"+admid,"*");
+}
+
+</script>
+
+
+
+
+<script type="text/javascript">function receiveMessage(e){try{-1!=e.data.indexOf("pause")?("function"==typeof pauseVideoBanner&&pauseVideoBanner(),createjs.Ticker.removeEventListener("tick",stage)()):-1!=e.data.indexOf("start")&&"undefined"!=typeof flagReplay&&(flagReplay,checkStatusReplay(flagReplay))}catch(e){}}function replayBanner(){createjs.Ticker.addEventListener("tick",stage),exportRoot._reset(),window.chkReset=!1,"function"==typeof initForm&&initForm(),"function"==typeof pauseVideoG&&pauseVideoG(),flagReplay=!1;var e=document.getElementById("bg_replay");e&&(e.style.display="none"),"undefined"!=typeof main&&main.gotoAndPlay(0),"function"==typeof initVideo&&initVideo()}function createDOM(){var e=document.createElement("div");e.id="bg_replay",e.style.display="block",e.style.width="0px",e.style.height="0px";var t=document.getElementById("canvas");t.insertBefore(e,t.firstChild)}function checkStatusReplay(e){"undefined"!=typeof playVideo?playVideo?(createjs.Ticker.addEventListener("tick",stage),"function"==typeof continueVideoBanner&&continueVideoBanner()):(createjs.Ticker.addEventListener("tick",stage),e&&replayBanner()):e?replayBanner():createjs.Ticker.addEventListener("tick",stage)}</script>
+</head>
+<body onload="init();" style="background:transparent;margin:0px;">
+	<canvas id="canvas" width="728" height="90" style="background-color:#FFFFFF"></canvas>
+	<script type="text/javascript">(function(){if(window.console&&console.log){var old=console.log;console.log=function(){}}})();</script>
+
+
+<div id="bg_replay" style="display: block; width: 0px; height: 0px;"></div></body></html>
