@@ -1,0 +1,32 @@
+
+var ftGUID_1252699="41999A40F0418D";
+var ftConfID_1252699="8550569";
+var ftParams_1252699="ftx=&fty=&ftadz=&ftscw=&ft_custom=&ftOBA=1&ft_referrer=https%3A%2F%2Fgoogleads.g.doubleclick.net%2Fpagead%2Fads%3Fclient%3Dca-pub-9202256620459772%26output%3Dhtml%26h%3D280%26twa%3D1%26slotname%3D7514263843%26adk%3D1406204282%26adf%3D3889140699%26w%3D301%26fwrn%3D4%26fwrnh%3D100%26lmt%3D1561975421%26guci%3D2.2.0.0.2.2.0.0%26format%3D301x280%26url%3Dhttps%253A%252F%252Fwww.vnjpclub.com%252Fmimi-kara-n2-goi%252Funit-4-bai-12.html%26flash%3D0%26fwr%3D0%26rh%3D280%26rw%3D301%26wgl%3D1%26adsid%3DAGt39rQfQd77frQBhMlJLH6ZMZ6Rf5KS2pXsr7oQcemHLY79WHWxxteCl1Qa9k2D6Z5kSdGtJuslcIJkuuSBdaN9urezb_EnxycUNAdOK9o%26dt%3D1561975350715%26bpp%3D9%26bdt%3D765%26fdt%3D371%26idt%3D372%26shv%3Dr20190624%26cbv%3Dr20190131%26saldr%3Daa%26abxe%3D1%26prev_fmts%3D0x0%252C630x90_0ads_al%252C630x60%252C630x90_0ads_al%252C630x60%26nras%3D1%26correlator%3D2353046086270%26frm%3D20%26pv%3D1%26ga_vid%3D143221507.1517892006%26ga_sid%3D1561975351%26ga_hid%3D1413950679%26ga_fc%3D0%26iag%3D0%26icsg%3D721279627820712%26dssz%3D56%26mdo%3D0%26mso%3D0%26u_tz%3D420%26u_his%3D34%26u_j&ft_keyword=US&cachebuster=157747.58038386793";
+var ftKeyword_1252699="";
+var ftCustom_1252699="";
+var ftSection_1252699="";
+var ftSegment_1252699="";
+var ftSegmentList_1252699=[];
+var ftRuleMatch_1252699="0";
+var ftTimestamp_1252699="1561975443";
+var ftGeoC2_1252699="vn";
+var ftGeoState_1252699="dn";
+var ftGeoCity_1252699="da nang";
+var ftISP_1252699="vietnam post and telecom corporation";
+var ftSpeed_1252699="broadband";
+var ftDMA_1252699="-1";
+var ftLong_1252699="108.233";
+var ftLat_1252699="16.067";
+var ftPostal_1252699="550000";
+var ftTimeZone_1252699="700";
+var ftMobileCarrier_1252699="";
+var ftImp1252699 = {};
+ftImp1252699.privacy = "x";
+ftImp1252699.guidAge = "0";
+ftImp1252699.impID = "F6C3C088-5F3F-1473-390A-C1FE9AF132EA";
+ftImp1252699.duid = "FT:41999A40F0418D";
+
+ftImp1252699.ft_tpplid = "";
+ftImp1252699.ft_c = {};
+
+document.write('<scr'+'ipt src="https://cdn.flashtalking.com/xre/125/1252699/2179144/js/j-1252699-2179144.js" id="ftscript_m1252699" name="ftscript_m1252699"></scr'+'ipt>');

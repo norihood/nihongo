@@ -1,0 +1,136 @@
+  /* v2015-07-20 */
+  (function (){
+    var sjrn_dd = "";
+    var sjrn_rd = "";
+    var sjrnToday = new Date();
+    var yyyy = '';
+    var mm = '';
+    var dd = '';
+
+    if (sjrn.pora == "a") {
+      sjrn.dd  = sojern_advertiser_dt;
+      sjrn.rd  = sojern_advertiser_rt;
+      sjrn.des = sojern_advertiser_da;
+      sjrn.ori = sojern_advertiser_oa;
+      sjrn.dur = sojern_advertiser_dr;
+      sjrn.dc  = sojern_advertiser_dc;
+      sjrn.pri = sojern_advertiser_pr;
+      sjrn.et  = sojern_advertiser_et;
+      sjrn.hbr = sojern_advertiser_hb;
+    } else {
+      sjrn.dd  = sojern_partner_dt;
+      sjrn.rd  = sojern_partner_rt;
+      sjrn.des = sojern_partner_da;
+      sjrn.ori = sojern_partner_oa;
+      sjrn.dur = sojern_partner_dr;
+      sjrn.dc  = sojern_partner_dc;
+      sjrn.pri = sojern_partner_pr;
+      sjrn.et  = sojern_partner_et;
+      sjrn.hbr = sojern_partner_hb;
+    }
+
+    if (typeof sjrn.ds == "undefined") {
+        sjrn.ds = "-";
+    }
+
+    if (typeof sjrn.check == "undefined") {
+        sjrn.check = "";
+    } else if (sjrn.check.indexOf("$!") > -1) {
+        sjrn.check = "nf";
+    }
+
+    if (typeof sjrn.retro == "undefined") {
+        sjrn.retro = false;
+    }
+
+    if (typeof sjrn.dd_days == "undefined") {
+        sjrn.dd_days = 1;
+    }
+
+    if (typeof sjrn.rd_days == "undefined") {
+        sjrn.rd_days = 3;
+    }
+
+    dt = sjrn.dd.split("-");
+    if (typeof(dt[1]) != "undefined") {
+      sjrn_dd = new Date(dt[0],dt[1]-1,dt[2]);
+
+      if (sjrn_dd <= sjrnToday) {
+        sjrn_dd = sjrnToday;
+      }
+    } else {
+      sjrn_dd = sjrnToday;
+    }
+
+    dt = sjrn.rd.split("-");
+    if (typeof(dt[1]) != "undefined") {
+      sjrn_rd = new Date(dt[0],dt[1]-1,dt[2]);
+
+      if (sjrn_rd <= sjrnToday) {
+        sjrn_rd = sjrnToday;
+      }
+    } else {
+      sjrn_rd = sjrnToday;
+    }
+
+    if (sjrn_dd === sjrnToday) {
+      tmp_dd  = new Date(sjrn_dd.getTime()+ (sjrn.dd_days*24*60*60*1000));
+      sjrn_dd = tmp_dd;
+    }
+
+    yyyy = sjrn_dd.getFullYear().toString();
+    mm   = (sjrn_dd.getMonth()+1).toString();
+    dd   = sjrn_dd.getDate().toString();
+    sjrn.dd_mdy = (mm[1]?mm:"0"+mm[0]) + sjrn.ds + (dd[1]?dd:"0"+dd[0]) + sjrn.ds + yyyy;
+    sjrn.dd_dmy = (dd[1]?dd:"0"+dd[0]) + sjrn.ds + (mm[1]?mm:"0"+mm[0]) + sjrn.ds + yyyy;
+    sjrn.dd_ymd = yyyy + sjrn.ds + (mm[1]?mm:"0"+mm[0]) + sjrn.ds + (dd[1]?dd:"0"+dd[0]);
+
+    if (sjrn_rd === sjrnToday) {
+      tmp_rd  = new Date(sjrn_rd.getTime()+ (sjrn.rd_days*24*60*60*1000));
+      sjrn_rd = tmp_rd;
+    }
+
+    yyyy = sjrn_rd.getFullYear().toString();
+    mm   = (sjrn_rd.getMonth()+1).toString();
+    dd   = sjrn_rd.getDate().toString();
+    sjrn.rd_mdy = (mm[1]?mm:"0"+mm[0]) + sjrn.ds + (dd[1]?dd:"0"+dd[0]) + sjrn.ds + yyyy;
+    sjrn.rd_dmy = (dd[1]?dd:"0"+dd[0]) + sjrn.ds + (mm[1]?mm:"0"+mm[0]) + sjrn.ds + yyyy;
+    sjrn.rd_ymd = yyyy + sjrn.ds + (mm[1]?mm:"0"+mm[0]) + sjrn.ds + (dd[1]?dd:"0"+dd[0]);
+
+    tmp       = sjrn.sz.split(/x/i);
+    sjrn.wdt  = tmp[0];
+    sjrn.hgt  = tmp[1];
+    sjrn.found = true;
+
+    if (sjrn.des != "") {
+      sjrn.dorc = sjrn.des;
+    } else if (sjrn.dc != "") {
+      sjrn.dorc = sjrn.dc;
+    } else if (sjrn.et != "") {
+      sjrn.dorc = "unk_"+sjrn.et+"_"+sjrn.check;
+      sjrn.found = false;
+    } else {
+      sjrn.dorc = "unk_soj"+"_"+sjrn.check;
+      sjrn.found = false;
+    }
+
+    if (sjrn.found == false && typeof(sjrn_airp) != "undefined") {
+        sjrn.des = sjrn_airp[Math.floor(Math.random()*sjrn_airp.length)];
+        sjrn.dorc = sjrn.des;
+        sjrn.dc = sjrn.des;
+        sjrn.found = true;
+    }
+
+    sjrn.rand  = Math.floor(Math.random()*99999999999);
+    sjrn.refer = document.URL;
+
+    if (typeof sjrn.ping != "undefined" && sjrn.ping == true) {
+        if (sjrn.pora == "a") {
+          document.write('');
+        } else {
+          document.write('');
+        }
+    }
+  })();
+
+

@@ -1,0 +1,23 @@
+
+var sojern_advertiser = [];
+var sojern_partner = [];
+var sojern_advertiser_et = "";
+var sojern_partner_et = ""; 
+var sojern_advertiser_dt = "";
+var sojern_partner_dt = ""; 
+var sojern_advertiser_rt = "";
+var sojern_partner_rt = ""; 
+var sojern_advertiser_da = "";
+var sojern_partner_da = ""; 
+var sojern_advertiser_oa = "";
+var sojern_partner_oa = ""; 
+var sojern_advertiser_dr = "";
+var sojern_partner_dr = ""; 
+var sojern_advertiser_dc = "";
+var sojern_partner_dc = ""; 
+var sojern_advertiser_hb = "";
+var sojern_partner_hb = ""; 
+var sojern_advertiser_pr = "";
+var sojern_partner_pr = ""; 
+
+document.write("<script type=text/javascript src=https://static.sojern.com/dc/120918097.js?ord=446105767029700410></script>");

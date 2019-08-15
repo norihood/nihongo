@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- saved from url=(0183)https://tpc.googlesyndication.com/sadbundle/$csp%3Der3$/7276960892248295407/Leaderboard__CollectAndGo_728x90_nl.html#t=16516657458174044299&p=https%3A%2F%2Fgoogleads.g.doubleclick.net -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./f(1).txt" type="text/javascript"></script><script src="./f(2).txt" type="text/javascript"></script><meta content="width=728,height=90" name="ad.size"><title>CCX</title><link href="./css" rel="stylesheet"><link href="./css(1)" rel="stylesheet"><script type="text/javascript">
+	var clickTag = "https://colruyt.collectandgo.be";
+</script><script src="./createjs_2015.11.26_54e1c3722102182bb133912ad4442e19_min.js.download"></script><script src="./Leaderboard__CollectAndGo_728x90_nl.js.download"></script><script>
+var canvas, stage, exportRoot;
+function init() {
+	canvas = document.getElementById("canvas");
+	var comp=AdobeAn.getComposition("3487F8CEE1A84AD5AAB8421FACF15D27");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.Leaderboard__CollectAndGo_728x90_nl();
+	stage = new lib.Stage(canvas);
+	stage.enableMouseOver();
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.setFPS(lib.properties.fps);
+		createjs.Ticker.addEventListener("tick", stage);
+	}
+	AdobeAn.makeResponsive(false,'both',false,1,[canvas]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script><script type="text/javascript" src="./aXEISxcRnEsYuUpnl4wlPe26T7e5UT7L2296c417IJo.js.download"></script></head><body onclick="ExitApi.exit();" onload="init();" style="margin:0px;; cursor:pointer">
+
+
+
+
+
+
+
+
+
+
+
+	<a href="javascript:window.open(window.clickTag)">
+	<canvas height="90" id="canvas" style="position: absolute; display: block; background-color: rgb(5, 135, 199); width: 728px; height: 90px;" width="728"></canvas>
+
+</a></body></html>

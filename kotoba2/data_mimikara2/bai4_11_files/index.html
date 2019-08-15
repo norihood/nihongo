@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://cdn.flashtalking.com/67333/2179144/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style></style>
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="adCon" style="cursor: pointer;">
+        
+        <div id="wrapper" style="opacity: 1;">
+            <div id="hotelImage" style="background-image: url(&quot;https://cdn.flashtalking.com/feeds/fastbooking/images/sghav20306.jpg&quot;);"></div>
+            
+            <div id="heading">
+                <p id="heading1" style="font-size: 11px;">Đảm bảo giá tốt nhất</p>
+            </div>
+            <div id="everythingCon">
+                <p id="hotelName" style="font-size: 18px; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">Hotel Miramar Singapore</p>
+                <p id="hotelLocation" style="font-size: 14px; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">Singapore, Singapore</p>
+                <p id="cta" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">ĐẶT TRỰC TIẾP</p>
+            </div>
+        </div>
+    </div>
+    <script src="./TweenMax.min.js.download"></script>
+    <script src="./html5API.js.download"></script>
+    <script src="./shrinkr5.js.download"></script>
+    <script type="text/javascript">
+    myFT = new FT();
+
+    var SKU = myFT.get('ftSku').toLowerCase(),
+        ftSku = myFT.get('ftSku').toLowerCase(),
+        rt = myFT.$("#roundel_text"),
+        cta = FT.query("#cta"),
+        arrow = myFT.$("#arrow"),
+        h1 = FT.query("#heading1"),
+        h2 = FT.query("#heading2");
+
+    //SKU = "tyo";    //@@ for testing purposes, remove when live
+    var feedDir = "//cdn.flashtalking.com";
+    var isMatch = false;
+    var secure = false;
+    var featuredProductUrl;
+    var fontsLoaded = false;
+    var stringTrackVal;
+    var force_en_list;
+
+
+    // secure/non-secure placement
+    if (document.location.protocol.indexOf('https') > -1) {
+        feedDir = "//secure.flashtalking.com";
+        secure = true;
+    }
+
+    // detect when fonts have loaded
+    document.onreadystatechange = function() {
+        if (document.readyState === 'complete') {
+            fontsLoaded = true;
+        }
+    };
+
+    // wait until instantAds have loaded
+    myFT.addEventListener("instantads", function() {
+        force_en_list = myFT.instantAds.force_en.toLowerCase().split(",");
+        FT.include(feedDir + "/feeds/fastbooking/json/activeList.json");
+    });
+
+    // iterate through activeList
+    active = function(o) {
+        var longString = [o];
+        var activeList = longString[0][0].split('|');
+
+        for (i = 0; i < activeList.length; i++) {
+            if (activeList[i] === SKU) {
+                isMatch = true;
+            }
+        }
+
+        if (isMatch != true) {
+            var randomHotel = Math.floor((Math.random() * activeList.length) + 1);
+            SKU = activeList[randomHotel];
+
+            stringTrackVal = 'default_' + SKU;
+        }
+        FT.include(feedDir + "/feeds/fastbooking/json/" + SKU + ".json");
+    }
+
+    // hotel feed loaded
+    ft = function(o) {
+        var feed = [o];
+        var random = Math.floor(Math.random() * feed[0].length);
+
+        // select a random hotel to populate ad with
+        populateData(keysToLowerCase(feed[0][random]));
+    }
+
+    // apply clickTag
+    function assignClickTag(stringTrackVal) {
+        var clickArea = FT.query("#adCon");
+
+        myFT.applyButton(clickArea, function() {
+            if (featuredProductUrl) {
+                // myFT.tracker('click_sku', 0, SKU);  
+                myFT.tracker('click_sku', 0, stringTrackVal);
+                myFT.clickTag(1, featuredProductUrl);
+            } else {
+                myFT.clickTag(1);
+            }
+        });
+    }
+
+    // default content
+    //    function runDefault() {
+    //
+    //        document.getElementById("adCon").style.backgroundImage = myFT.instantAds.backup;
+    //
+    //        var updateCT = FT.query("#adCon");
+    //
+    //        myFT.applyButton(updateCT, function() {
+    //            myFT.clickTag(1);
+    //        });
+    //
+    //        return ":-)";
+    //    }
+
+    // poulate ad from feed data
+    function populateData(feed) {
+        //console.log(feed);
+
+        hotel_id = feed.hotelid;
+
+        if (isMatch) {
+
+            var stringTrackVal = SKU + '_' + hotel_id;
+
+        } else {
+
+            var stringTrackVal = 'default' + ftSku + '_' + hotel_id;
+
+        }
+
+        myFT.tracker('imp_sku', 0, stringTrackVal);
+
+        var lang = myFT.instantAds.language;
+        // force english for hotels in instant ads list
+        for (var i = 0; i < force_en_list.length; i++) {
+            if (force_en_list[i] == hotel_id) {
+                lang = "en";
+            }
+        }
+
+        //console.log(lang);    //@@ testing only
+
+        //-----------EXTRA TRACKING CODE-----------//
+
+
+        modifyClickTagsAndTracking(stringTrackVal);
+
+        //-----------------------------------------//
+
+        // set language
+        switch (lang) {
+            case "en":
+                var city = feed[lang + "_city"];
+                var country = feed[lang + "_country"];
+                var url = feed[lang + "url"];
+                cta.innerHTML = "BOOK DIRECT";
+                h1.innerHTML = "BEST RATE GUARANTEED";
+                h1.style.fontSize = "10px";
+                // h2.innerHTML = "on hotel website";
+                if (feed.enURL != "") {
+                    assignClickTag(stringTrackVal + feed.enURL);
+                } else {
+                    assignClickTag(stringTrackVal + feed.allURL);
+                }
+
+                break;
+            case "de":
+                var city = feed[lang + "_city"];
+                var country = feed[lang + "_country"];
+                var url = feed[lang + "url"];
+                cta.innerHTML = "DIREKT BUCHEN";
+                h1.innerHTML = "BESTE PREISGARANTIE";
+                h1.style.fontSize = "8px";
+                // h2.innerHTML = "auf der Hotel Website";
+
+                if (feed.deURL != "") {
+                    assignClickTag(stringTrackVal + feed.deURL);
+                } else {
+                    assignClickTag(stringTrackVal + feed.allURL);
+                }
+                break;
+            case "fr":
+                var city = feed[lang + "_city"];
+                var country = feed[lang + "_country"];
+                var url = feed[lang + "url"];
+                cta.innerHTML = "RÉSERVEZ EN DIRECT";
+                h1.innerHTML = "MEILLEUR PRIX GARANTI";
+                h1.style.fontSize = "11px";
+                // h2.innerHTML = "Sur le site de l'Hôtel";
+
+                if (feed.frURL != "") {
+                    assignClickTag(stringTrackVal + feed.frURL);
+                } else {
+                    assignClickTag(stringTrackVal + feed.allURL);
+                }
+                break;
+            case "it":
+                var city = feed[lang + "_city"];
+                var country = feed[lang + "_country"];
+                var url = feed[lang + "url"];
+                cta.innerHTML = "PRENOTA DIRETTAMENTE";
+                h1.innerHTML = "GARANZIA DEL MIGLIOR PREZZO";
+                h1.style.fontSize = "10px";
+                // h2.innerHTML = "sul sito ufficiale dell'hotel";
+                if (feed.itURL != "") {
+                    assignClickTag(stringTrackVal + feed.itURL);
+                } else {
+                    assignClickTag(stringTrackVal + feed.allURL);
+                }
+                break;
+            case "my":
+                var city = feed[lang + "_city"];
+                var country = feed[lang + "_country"];
+                var url = feed["enurl"];
+                cta.innerHTML = "Tempah Terus";
+                h1.innerHTML = "Jaminan harga terendah";
+                h1.style.fontSize = "10px";
+                // h2.innerHTML = "di laman hotel";
+                assignClickTag(stringTrackVal);
+                break;
+            case "pt":
+                var city = feed[lang + "_city"];
+                var country = feed[lang + "_country"];
+                var url = feed["enurl"];
+                cta.innerHTML = "RESERVAR DIRETO";
+                h1.innerHTML = "GARANTIA DE TAXA MELHOR";
+                h1.style.fontSize = "10px";
+                // h2.innerHTML = "no site do hotel";
+                assignClickTag(stringTrackVal);
+                break;
+            case "cn":
+                var city = feed[lang + "_city"];
+                var country = feed[lang + "_country"];
+                var url = feed["enurl"];
+                cta.innerHTML = "直接預訂";
+                h1.innerHTML = "最優惠價格<br>保證";
+                h1.style.fontSize = "12px";
+                // h2.innerHTML = "官方網站";
+                assignClickTag(stringTrackVal);
+                break;
+            case "jp":
+                var city = feed[lang + "_city"];
+                var country = feed[lang + "_country"];
+                var url = feed["enurl"];
+                cta.innerHTML = "直接予約";
+                h1.innerHTML = "ベストレート<br>保証";
+                h1.style.fontSize = "14px";
+                // h2.innerHTML = "ホテル公式サイト";
+                assignClickTag(stringTrackVal);
+                break;
+            case "id":
+                var city = feed[lang + "_city"];
+                var country = feed[lang + "_country"];
+                var url = feed["enurl"];
+                cta.innerHTML = "PESAN SEKARANG";
+                h1.innerHTML = "HARGA TERJAMIN";
+                h1.style.fontSize = "13px";
+                // h2.innerHTML = "DI WEBSITE HOTEL";
+                assignClickTag(stringTrackVal);
+                break;
+            case "cz":
+                var city = feed[lang + "_city"];
+                var country = feed[lang + "_country"];
+                var url = feed["enurl"];
+                cta.innerHTML = "PŘÍMÁ REZERVACE";
+                h1.innerHTML = "GARANCE NEJNIŽŠÍ CENY";
+                h1.style.fontSize = "11px";
+                // h2.innerHTML = "na internetových stránkách hotelu";
+                assignClickTag(stringTrackVal);
+                break;
+            case "vn":
+                var city = feed[lang + "_city"];
+                var country = feed[lang + "_country"];
+                var url = feed["enurl"];
+                cta.innerHTML = "ĐẶT TRỰC TIẾP";
+                h1.innerHTML = "Đảm bảo giá tốt nhất";
+                h1.style.fontSize = "11px";
+                // h2.innerHTML = "trên trang web của khách sạn";
+                assignClickTag(stringTrackVal);
+                break;
+            case "th":
+                var city = feed[lang + "_city"];
+                var country = feed[lang + "_country"];
+                var url = feed["enurl"];
+                cta.innerHTML = "จอง โดยตรง";
+                h1.innerHTML = "รับประกัน<br>ราคาที่ดีที่สุด";
+                h1.style.fontSize = "13px";
+                // h2.innerHTML = "บนเว็บไซต์ของ โรงแรม";
+                assignClickTag(stringTrackVal);
+                break;
+            case "kr":
+                var city = feed[lang + "_city"];
+                var country = feed[lang + "_country"];
+                var url = feed["enurl"];
+                cta.innerHTML = "직접 예약";
+                h1.innerHTML = "베스트요금<br>보장";
+                h1.style.fontSize = "12px";
+                // h2.innerHTML = "호텔 웹 사이트";
+                assignClickTag(stringTrackVal);
+                break;
+            case "kh":
+                var city = feed[lang + "_city"];
+                var country = feed[lang + "_country"];
+                var url = feed["enurl"];
+                cta.innerHTML = "직접 예약t";
+                h1.innerHTML = "អត្រា ល្អបំផុត បានធានា នៅលើគេហទំព័រ សណ្ឋាគារd";
+                h1.style.fontSize = "9px";
+                // h2.innerHTML = "";
+                assignClickTag(stringTrackVal);
+                break;
+            case "gr":
+                var city = feed[lang + "_city"];
+                var country = feed[lang + "_country"];
+                var url = feed["enurl"];
+                cta.innerHTML = "ιδιώτη";
+                h1.innerHTML = "Εγγύηση Χαμηλότερης Τιμής";
+                h1.style.fontSize = "12px";
+                // h2.innerHTML = "στο website του ξενοδοχείου";
+                assignClickTag(stringTrackVal);
+                break;
+
+            default:
+                //                runDefault();
+                return;
+        }
+
+        // price
+        // if (feed["price" + currency]) {
+        //     var price = feed["price" + currency];
+        // } else {
+        //     runDefault();
+        // }
+
+        var hotel = feed["hotelname"];
+        var stars = feed["stars"];
+        var img = myFT.replaceMacros(feed["hotelimageurl"]);
+        var image = new Image();
+        featuredProductUrl = url;
+
+        document.getElementById("hotelName").innerHTML = hotel;
+        document.getElementById("hotelLocation").innerHTML = city + ", " + country;
+        // if (stars != 0) { // document.getElementById("hotelStars").style.width = (16 * parseInt(stars)) + "px"; // } else { // document.getElementById("hotelStars").style.display = 'none'; // }
+
+        image.onload = function() {
+            document.getElementById("hotelImage").style.backgroundImage = 'url(' + image.src + ')';
+            document.getElementById("hotelLoad").style.display = "none";
+        }
+        image.src = img;
+
+
+        // autosize text when fonts are loaded
+        if (fontsLoaded) {
+            autoSizeAdText();
+        } else {
+            fontInt = setInterval(function() {
+                if (fontsLoaded) {
+                    autoSizeAdText();
+                    clearInterval(fontInt);
+                }
+            }, 30);
+        }
+
+        // animate
+
+    }
+
+    // autosize text
+    function autoSizeAdText() {
+        shrinkr(document.getElementById("hotelName"));
+        shrinkr(document.getElementById("hotelLocation"));
+        // shrinkr(h1);
+        // shrinkr(h2);
+        // shrinkr(document.getElementById("ctaTxt"));
+        animateAd();
+    }
+
+    // animate ad
+    function animateAd() {
+        var tl = new TimelineMax();
+        document.getElementById('loading').style.display = "none";
+        tl.to("#wrapper", 1, { opacity: 1 });
+        // tl.from("#hotelImage", 1.5, {opacity:0, delay:0});
+        tl.fromTo(["#hotelName", "#hotelLocation"], 0.75, { y: 40, opacity: 0 }, { y: 0, opacity: 1 });
+        tl.fromTo(["#cta", '#hotelStars'], 0.5, { y: 40, opacity: 0 }, { y: 0, opacity: 1 });
+    }
+
+
+    // extra function to convert keys to lower case
+    function keysToLowerCase(obj) {
+        var keys = Object.keys(obj);
+        var n = keys.length;
+
+        while (n--) {
+            var key = keys[n];
+
+            if (key !== key.toLowerCase()) {
+                obj[key.toLowerCase()] = obj[key];
+                delete obj[key];
+            }
+        }
+
+        return (obj);
+    }
+
+    // used for on click conversion tracking via ft_custom
+    function modifyClickTagsAndTracking(sku) {
+        var ftCustomValue = sku;
+
+        myFTClickTags = myFT.get('clicks');
+
+        if (myFTClickTags.clickTag1.indexOf("ft_custom=") < 0) {
+            myFTClickTags.clickTag1 = insertParam(myFTClickTags.clickTag1, { param: 'ft_custom', value: '' })
+        }
+
+        myFTClickTags.clickTag1 = replaceClickTag(myFTClickTags.clickTag1, sku);
+    }
+
+    function insertParam(str, insert) {
+        if (typeof str === "string") {
+            str = str.replace("/?", "/?" + insert.param + "=" + insert.value + "&");
+        }
+        return str;
+    };
+
+    function replaceClickTag(url, ftCustomValue) {
+        var ftCustomCheck = new RegExp("(ft_custom=)(.*?)(&|$)", "i");
+        if (url == undefined) {
+            return url;
+        }
+        if (ftCustomCheck.test(url)) {
+            return url.replace(ftCustomCheck, "$1__" + ftCustomValue + "$3");
+        }
+    }
+    </script>
+
+
+</body></html>
