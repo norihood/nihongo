@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Andia - Responsive Agency Template</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="assets/flexslider/flexslider.css">
+        <link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/media-queries.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="assets/ico/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+        
+        <style type="text/css" media="screen">
+            .list_cats {
+                list-style-type: none;
+                text-align: left;
+            }
+            .list_cats li {
+                display: inline-block;
+                font-size: 20px;
+                /*padding: 10px 20px;*/
+            }
+            .list_cats li a {
+                padding: 10px 20px;
+                display: inherit;
+                border-left: 1px solid #d6caca;
+                background-color: #ececf3;
+                /*border-radius: 5px;*/
+            }
+            .list_cats li:first-child a {
+                border-left: none;
+            }
+            .list_cats li a:hover {
+                background-color: #fdb8b8;
+            }
+            .list_cats li.active a {
+                background-color: #fdb8b8;
+            }
+            .bigword {
+                height: 100px;
+                font-size: 50px;
+                padding-top: 20px;
+                color: #0129f9;
+            }
+            .answers {
+                font-size: 40px;
+            }
+            .answers label {
+                padding: 10px 25px;
+            }
+            .answers label input {
+                margin-right: 14px;
+            }
+            .list_checkbox {
+                font-size: 14px;
+            }
+            .answers input[type=radio] {
+              /* Double-sized Checkboxes */
+              -ms-transform: scale(1.8); /* IE */
+              -moz-transform: scale(1.8); /* FF */
+              -webkit-transform: scale(1.8); /* Safari and Chrome */
+              -o-transform: scale(1.8); /* Opera */
+              padding: 10px;
+              vertical-align: middle;
+            }
+            .countdown {
+                font-size: 25px;
+                color: #f51b02;
+            }
+            .item {
+                /*height: 400px;*/
+            }
+            .text_content {
+                height: 180px;
+            }
+            .text_content.only_text {
+                line-height: 180px;
+                font-size: 30px;
+            }
+            .text_content.text_result {
+                /*padding: 20px;*/
+                font-size: 25px;
+            /*    margin-top: 30px;*/
+                color: #f98c00;
+            }
+            @keyframes changewidth {
+              from {
+                font-size: 30px;
+              }
+
+              to {
+                font-size: 60px;
+              }
+            }
+
+            .text_content.only_text, .text_content.text_result {
+              animation-duration: 0.5s;
+              animation-name: changewidth;
+              animation-iteration-count: infinite;
+              animation-direction: alternate;
+            }
+            /*
+             * PhuongNLT
+             */
+            .flip {
+                -webkit-perspective: 800;
+                width: 600px;
+                /*height: 400px;*/
+                position: relative;
+                margin: 10px auto;
+                border: solid 0.5em white;
+                /* overflow: hidden; background-color: #aaa; */
+                box-shadow: inset 0 0.5em 2em rgba(0, 0, 0, 0.6), 0 0.25em 1em rgba(0, 0, 0, 0.2);
+                border-radius: 0.5em;
+            }
+            .flip .card {
+                width: 100%;
+                height: 100%;
+                -webkit-transform-style: preserve-3d;
+                -webkit-transition: 0.5s;
+            }
+            .flip .card.flipped {
+                /*-webkit-transform: rotatex(-180deg);*/
+                /* -webkit-transform: rotatey(-180deg) rotateZ(360deg) rotateX(360deg);*/
+                -webkit-transform: rotatey(-180deg);
+            }
+            /*
+            .flip .card.unflipped {
+                -webkit-transform: rotatez(-180deg);
+            }
+            */
+             .flip .card .face {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                -webkit-backface-visibility: hidden;
+                z-index: 2;
+                font-family: Georgia;
+                font-size: 3em;
+                text-align: center;
+                line-height: 60px;
+            }
+            .flip .card .front {
+                position: absolute;
+                z-index: 1;
+                background: #220000;
+                color: white;
+                cursor: pointer;
+                padding-top: 145px;
+            }
+            .flip .card .back {
+                -webkit-transform: rotateY(180deg);
+                background: blue;
+                background: #66eeff;
+                color: black;
+                cursor: pointer;
+                padding-top: 100px;
+            }
+            .audio {
+                float: left;
+                cursor: pointer;
+            }
+            .kotoba_bg {
+                background-color: #cadcff;
+                width: 100%;
+                height: 100%;
+            }
+            .kotoba_bg p {
+                display: block;
+                font-size: 35px;
+            }
+            .kotoba_bg p.kanji_goi{
+                padding: 40px 0;
+                color: #fb0e0e;
+                font-size: 60px;
+            }
+            .kotoba_bg p.hiragana_goi{
+                color: #0000ff;
+            }
+            .kotoba_bg p.hantu_goi{
+                font-size: 20px;
+                color: #a800ff;
+            }
+            .kotoba_bg p.nghia_goi{
+                font-size: 30px;
+                color: #6a0ec0;
+            }
+        </style>
+    </head>
+
+    <body>
+    <!-- <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <div w3-include-html="data/37.html"></div>
+    <script>
+    w3.includeHTML();
+    </script> -->
+        <!-- Top menu -->
+        <div w3-include-html="../nav_top.html"></div>
+
+        <!-- Page Title -->
+        <div class="page-title-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 wow fadeIn">
+                        <i class="fa fa-tasks"></i>
+                        <h1 id="title_alphabet" data-alphabet="nihongo_kotoba">nihongo_kotoba /</h1>
+                        <p>Here are the verbs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-title-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 wow fadeIn" align="center">
+                        <div id="show_kotoba" class="flip">
+                            <div class="kotoba_bg">
+                                <p class="kanji_goi">Kanji</p>
+                                <p class="hiragana_goi">hiragana</p>
+                                <p class="hantu_goi">Hán tự</p>
+                                <p class="nghia_goi">Nghĩa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5 col-md-offset-5 text-left list_checkbox">   
+                <!-- Button trigger modal -->
+                <button type="button" id="action_interval_api" class="btn btn-primary btn-lg">
+                    Start Notification API
+                </button>
+            </div>
+        </div>
+        <!-- Call To Action -->
+        <div class="call-to-action-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 call-to-action-text wow fadeInLeftBig">
+                        <p>
+                            Lorem ipsum <span class="violet">dolor sit amet</span>, consectetur adipisicing elit, 
+                            sed do eiusmod tempor incididunt ut labore et ut wisi.
+                        </p>
+                        <div class="call-to-action-button">
+                            <a class="big-link-3" href="#">Try It Now!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/retina-1.1.0.min.js"></script>
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="assets/flexslider/jquery.flexslider-min.js"></script>
+        <script src="assets/js/jflickrfeed.min.js"></script>
+        <script src="assets/js/masonry.pkgd.min.js"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script src="assets/js/jquery.ui.map.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+
+        <script type="text/javascript">
+            var TIMEOUT_INTERVAL = 30000;
+        </script>
+        <script type="text/javascript">
+            // request permission on page load
+            document.addEventListener('DOMContentLoaded', function () {
+                console.log(Notification.permission);
+                if (!Notification) {
+                    alert('Desktop notifications not available in your browser. Try Chromium.'); 
+                    return;
+                }
+
+                if (Notification.permission !== "granted") {
+                    Notification.requestPermission().then(function(result) {
+                      if (result === 'denied') {
+                        console.log('Permission wasn\'t granted. Allow a retry.');
+                        return;
+                      }
+                      if (result === 'default') {
+                        console.log('The permission request was dismissed.');
+                        return;
+                      }
+                      // Do something with the granted permission.
+                    });
+                }
+            });
+
+            function notifyMe(kanji) {
+              if (Notification.permission !== "granted") {
+                Notification.requestPermission();
+              } else {
+                var notification = new Notification(kanji, {
+                  icon: 'nihongo.jpg',
+                  body: '日本語の勉強',
+                });
+
+                notification.onclick = function () {
+                  // window.open("http://stackoverflow.com/a/13328397/1269037");
+                  window.focus();
+                };
+
+              }
+
+            }
+        </script>
+        <script type="text/javascript" charset="utf-8">
+            (function($){
+                'use strict';
+                var amount_slide;
+                var nihongo_arr;
+                var countdown_interval,
+                    next_timeout;
+                var time_countdown;
+                var carousel_ele = $('#carousel-example-generic');
+                var nihongo_kotoba_obj = {}, i = 0, id_kotoba = [];
+                // 1: nihongo is front, 2: betonamu is front
+				var config_front = 1;
+                // console.log(nihongo_hira_obj);
+
+                var app_js = {
+
+                    init: function(){
+                        app_js.event_init();
+                    },
+                    event_init: function(){
+                        // Start Interval API
+                        $('#action_interval_api').on('click', function() {
+                            app_js.active_interval_api();
+                        })
+                    },
+                    run_audio: function(_ele) {
+                        var href = $(_ele).attr('data-audio');
+                        new Audio(href).play();
+                    },
+                    //randomize array
+                    shuffle: function (a) {
+                        var j, x, i;
+                        for (i = a.length; i; i -= 1) {
+                            j = Math.floor(Math.random() * i);
+                            x = a[i - 1];
+                            a[i - 1] = a[j];
+                            a[j] = x;
+                        }
+                    },
+                    //get random 3 value of array
+                    get_random_value: function(myArray, number_value){
+                        var new_arr = [],
+                            index_rand = [];
+                        if(number_value > myArray.length){
+                            number_value = myArray.length;
+                        }
+                        for (var i = number_value - 1; i >= 0; i--) {
+                            var rand = app_js.get_rand(myArray.length, index_rand);
+
+                            var value_rand = myArray[rand];
+                            // console.log(Math.floor(Math.random() * myArray.length));
+                            new_arr.push(value_rand);
+                            index_rand.push(rand);
+                        }
+                        // console.log(new_arr);
+                        return new_arr;
+                    },
+                    get_rand: function(length, arr_number){
+                        var rand = Math.floor(Math.random() * length);
+                        if($.inArray(rand, arr_number) + 1){
+                            return app_js.get_rand(length, arr_number);
+                        }else{
+                            return rand;
+                        }
+                    },
+                    //get word for test
+                    get_arr_word: function(form_ele){
+                        console.log(form_ele);
+                        var data = $(form_ele).serializeArray();
+                        // console.log(data);
+                        var arr = [];
+                        for (var i = data.length - 1; i >= 0; i--) {
+                            arr = arr.concat(data[i].value.split(','));
+                        }
+                        // console.log(arr);
+                        return arr;
+                    },
+                    reset_variables: function() {
+                        nihongo_kotoba_obj = {},
+                        i = 0,
+                        id_kotoba = [];
+                        $('.carousel-inner').html('ko co data');
+                    },
+                    active_interval_api: function() {
+                        app_js.reset_variables();
+                        var nihongo_arr = nihongo_kotoba_obj;
+                        var arr_word = [];
+                        $.ajax({
+                            method: 'GET',
+                            contentType: "application/json; charset=utf-8",
+                            url: 'gg_sheet2.php',
+                            dataType: "json",
+                            success: function(res) {
+                                console.log(res);
+                                var id_kotoba = res.id;
+                                var nihongo_arr = res.data;
+                                
+                                console.log(nihongo_arr);
+                                app_js.shuffle(id_kotoba);
+                                var tmp;
+                                var j = 0;
+                                console.log('active interval');
+                                var intervalId = setInterval(function() {
+                                    if (nihongo_arr[id_kotoba[j]] == undefined) {
+                                        console.log('value undefined');
+                                        clearInterval(intervalId);
+                                        j = 0;
+                                    } else {
+                                        while (nihongo_arr[id_kotoba[j]] != undefined && nihongo_arr[id_kotoba[j]]['remember'] == true) {
+                                            j++;
+                                        }
+                                        if (nihongo_arr[id_kotoba[j]] != undefined) {
+                                            console.log(j);
+                                            // alert(nihongo_arr[id_kotoba[j]]['kanji']);
+                                            console.log(nihongo_arr[id_kotoba[j]]['mau']);
+                                            console.log(nihongo_arr[id_kotoba[j]]['cautruc']);
+                                            console.log(nihongo_arr[id_kotoba[j]]['ynghia']);
+                                            console.log(nihongo_arr[id_kotoba[j]]['giaithich']);
+                                            console.log(nihongo_arr[id_kotoba[j]]['vidu']);
+                                            var vd_ary = nihongo_arr[id_kotoba[j]]['vidu'].split("\n");
+                                            // console.log(vd_ary);
+                                            var html_str = '<p class="kanji_goi">' + nihongo_arr[id_kotoba[j]]['mau'] + '</p>'
+                                                        + '<p class="hiragana_goi">' + nihongo_arr[id_kotoba[j]]['ynghia'] + '</p>'
+                                                        + '<p class="hantu_goi">' + nihongo_arr[id_kotoba[j]]['giaithich'] + '</p>'
+                                                        + '<p class="hantu_goi">' + vd_ary[0] + '</p>'
+                                                        + '<p class="hantu_goi">' + vd_ary[2] + '</p>'
+                                                        ;
+                                            $('.kotoba_bg').fadeOut('slow', function() {
+                                                $(this).html(html_str)
+                                                    .fadeIn('slow');
+                                            });
+                                            notifyMe(nihongo_arr[id_kotoba[j]]['mau']);
+                                        }
+                                        j++;
+                                        if (j >= id_kotoba.length) {
+                                            j = 0;
+                                            app_js.shuffle(id_kotoba);
+                                        }
+                                    }
+                                }, TIMEOUT_INTERVAL);
+                            }
+                        });
+                    },
+                };
+
+
+                app_js.init();
+            })(jQuery)
+        </script>
+        <!-- include html -->
+        <script>
+        function includeHTML() {
+          var z, i, elmnt, file, xhttp;
+          /*loop through a collection of all HTML elements:*/
+          z = document.getElementsByTagName("*");
+          for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+              /*make an HTTP request using the attribute value as the file name:*/
+              xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                  /*remove the attribute, and call this function once more:*/
+                  elmnt.removeAttribute("w3-include-html");
+                  includeHTML();
+                }
+              } 
+              xhttp.open("GET", file, true);
+              xhttp.send();
+              /*exit the function:*/
+              return;
+            }
+          }
+        }
+        includeHTML();
+        </script>
+    </body>
+
+</html>
